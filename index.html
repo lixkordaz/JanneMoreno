@@ -99,14 +99,23 @@ button{font-family:inherit}
 @media (prefers-reduced-motion:no-preference){.cue svg{animation:bob 2.2s ease-in-out infinite}}
 @keyframes bob{50%{transform:translateY(4px)}}
 
-/* ---------- Galería (las fotos entran deslizándose al bajar) ---------- */
-.gal{background:var(--bg);padding:clamp(.75rem,2vw,1.5rem)}
-.gal .cols{column-count:3;column-gap:clamp(.75rem,2vw,1.5rem);max-width:96rem;margin:0 auto}
-@media (max-width:900px){.gal .cols{column-count:2}}
-.g-item{display:block;width:100%;break-inside:avoid;margin:0 0 clamp(.75rem,2vw,1.5rem);padding:0;border:0;background:var(--soft);cursor:zoom-in;opacity:0;transform:translateY(80px);transition:opacity .9s ease var(--d,0ms),transform 1s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
-.g-item.in{opacity:1;transform:none}
-.g-item img{display:block;width:100%;height:auto}
-@media (prefers-reduced-motion:reduce){.g-item{opacity:1;transform:none;transition:none}}
+/* ---------- Galería: una foto a la vez, se desliza ---------- */
+.gal{position:relative;height:calc(100vh - var(--barh));height:calc(100svh - var(--barh) - env(safe-area-inset-top,0px));min-height:420px;background:#1A0F0B;color:var(--cream);overflow:hidden}
+.gal .track{display:flex;height:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;cursor:grab;-webkit-tap-highlight-color:transparent}
+.gal .track::-webkit-scrollbar{display:none}
+.gal .track.drag{scroll-snap-type:none;cursor:grabbing}
+.gal .slide{position:relative;flex:0 0 100%;height:100%;scroll-snap-align:center;scroll-snap-stop:always;display:grid;place-items:center;padding:1rem 1rem 4.6rem}
+.gal .bgb{position:absolute;inset:-2rem;background-size:cover;background-position:center;filter:blur(30px) brightness(.5) saturate(1.1)}
+.gal .slide img{position:relative;display:block;max-width:min(100%,94vw);max-height:calc(100vh - var(--barh) - 6.4rem);max-height:calc(100svh - var(--barh) - 6.4rem - env(safe-area-inset-top,0px));width:auto;height:auto;object-fit:contain;box-shadow:0 22px 60px rgba(0,0,0,.5);user-select:none;-webkit-user-drag:none}
+.gal .gnav{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:3rem;height:4rem;background:rgba(246,235,221,.14);border:1px solid rgba(246,235,221,.45);color:var(--cream);font-size:1.8rem;line-height:1;cursor:pointer}
+.gal .gnav:hover{background:rgba(246,235,221,.3)}
+.gal .gprev{left:clamp(.5rem,2vw,1.5rem)}.gal .gnext{right:clamp(.5rem,2vw,1.5rem)}
+@media (max-width:640px){.gal .gnav{width:2.4rem;height:3.2rem;font-size:1.5rem}}
+.gal .gfoot{position:absolute;z-index:2;left:0;right:0;bottom:1rem;display:flex;flex-direction:column;align-items:center;gap:.65rem;pointer-events:none}
+.gal .gcount{font-weight:700;letter-spacing:.16em;font-size:.8rem}
+.gal .dots{display:flex;gap:.45rem;flex-wrap:wrap;justify-content:center;max-width:90vw;pointer-events:auto}
+.gal .dots button{width:.65rem;height:.65rem;padding:0;border:0;background:rgba(246,235,221,.4);cursor:pointer;transition:width .25s,background .25s}
+.gal .dots button[aria-current="true"]{background:var(--cream);width:1.6rem}
 
 /* ---------- Secciones ---------- */
 .sec{padding:clamp(3.5rem,8vw,6rem) 1.25rem}
@@ -362,9 +371,12 @@ table.mail input{padding:.4rem .5rem!important}
     </button>
   </section>
 
-  <!-- GALERÍA: las fotos entran al bajar -->
-  <section class="gal" id="gallery" aria-label="Fotos">
-    <div class="cols" id="gal-cols"></div>
+  <!-- GALERÍA: una foto a la vez, se desliza -->
+  <section class="gal" id="gallery" role="region" aria-roledescription="carousel" aria-label="Fotos">
+    <div class="track" id="gal-track" tabindex="0"></div>
+    <button class="gnav gprev" id="gal-prev" type="button" aria-label="Foto anterior">‹</button>
+    <button class="gnav gnext" id="gal-next" type="button" aria-label="Foto siguiente">›</button>
+    <div class="gfoot"><div class="gcount" id="gal-count" aria-live="polite"></div><div class="dots" id="gal-dots"></div></div>
   </section>
 
   <!-- SHOWS -->
@@ -2815,14 +2827,14 @@ var qrcode = function() {
         suSoon:"Las suscripciones estarán disponibles muy pronto.",suOk:"¡Gracias! Quedaste en la lista.",suBad:"Escribe un correo válido, por ejemplo tu@correo.com.",suErr:"No se pudo enviar. Intenta de nuevo en un momento.",
         ytText:"¿Te gustaría suscribirte también a mi canal de YouTube? Es un clic.",ytBtn:"Suscribirme en YouTube",
         photo:"Foto",gal:"Foto de Jánne Moreno",photoN:"Foto ",photosLbl:"Fotos",flyerOf:"Flyer de",coverOf:"Portada de",pending:"Enlace pendiente",
-        toEn:"English",langLabel:"Cambiar a inglés",menuOpen:"Abrir menú",close:"Cerrar",more2:"Ver más"},
+        toEn:"English",langLabel:"Cambiar a inglés",menuOpen:"Abrir menú",close:"Cerrar",more2:"Ver más",prevPh:"Foto anterior",nextPh:"Foto siguiente"},
     en:{more:"More info",videos:"Watch videos",watch:"Watch here",next:"Next show",noUp:"New dates will be announced soon.",
         spotify:"Open on Spotify",apple:"Open on Apple Music",ytm:"Open on YouTube Music",scan:"Scan the code to listen on Spotify.",
         qrPend:"The QR code appears once the Spotify link is added.",onlyShows:"Only at shows",
         suSoon:"Sign-ups will be available very soon.",suOk:"Thank you! You’re on the list.",suBad:"Enter a valid email, for example you@email.com.",suErr:"Couldn’t send. Please try again in a moment.",
         ytText:"Would you also like to subscribe to my YouTube channel? It’s one click.",ytBtn:"Subscribe on YouTube",
         photo:"Photo",gal:"Photo of Jánne Moreno",photoN:"Photo ",photosLbl:"Photos",flyerOf:"Flyer for",coverOf:"Cover of",pending:"Link coming soon",
-        toEn:"Español",langLabel:"Switch to Spanish",menuOpen:"Open menu",close:"Close",more2:"See more"}
+        toEn:"Español",langLabel:"Switch to Spanish",menuOpen:"Open menu",close:"Close",more2:"See more",prevPh:"Previous photo",nextPh:"Next photo"}
   };
   var T0 = JSON.parse(JSON.stringify(T));   /* copia de los textos originales */
   var UI_LABELS = [["more","Botón “Más información”"],["videos","Botón “Ver videos”"],["watch","“Ver aquí” (videos)"],["next","“Próximo show” (portada)"],
@@ -2964,15 +2976,6 @@ var qrcode = function() {
   /* ---------------- pintar cada sección ---------------- */
   var MEMO = {};
   function once(name, key, fn){ if (MEMO[name] === key) return; MEMO[name] = key; fn(); }
-  var IO = null;
-  function reveal(el){
-    if (!("IntersectionObserver" in window)){ el.classList.add("in"); return; }
-    if (!IO) IO = new IntersectionObserver(function(list){
-      list.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("in"); IO.unobserve(e.target); } });
-    }, {threshold:0.06, rootMargin:"0px 0px -5% 0px"});
-    IO.observe(el);
-  }
-
   function renderHero(){
     var C = CONTENT, hi = $("hero-img"), s = srcOf(C.hero.image);
     if (s){ hi.src = s; hi.hidden = false; } else { hi.removeAttribute("src"); hi.hidden = true; }
@@ -2990,16 +2993,31 @@ var qrcode = function() {
     var many = d._list.length > 1; $("lb-prev").hidden = !many; $("lb-next").hidden = !many;
   }
   function stepLb(n){ var d = $("lb"), L = d._list.length; d._i = (d._i + n + L) % L; showLb(); }
+  var RM = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+  function galIdx(){ var t = $("gal-track"); return Math.round(t.scrollLeft / Math.max(1, t.clientWidth)); }
+  function updGal(){
+    var t = $("gal-track"), n = t.children.length, i = Math.max(0, Math.min(n - 1, galIdx()));
+    $("gal-count").textContent = n ? (i + 1) + " / " + n : "";
+    Array.prototype.forEach.call($("gal-dots").children, function(d, k){ d.setAttribute("aria-current", k === i ? "true" : "false"); });
+    $("gal-prev").hidden = $("gal-next").hidden = n < 2;
+  }
+  function goGal(i){
+    var t = $("gal-track"), n = t.children.length; if (!n) return;
+    i = (i + n) % n; t.scrollTo({left:i * t.clientWidth, behavior:RM ? "auto" : "smooth"});
+  }
   function renderGallery(){
-    var cols = $("gal-cols"); clear(cols);
+    var track = $("gal-track"), dots = $("gal-dots"), keep = galIdx(); clear(track); clear(dots);
     var list = (CONTENT.gallery || []).filter(function(k){ return srcOf(k); });
-    $("gallery").hidden = !list.length;
-    var items = list.map(function(k){ return {src:srcOf(k), alt:TT("gal")}; });
+    $("gallery").hidden = !list.length; if (!list.length){ updGal(); return; }
     list.forEach(function(k, i){
-      var b = h("button", {type:"button", "class":"g-item", style:"--d:" + ((i % 3) * 140) + "ms", "aria-label":TT("photoN") + (i + 1)}, h("img", {src:srcOf(k), alt:TT("gal"), loading:"lazy", decoding:"async"}));
-      b.addEventListener("click", function(){ openLb(items, i); });
-      cols.append(b); reveal(b);
+      var s = srcOf(k);
+      track.append(h("div", {"class":"slide", role:"group", "aria-roledescription":"slide", "aria-label":(i + 1) + " / " + list.length},
+        h("div", {"class":"bgb", style:'background-image:url("' + s + '")', "aria-hidden":"true"}),
+        h("img", {src:s, alt:TT("gal"), loading:i < 2 ? "eager" : "lazy", decoding:"async", draggable:"false"})));
+      var d = h("button", {type:"button", "aria-label":TT("photoN") + (i + 1)}); d.addEventListener("click", function(){ goGal(i); }); dots.append(d);
     });
+    dots.hidden = list.length > 24;
+    track.style.scrollBehavior = "auto"; track.scrollLeft = Math.min(keep, list.length - 1) * track.clientWidth; track.style.scrollBehavior = ""; updGal();
   }
   function tileFor(s, i){
     var k = (s.photos && s.photos[0]) || s.flyer || "";
@@ -3165,6 +3183,7 @@ var qrcode = function() {
     $("open-menu").setAttribute("aria-label", TT("menuOpen"));
     ["dlg-x","song-x","su-x","lb-x","ad-x"].forEach(function(id){ $(id).setAttribute("aria-label", TT("close")); });
     $("cue").setAttribute("aria-label", TT("more2"));
+    $("gal-prev").setAttribute("aria-label", TT("prevPh")); $("gal-next").setAttribute("aria-label", TT("nextPh"));
     $("su-email").placeholder = l === "es" ? "tu@correo.com" : "you@email.com";
     render();
     [dlg, songdlg].forEach(function(d){ if (d.open) d.close(); });
@@ -3226,6 +3245,35 @@ var qrcode = function() {
       .then(ok).catch(function(){ s.textContent = TT("suErr"); s.className = "status errtxt"; });
   });
   $("lang").addEventListener("click", function(){ setLang(lang === "es" ? "en" : "es"); });
+
+  /* ---------------- carrusel de la galería ---------------- */
+  (function(){
+    var track = $("gal-track"), raf = 0, visible = false, drag = null;
+    track.addEventListener("scroll", function(){ cancelAnimationFrame(raf); raf = requestAnimationFrame(updGal); }, {passive:true});
+    $("gal-prev").addEventListener("click", function(){ goGal(galIdx() - 1); });
+    $("gal-next").addEventListener("click", function(){ goGal(galIdx() + 1); });
+    window.addEventListener("resize", function(){ track.style.scrollBehavior = "auto"; track.scrollLeft = galIdx() * track.clientWidth; track.style.scrollBehavior = ""; updGal(); });
+    if ("IntersectionObserver" in window) new IntersectionObserver(function(l){ visible = l[0].isIntersecting; }, {threshold:0.5}).observe($("gallery"));
+    document.addEventListener("keydown", function(e){
+      if (!visible || document.querySelector("dialog[open]") || !menu.hidden) return;
+      var tg = e.target && e.target.tagName; if (tg === "INPUT" || tg === "TEXTAREA" || tg === "SELECT") return;
+      if (e.key === "ArrowRight"){ e.preventDefault(); goGal(galIdx() + 1); } else if (e.key === "ArrowLeft"){ e.preventDefault(); goGal(galIdx() - 1); }
+    });
+    /* arrastrar con el mouse (en el celular se desliza con el dedo) */
+    track.addEventListener("pointerdown", function(e){
+      if (e.pointerType !== "mouse" || e.button !== 0) return;
+      drag = {x:e.clientX, left:track.scrollLeft, idx:galIdx()}; track.classList.add("drag");
+      try { track.setPointerCapture(e.pointerId); } catch(x) {}
+    });
+    track.addEventListener("pointermove", function(e){ if (drag) track.scrollLeft = drag.left - (e.clientX - drag.x); });
+    function end(e){
+      if (!drag) return;
+      var dx = e.clientX - drag.x, i = drag.idx + (dx < -60 ? 1 : dx > 60 ? -1 : 0), n = track.children.length;
+      drag = null; track.classList.remove("drag");
+      i = Math.max(0, Math.min(n - 1, i)); track.scrollTo({left:i * track.clientWidth, behavior:RM ? "auto" : "smooth"});
+    }
+    track.addEventListener("pointerup", end); track.addEventListener("pointercancel", end);
+  })();
 
   /* ============================================================
      PANEL DE ADMINISTRACIÓN (solo para la artista)
@@ -3469,7 +3517,7 @@ var qrcode = function() {
     p.append(h("p", {"class":"hint"}, "Sube la firma oscura sobre fondo claro (como la tienes). Se vuelve transparente sola y toma el color de la barra y de la portada."),
       h("div", {style:"background:#2A1A14;color:#F6EBDD;width:14rem;aspect-ratio:var(--sig-ar);margin:.5rem 0"}, h("span", {"class":"sig"})), file,
       btn("Volver a la firma original", function(){ C.settings.signature = ""; C.settings.signatureAr = DEFAULTS.settings.signatureAr; touch(); }), st);
-    p.append(h("h4", {}, "Galería de fotos"), h("p", {"class":"hint"}, "Aparece justo debajo de la portada; las fotos entran deslizándose al bajar y se pueden abrir en grande."),
+    p.append(h("h4", {}, "Galería de fotos"), h("p", {"class":"hint"}, "Aparece justo debajo de la portada: se muestra una foto a la vez y se desliza con el dedo, con las flechas o con el mouse. El orden de esta lista es el orden de la galería."),
       imgList(C.gallery, "Fotos de la galería", {max:1600, name:"galeria"}));
   }
 
