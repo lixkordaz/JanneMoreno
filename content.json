@@ -9,10 +9,6 @@
         "#E7DED4",
         "#D9BF9C"
       ],
-      "music": [
-        "#B8421F",
-        "#5E4D4A"
-      ],
       "mic": [
         "#B4CCC0",
         "#C48F65"
@@ -28,20 +24,35 @@
       "footer": [
         "#2A1A14",
         "#2A1A14"
+      ],
+      "musicbg": [
+        "#2B1A11",
+        "#150B07"
+      ],
+      "music": [
+        "#B8421F",
+        "#5E4D4A"
       ]
     },
+    "mailing": {
+      "endpoint": "https://script.google.com/macros/s/AKfycby1aq5gRSmegK4s9e3RG4N0xiNEKgn6sqtHSDmlgEQrQvU_YBK_-eFu8LGenaGEETWQkg/exec"
+    },
+    "signature": "",
+    "signatureAr": 2.1359,
+    "social": [
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/@janne.moreno"
+      }
+    ],
+    "intro": true,
     "links": {
       "youtube": "https://www.youtube.com/@janne.moreno",
       "instagram": "",
       "spotify": "",
       "tiktok": "",
       "facebook": ""
-    },
-    "mailing": {
-      "endpoint": "https://script.google.com/macros/s/AKfycby1aq5gRSmegK4s9e3RG4N0xiNEKgn6sqtHSDmlgEQrQvU_YBK_-eFu8LGenaGEETWQkg/exec"
-    },
-    "signature": "",
-    "signatureAr": 2.1359
+    }
   },
   "hero": {
     "image": "hero",
@@ -67,28 +78,6 @@
   "shows": {
     "upcoming": [
       {
-        "id": "2026-10-24-day-of-the-dead-xicago",
-        "when": "2026-10-24",
-        "name": {
-          "es": "Day of the Dead Xicágo",
-          "en": "Day of the Dead Xicágo"
-        },
-        "short": {
-          "es": "24 de octubre",
-          "en": "October 24"
-        },
-        "date": {
-          "es": "Sábado 24 de octubre de 2026 · 3 a 8 pm",
-          "en": "Saturday, October 24, 2026 · 3 to 8 pm"
-        },
-        "info": {
-          "es": "Ofrendas, música y arte en el National Museum of Mexican Art, 1852 W 19th St, Chicago. Entrada gratuita.",
-          "en": "Ofrendas, music and art at the National Museum of Mexican Art, 1852 W 19th St, Chicago. Free admission."
-        },
-        "link": "https://NationalMuseumOfMexicanArt.org",
-        "flyer": "fl_dod"
-      },
-      {
         "id": "2026-10-31-wmf-dia-de-los-muertos",
         "when": "2026-10-31",
         "name": {
@@ -112,6 +101,27 @@
       }
     ],
     "past": [
+      {
+        "when": "2026-10-24",
+        "name": {
+          "es": "Day of the Dead Xicágo",
+          "en": "Day of the Dead Xicágo"
+        },
+        "date": {
+          "es": "Sábado 24 de octubre de 2026 · 3 a 8 pm",
+          "en": "Saturday, October 24, 2026 · 3 to 8 pm"
+        },
+        "desc": {
+          "es": "Ofrendas, música y arte en el National Museum of Mexican Art, 1852 W 19th St, Chicago. Entrada gratuita.",
+          "en": "Ofrendas, music and art at the National Museum of Mexican Art, 1852 W 19th St, Chicago. Free admission."
+        },
+        "link": "https://NationalMuseumOfMexicanArt.org",
+        "videos": "",
+        "photos": [
+          "fl_dod"
+        ],
+        "pos": "50% 35%"
+      },
       {
         "when": "2026-10-04",
         "name": {
@@ -251,6 +261,7 @@
     }
   ],
   "openmic": {
+    "image": "",
     "info": {
       "es": "Organizo open mics en Libros de la Luna. Aquí van la fecha, la hora, cómo apuntarse para tocar y cualquier otro dato.",
       "en": "I host open mics at Libros de la Luna. Date, time, how to sign up to play and any other details go here."
@@ -260,7 +271,7 @@
       "en": "Next date to be confirmed"
     },
     "link": "",
-    "photos": []
+    "past": []
   },
   "videos": [
     {
@@ -380,16 +391,51 @@
         "pos": "50% 35%",
         "onlyAtShows": false
       }
-    ]
+    ],
+    "hidden": true
   },
   "meet": {
     "photo": "bio",
     "pos": "50% 30%",
     "bio": {
-      "es": "Aquí va la biografía de Jánne Moreno. Cuenta de dónde viene, cómo empezó a hacer música y qué la mueve hoy.\n\nDespués, agrega lo que marcó su camino: canciones, shows y proyectos, como el Open Mic que organiza en Libros de la Luna.",
+      "es": "Aquí va la biografía. Cuenta de dónde viene, cómo empezó a hacer música y qué la mueve hoy.\n\nCanciones, shows y proyectos, como el Open Mic que organiza en Libros de la Luna.",
       "en": "Jánne Moreno’s biography goes here. Tell where she comes from, how she started making music and what drives her today.\n\nThen add what shaped her path: songs, shows and projects, like the Open Mic she hosts at Libros de la Luna."
     },
     "gallery": []
   },
-  "texts": {}
+  "texts": {},
+  "dims": {
+    "hero": 1.858,
+    "op2": 1.5005,
+    "fl_dod": 1,
+    "fl_oct31": 0.7725,
+    "pcb1": 0.7318,
+    "pcb2": 1.62,
+    "pcb3": 0.6664,
+    "pcb4": 0.6664,
+    "pcbfl": 0.75,
+    "lovingfl": 0.75,
+    "edgefl": 0.75,
+    "may1": 1.5007,
+    "may8": 1.5007,
+    "may9": 1.5007,
+    "m1211": 0.6667,
+    "m1217": 1.5,
+    "m1264": 1.5,
+    "m1282": 1.5,
+    "m1292": 0.6667,
+    "bio": 0.667,
+    "cover": 0.6667,
+    "g1": 0.6436,
+    "g3": 0.6614,
+    "g5": 1.3397,
+    "g8809": 0.6664,
+    "g8847": 0.6664,
+    "g8900": 0.6664,
+    "g8915": 0.6664,
+    "g9096": 0.6664,
+    "g9160": 0.6664,
+    "g3b": 0.6664,
+    "g13": 1
+  }
 }
