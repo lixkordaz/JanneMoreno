@@ -6,22 +6,15 @@
 <title>Jánne Moreno</title>
 <meta name="description" content="Sitio oficial de Jánne Moreno: shows, música, videos y tienda.">
 <meta name="theme-color" content="#2A1A14">
-<script>
-/* Animación de entrada: solo la primera vez por visita, sin "reducir movimiento" y sin entrar al panel. Con ?intro se fuerza. */
-var INTRO_ENABLED=true;
-(function(){try{var f=/[?&]intro\b/.test(location.search),seen=sessionStorage.getItem("jm-intro")==="1",rm=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
-if(INTRO_ENABLED&&!rm&&location.hash!=="#admin"&&(f||!seen))document.documentElement.classList.add("introing");}catch(e){}})();
-</script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%232A1A14'/%3E%3Ctext x='16' y='23' font-size='22' text-anchor='middle' fill='%23EDE4D8' font-family='serif'%3EJ%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Almendra:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Gloock&display=swap" rel="stylesheet">
 <style>
 :root{
   /* Colores: se cambian desde el panel (Colores). Estos son los de la paleta original. */
   --bg:#EDE4D8; --ink:#2A1A14; --logo:#C42100;
   --shows-a:#E7DED4; --shows-b:#D9BF9C; --shows-fg:#2A1A14;
-  --music-a:#2B1A11; --music-b:#150B07; --music-fg:#FFFFFF;
+  --music-a:#B8421F; --music-b:#5E4D4A; --music-fg:#FFFFFF;
   --mic-a:#B4CCC0;   --mic-b:#C48F65;   --mic-fg:#2A1A14;
   --vid-a:#F7A323;   --vid-b:#EF8419;   --vid-fg:#2A1A14;
   --shop-a:#B7A3B5;  --shop-b:#BB8746;  --shop-fg:#2A1A14;
@@ -31,7 +24,7 @@ if(INTRO_ENABLED&&!rm&&location.hash!=="#admin"&&(f||!seen))document.documentEle
   --muted:color-mix(in srgb, var(--ink) 68%, var(--bg));
   --accent:var(--logo);
   --cream:#F6EBDD; --spotify:#1ED760; --spotify-ink:#0B2615;
-  --display:"Trattatello","Almendra","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --display:"Gloock","Iowan Old Style","Palatino Linotype",Georgia,serif;
   --body:"Figtree","Helvetica Neue",Arial,sans-serif;
   --sig-ar:2.1359;
   --barh:4.5rem;
@@ -47,20 +40,6 @@ button{font-family:inherit}
 [hidden]{display:none!important}
 .is-off{opacity:.5;cursor:not-allowed}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-
-/* ---------- Animación de entrada ---------- */
-#intro{display:none;position:fixed;inset:0;z-index:300;background:#fff;color:var(--logo,#C42100);overflow:hidden}
-html.introing #intro{display:block}
-html.introing{overflow:hidden}
-#intro-sig{position:absolute;left:50%;top:50%;width:min(78vw,54rem);height:auto;transform:translate(-50%,-54%);overflow:visible}
-#intro-bird{position:absolute;left:0;top:0;width:clamp(86px,10.5vw,160px);height:auto;opacity:0;will-change:transform;pointer-events:none}
-#intro-bird .wing{transform-box:view-box;transform-origin:78px 38px;animation:flap .34s ease-in-out infinite alternate}
-#intro-bird .wing.far{animation-delay:-.14s}
-@keyframes flap{from{transform:scaleY(1)}to{transform:scaleY(-.7)}}
-#intro-skip{position:absolute;right:clamp(1rem,3vw,2rem);bottom:clamp(1rem,3vw,2rem);background:none;border:1px solid rgba(42,26,20,.45);color:#2A1A14;padding:.5rem 1rem;font:600 .75rem var(--body);letter-spacing:.18em;text-transform:uppercase;cursor:pointer;opacity:0;transition:opacity .6s}
-#intro-skip.on{opacity:.85}
-#intro-skip:hover{opacity:1;background:rgba(42,26,20,.06)}
-html.introing:not(.intro-go) .hero .bg,html.introing:not(.intro-go) .hero .bigsig,html.introing:not(.intro-go) .hero .next,html.introing:not(.intro-go) .hero .cue{animation-play-state:paused}
 
 /* ---------- Firma (logo) ---------- */
 .sig{display:block;width:100%;height:100%;background:currentColor;-webkit-mask:var(--sig) center/contain no-repeat;mask:var(--sig) center/contain no-repeat}
@@ -107,9 +86,9 @@ html.introing:not(.intro-go) .hero .bg,html.introing:not(.intro-go) .hero .bigsi
 
 /* ---------- Portada a pantalla completa ---------- */
 .hero{position:relative;height:100vh;height:100svh;min-height:520px;overflow:hidden;background:#2A1A14;color:var(--cream)}
-.hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;translate:0 calc(var(--hp,0) * 9%);scale:calc(1 + var(--hp,0) * .07);opacity:calc(1 - var(--hp,0) * .55)}
-.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to bottom,rgba(20,8,4,.6),rgba(20,8,4,0) 24%,rgba(20,8,4,0) 50%,color-mix(in srgb,var(--music-a) 60%,transparent) 76%,var(--music-a) 100%)}
-.hero .copy{translate:0 calc(var(--hp,0) * -46px);opacity:calc(1 - var(--hp,0) * 1.5);position:absolute;z-index:2;left:clamp(1.25rem,4vw,4rem);right:clamp(1.25rem,4vw,4rem);bottom:clamp(2.25rem,7vh,4.5rem);display:flex;flex-direction:column;align-items:flex-start;gap:1.25rem}
+.hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to bottom,rgba(20,8,4,.6),rgba(20,8,4,0) 24%,rgba(20,8,4,0) 52%,rgba(20,8,4,.7))}
+.hero .copy{position:absolute;z-index:2;left:clamp(1.25rem,4vw,4rem);right:clamp(1.25rem,4vw,4rem);bottom:clamp(2.25rem,7vh,4.5rem);display:flex;flex-direction:column;align-items:flex-start;gap:1.25rem}
 .bigsig{width:clamp(14rem,34vw,30rem);aspect-ratio:var(--sig-ar);color:var(--cream);filter:drop-shadow(0 2px 18px rgba(0,0,0,.5))}
 .next{display:inline-flex;align-items:center;gap:.7rem;padding:.7rem 1.3rem;background:var(--cream);color:#2A1A14;text-decoration:none;font-weight:600;font-size:.95rem;flex-wrap:wrap}
 .next b{font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.74rem}
@@ -119,41 +98,18 @@ html.introing:not(.intro-go) .hero .bg,html.introing:not(.intro-go) .hero .bigsi
 .cue svg{width:1.4rem;height:1.4rem;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;fill:none}
 @media (prefers-reduced-motion:no-preference){.cue svg{animation:bob 2.2s ease-in-out infinite}}
 @keyframes bob{50%{transform:translateY(4px)}}
-@media (prefers-reduced-motion:no-preference){
-  .hero .bg{animation:kb 16s cubic-bezier(.2,.6,.2,1) both}
-  .hero .bigsig{animation:rise 1.4s .25s cubic-bezier(.2,.7,.2,1) both}
-  .hero .next{animation:rise 1.2s .75s cubic-bezier(.2,.7,.2,1) both}
-  .hero .cue{animation:fadein 1s 1.3s both}
-}
-@media (prefers-reduced-motion:reduce){.hero .bg,.hero .copy{translate:none;scale:none;opacity:1}}
-@keyframes kb{from{transform:scale(1.13)}to{transform:none}}
-@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
-@keyframes fadein{from{opacity:0}to{opacity:1}}
 
-/* ---------- Aparecer al bajar ---------- */
-.rv{opacity:0;transform:translateY(38px);transition:opacity .95s ease var(--d,0ms),transform 1.05s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
-.rv.rvin{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
-
-/* ---------- Galería: tira de fotos (misma altura, ancho según cada foto) ---------- */
-.gal{--gh:calc(100vh - var(--barh) - 6.6rem);--gh:calc(100svh - var(--barh) - env(safe-area-inset-top,0px) - 6.6rem);--padx:clamp(1rem,6vw,7rem);position:relative;height:calc(100vh - var(--barh));height:calc(100svh - var(--barh) - env(safe-area-inset-top,0px));min-height:420px;background:linear-gradient(180deg,var(--music-b) 0,#120A07 6rem);color:var(--cream);overflow:hidden}
-.gal .track{position:relative;display:flex;align-items:center;gap:clamp(1rem,2.2vw,2.25rem);height:100%;padding:0 var(--padx) 3.4rem;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding:0 var(--padx);scrollbar-width:none;overscroll-behavior-x:contain;cursor:grab;-webkit-tap-highlight-color:transparent}
-.gal .track::-webkit-scrollbar{display:none}
-.gal .track.drag{scroll-snap-type:none;cursor:grabbing}
-.gal .slide{flex:0 0 auto;position:relative;height:min(var(--gh),calc(86vw / var(--ar,.75)));aspect-ratio:var(--ar,.75);scroll-snap-align:start}
-.gal .slide img{display:block;width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none}
-.gal .gnav{position:absolute;top:calc(50% - 1.7rem);transform:translateY(-50%);z-index:2;width:3rem;height:4rem;background:rgba(246,235,221,.16);border:1px solid rgba(246,235,221,.5);color:var(--cream);font-size:1.8rem;line-height:1;cursor:pointer}
-.gal .gnav:hover{background:rgba(246,235,221,.34)}
-.gal .gprev{left:clamp(.4rem,1.2vw,1rem)}.gal .gnext{right:clamp(.4rem,1.2vw,1rem)}
-@media (max-width:640px){.gal .gnav{width:2.4rem;height:3.2rem;font-size:1.5rem}}
-.gal .gfoot{position:absolute;z-index:2;left:var(--padx);right:var(--padx);bottom:1rem}
-.gal .gbar{position:relative;height:1.6rem;display:flex;align-items:center;cursor:pointer;touch-action:none}
-.gal .gbar::before{content:"";position:absolute;left:0;right:0;height:2px;background:rgba(246,235,221,.28)}
-.gal .gthumb{position:relative;height:5px;width:20%;background:var(--cream);cursor:grab;will-change:transform}
-.gal .gbar:focus-visible{outline-offset:2px}
+/* ---------- Galería (las fotos entran deslizándose al bajar) ---------- */
+.gal{background:var(--bg);padding:clamp(.75rem,2vw,1.5rem)}
+.gal .cols{column-count:3;column-gap:clamp(.75rem,2vw,1.5rem);max-width:96rem;margin:0 auto}
+@media (max-width:900px){.gal .cols{column-count:2}}
+.g-item{display:block;width:100%;break-inside:avoid;margin:0 0 clamp(.75rem,2vw,1.5rem);padding:0;border:0;background:var(--soft);cursor:zoom-in;opacity:0;transform:translateY(80px);transition:opacity .9s ease var(--d,0ms),transform 1s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
+.g-item.in{opacity:1;transform:none}
+.g-item img{display:block;width:100%;height:auto}
+@media (prefers-reduced-motion:reduce){.g-item{opacity:1;transform:none;transition:none}}
 
 /* ---------- Secciones ---------- */
-.sec{padding:clamp(6.5rem,12vw,9rem) 1.25rem clamp(3.5rem,8vw,6rem)}
+.sec{padding:clamp(3.5rem,8vw,6rem) 1.25rem}
 .in{max-width:72rem;margin:0 auto}
 .sec h2{font-family:var(--display);font-weight:400;font-size:clamp(2.3rem,6vw,4.2rem);line-height:1.05;margin:0 0 .5rem}
 .lede{margin:0 0 2.5rem;max-width:36rem;font-size:1.1rem}
@@ -167,7 +123,7 @@ html.introing:not(.intro-go) .hero .bg,html.introing:not(.intro-go) .hero .bigsi
 .rule{height:7px;border-top:2px solid currentColor;border-bottom:2px solid currentColor;margin:2.75rem 0 2.25rem;opacity:.7}
 
 /* ---------- Shows ---------- */
-.sec-shows{background:linear-gradient(180deg,#120A07 0,var(--shows-a) 7rem,var(--shows-b) 100%);color:var(--shows-fg)}
+.sec-shows{background:linear-gradient(180deg,var(--shows-a),var(--shows-b));color:var(--shows-fg)}
 .sec-shows .btn{color:var(--shows-fg)}
 .sec-shows .btn.solid{background:var(--shows-fg);color:var(--shows-a);border-color:var(--shows-fg)}
 .upcoming{display:grid;gap:3.5rem;margin-bottom:5rem}
@@ -186,69 +142,35 @@ html.introing:not(.intro-go) .hero .bg,html.introing:not(.intro-go) .hero .bigsi
 .tile b{display:block;font-family:var(--display);font-weight:400;font-size:1.2rem;line-height:1.2;margin-top:.8rem}
 .tile .d{display:block;opacity:.75;font-size:.92rem}
 
-/* ---------- Música: discos de vinilo ---------- */
-.sec-music{position:relative;overflow:hidden;padding:clamp(6.5rem,12vw,9rem) .75rem clamp(4.5rem,9vw,7.5rem);background:linear-gradient(180deg,var(--music-a),var(--music-b));color:var(--music-fg)}
-.sec-music::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 62% 48% at 50% 58%,rgba(255,196,140,.12),transparent 70%)}
-.sec-music h2{position:relative;text-align:center;margin:0 0 clamp(2.5rem,6vw,5rem);font-size:clamp(3.2rem,11vw,8rem);line-height:1;letter-spacing:.02em;color:var(--music-fg)}
-.crate{--w:clamp(8.5rem,21vw,19rem);position:relative;display:flex;flex-wrap:wrap;justify-content:center;align-content:center;gap:clamp(1.25rem,3vw,2.5rem);max-width:90rem;margin:0 auto;min-height:calc(var(--w) + 12rem)}
-@media (max-width:640px){.crate{--w:calc((100vw - 1.5rem - 1.25rem) / 2)}}
-.vinyl{--vc:#C8472F;width:var(--w)}
-.vinyl.open{position:relative;z-index:6}
-.vwrap{display:flex;flex-direction:column;align-items:center;width:100%;transform:translate(var(--tx,0px),var(--ty,0px)) scale(var(--s,1));transition:transform 1.05s cubic-bezier(.2,.75,.2,1),opacity .8s}
-.crate.focus .vinyl:not(.open) .vwrap{opacity:.16;pointer-events:none}
-.vtitle{width:max-content;max-width:calc(var(--w) * 1.6);min-height:2.6rem;margin:0 0 .8rem;text-align:center;font-family:var(--display);font-size:clamp(1.3rem,2.2vw,1.9rem);line-height:1.1;color:var(--music-fg);opacity:0;transform:translateY(12px);transition:opacity .5s,transform .6s}
-.vinyl.open .vtitle{opacity:1;transform:none;transition-delay:1.2s}
-.vslot{position:relative;width:var(--w);height:var(--w);cursor:pointer}
-.vstage{position:absolute;inset:0;transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--sc,1));transition:transform .22s ease-out;will-change:transform}
-.sleeve{position:absolute;left:0;top:0;z-index:2;width:100%;height:100%;padding:0;border:0;background:#1A0F0B;cursor:pointer;overflow:hidden;box-shadow:0 16px 38px rgba(0,0,0,.55);transition:transform 1.05s cubic-bezier(.2,.75,.2,1)}
-.vinyl.open .sleeve{transform:translateX(calc(var(--w) * -.325));transition-delay:.55s}
-.sleeve .cov{position:absolute;inset:0;display:block}
-.disc{position:absolute;left:0;top:0;z-index:1;width:100%;height:100%;border-radius:50%;transition:transform 1.15s cubic-bezier(.2,.75,.2,1);box-shadow:0 12px 30px rgba(0,0,0,.5)}
-.vinyl.open .disc{transform:translateX(calc(var(--w) * .325)) rotate(300deg);transition-delay:.55s}
-.disc,.disc *{border-radius:50%}
-.disc .plate{position:absolute;inset:0;background:conic-gradient(from 0deg,transparent 0 10%,rgba(255,255,255,.1) 15%,transparent 22% 55%,rgba(0,0,0,.14) 62%,transparent 70%),repeating-radial-gradient(circle at 50% 50%,rgba(0,0,0,.2) 0 1px,rgba(255,255,255,.035) 1px 3px),radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--vc) 80%,#fff) 0,var(--vc) 48%,color-mix(in srgb,var(--vc) 60%,#000) 100%)}
-.disc::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;background:conic-gradient(from 20deg,transparent 0 8%,rgba(255,255,255,.24) 12%,transparent 18% 50%,rgba(255,255,255,.16) 62%,transparent 70%)}
-.disc .lab{position:absolute;left:33%;top:33%;width:34%;height:34%;background:#FFFFFF;box-shadow:0 0 0 3px rgba(0,0,0,.28),inset 0 0 0 5px rgba(0,0,0,.05)}
-.disc .hole{position:absolute;left:48.4%;top:48.4%;width:3.2%;height:3.2%;background:#120A07}
-@keyframes spin{to{transform:rotate(360deg)}}
-.vinyl.open .plate{animation:spin 16s linear infinite}
-.vcta{min-height:3.4rem;margin-top:1rem;display:flex;justify-content:center}
-.vinyl .listen{display:inline-block;white-space:nowrap;align-self:flex-start;padding:.8rem 1.7rem;background:rgba(10,5,3,.5);border:1px solid var(--music-fg);color:var(--music-fg);font:600 .8rem var(--body);letter-spacing:.22em;text-transform:uppercase;cursor:pointer;visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity .5s,transform .6s,visibility 0s .6s,background .25s,color .25s}
-.vinyl.open .listen{visibility:visible;opacity:1;transform:none;transition-delay:1.5s,1.5s,0s,0s,0s}
-.vinyl .listen:hover{background:var(--music-fg);color:var(--music-a)}
-@media (max-width:640px){.vinyl .listen{padding:.7rem .85rem;letter-spacing:.12em;font-size:.72rem}}
-.vinyl.pre{opacity:0;transform:translateY(110px) rotate(var(--r0,-3deg))}
-.vinyl.pre.go{animation:vin-in 1.2s var(--d,0ms) cubic-bezier(.2,.7,.2,1) both}
-@keyframes vin-in{from{opacity:0;transform:translateY(110px) rotate(var(--r0,-3deg))}to{opacity:1;transform:none}}
-.vinyl.pre.go:not(.open) .disc{animation:peek 2.1s calc(var(--d,0ms) + 1s) cubic-bezier(.45,0,.2,1) backwards}
-@keyframes peek{0%,100%{transform:none}38%,58%{transform:translateX(calc(var(--w) * .24)) rotate(220deg)}}
-@media (prefers-reduced-motion:reduce){.sleeve,.disc,.vstage,.vwrap,.vtitle,.vinyl .listen{transition-duration:.01s!important;transition-delay:0s!important}.vinyl.open .plate{animation:none}.vinyl.pre{opacity:1;transform:none}}
-/* título con letras que aparecen una a una */
-.split .ch{display:inline-block;white-space:pre;opacity:0;transform:translateY(.6em) rotate(4deg);transition:opacity .7s ease calc(var(--i) * 85ms),transform .95s cubic-bezier(.2,.7,.2,1) calc(var(--i) * 85ms)}
-.split.rvin .ch{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.split .ch{opacity:1;transform:none;transition:none}}
+/* ---------- Música ---------- */
+.sec-music{background:linear-gradient(180deg,var(--music-a),var(--music-b));color:var(--music-fg)}
+.songs{display:grid;grid-template-columns:repeat(auto-fill,minmax(16rem,1fr));gap:2.75rem 2rem}
+.song{display:grid;grid-template-columns:auto 1fr;column-gap:1rem;row-gap:.9rem}
+.song-title{grid-column:1;grid-row:1;margin:0;writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--display);font-weight:400;font-size:clamp(1.3rem,2.6vw,1.8rem);line-height:1.1;text-align:start;align-self:stretch;overflow-wrap:anywhere}
+.cover-btn{grid-column:2;grid-row:1;padding:0;border:0;background:none;cursor:pointer;display:block;width:100%;color:inherit}
+.cover-btn .frame{box-shadow:0 14px 32px rgba(0,0,0,.3);transition:transform .35s ease}
+.cover-btn:hover .frame{transform:translateY(-4px)}
+.plats{grid-column:2;grid-row:2;display:flex;gap:.6rem;list-style:none;margin:0;padding:0}
+.plat{display:grid;place-items:center;width:3rem;height:3rem;background:var(--cream);color:#2A1A14;text-decoration:none}
+.plat.sp{background:var(--spotify);color:var(--spotify-ink)}
+.plat:not(.is-off):hover{filter:brightness(1.08);transform:translateY(-2px)}
+.plat svg{width:1.45rem;height:1.45rem;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.plat svg.fill{fill:currentColor;stroke:none}
 
 /* ---------- Open Mic ---------- */
-.sec-mic{background:linear-gradient(180deg,var(--shows-b) 0,var(--mic-a) 7rem,var(--mic-b) 100%);color:var(--mic-fg)}
+.sec-mic{background:linear-gradient(180deg,var(--mic-a),var(--mic-b));color:var(--mic-fg)}
 .sec-mic .btn{color:var(--mic-fg)}
 .sec-mic .btn.solid{background:var(--mic-fg);color:var(--mic-a);border-color:var(--mic-fg)}
-.sec-mic h2{margin-bottom:2rem}
 .mic-date{font-weight:700;margin:0 0 1.25rem}
-.mic-main{display:grid;grid-template-columns:minmax(0,22rem) 1fr;gap:1.5rem 2.5rem;align-items:start}
-.mic-main.noimg{grid-template-columns:1fr}
-.mic-img .frame{border:1px solid color-mix(in srgb,var(--mic-fg) 28%,transparent)}
-@media (max-width:640px){.mic-main{grid-template-columns:1fr}}
-.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(13rem,1fr));gap:1.75rem 1.25rem;align-items:start}
-.mgrid .tile b{font-size:1.15rem}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(11rem,1fr));gap:1.25rem;max-width:56rem}
+.mgrid .g-btn{padding:0;border:0;background:none;cursor:zoom-in;display:block}
 
 /* ---------- Videos ---------- */
-.sec-vid{background:linear-gradient(180deg,var(--mic-b) 0,var(--vid-a) 7rem,var(--vid-b) 100%);color:var(--vid-fg)}
+.sec-vid{background:linear-gradient(180deg,var(--vid-a),var(--vid-b));color:var(--vid-fg)}
 .vids{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:2.25rem 1.5rem}
 .vid{display:block;text-decoration:none;color:inherit}
 .vid h3{font-family:var(--display);font-weight:400;font-size:1.45rem;line-height:1.2;margin:.9rem 0 .25rem}
-.vplay{display:block;width:100%;padding:0;border:0;background:none;color:inherit;text-align:left;cursor:pointer}
-.vplay:hover h3{text-decoration:underline}
-.vid .watch{display:inline-block;font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;border-bottom:2px solid currentColor;padding-bottom:1px}
+.vid .watch{font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;border-bottom:2px solid currentColor;padding-bottom:1px}
 .playbtn{position:absolute;inset:0;display:grid;place-items:center;z-index:1}
 .playbtn i{width:4rem;height:4rem;background:var(--cream);display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.25)}
 .playbtn svg{width:1.35rem;height:1.35rem;margin-left:.2rem;fill:#2A1A14}
@@ -257,11 +179,9 @@ html.introing:not(.intro-go) .hero .bg,html.introing:not(.intro-go) .hero .bigsi
 .morelist li{break-inside:avoid;border-top:1.5px solid color-mix(in srgb,var(--vid-fg) 35%,transparent)}
 .morelist a,.morelist span.row{display:flex;justify-content:space-between;gap:1rem;padding:.8rem 0;text-decoration:none;font-weight:600}
 .morelist a:hover{text-decoration:underline}
-.morelist .mrow{display:block;width:100%;padding:0;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
-.morelist .mrow:hover{text-decoration:underline}
 
 /* ---------- Shop ---------- */
-.sec-shop{background:linear-gradient(180deg,var(--vid-b) 0,var(--shop-a) 7rem,var(--shop-b) 100%);color:var(--shop-fg)}
+.sec-shop{background:linear-gradient(180deg,var(--shop-a),var(--shop-b));color:var(--shop-fg)}
 .sec-shop .btn{color:var(--shop-fg)}
 .sec-shop .btn:hover{background:var(--shop-fg);color:var(--shop-a);border-color:var(--shop-fg)}
 .shop{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem 1.5rem;max-width:56rem;margin-bottom:2.5rem}
@@ -270,10 +190,8 @@ html.introing:not(.intro-go) .hero .bg,html.introing:not(.intro-go) .hero .bigsi
 .item p{margin:0}
 .only{display:inline-block;margin-top:.5rem;padding:.2rem .6rem;background:var(--shop-fg);color:var(--shop-a);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 .shop-note{margin:0 0 1.75rem;max-width:36rem;font-weight:600}
-.sec-shop .item .frame{border-radius:999px 999px 1.5rem 1.5rem}
 
 /* ---------- Conóceme ---------- */
-.sec-meet{background:linear-gradient(180deg,var(--meet-from,var(--shop-b)) 0,var(--bg) 7rem)}
 .meet{display:grid;grid-template-columns:minmax(0,19rem) 1fr;gap:2rem clamp(2rem,6vw,5rem);align-items:center}
 .meet p{max-width:36rem;margin:0 0 1.1rem}
 @media (max-width:720px){.meet{grid-template-columns:1fr}.meet .mp{max-width:15rem}}
@@ -281,12 +199,12 @@ html.introing:not(.intro-go) .hero .bg,html.introing:not(.intro-go) .hero .bigsi
 .gstrip .g-btn{flex:0 0 clamp(8rem,22vw,11rem);padding:0;border:0;background:none;cursor:zoom-in;scroll-snap-align:start}
 
 /* ---------- Pie ---------- */
-.foot{background:linear-gradient(180deg,var(--bg) 0,var(--foot-a) 6rem,var(--foot-b) 100%);color:var(--foot-fg);padding:8rem 1.25rem 3rem;text-align:center}
+.foot{background:linear-gradient(180deg,var(--foot-a),var(--foot-b));color:var(--foot-fg);padding:3.5rem 1.25rem 3rem;text-align:center}
 .foot h2{font-family:var(--display);font-weight:400;font-size:1.8rem;margin:0 0 1.25rem}
-.social{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.1rem;list-style:none;margin:0 0 2rem;padding:0}
-.social a{display:grid;place-items:center;padding:.55rem;color:var(--foot-fg);text-decoration:none;transition:transform .25s,opacity .25s}
-.social a:hover{transform:translateY(-3px);opacity:.75}
-.social svg{width:1.9rem;height:1.9rem;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.social{display:flex;justify-content:center;gap:1rem;list-style:none;margin:0 0 2rem;padding:0}
+.social a{display:grid;place-items:center;width:2.9rem;height:2.9rem;border:1.5px solid color-mix(in srgb,var(--foot-fg) 55%,transparent);color:var(--foot-fg);text-decoration:none}
+.social a:not(.is-off):hover{background:var(--foot-fg);color:var(--foot-a)}
+.social svg{width:1.3rem;height:1.3rem;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .legal{font-size:.88rem;opacity:.9}
 .legal a{margin:0 .6rem}
 .legal p{margin:.6rem 0 0}
@@ -323,13 +241,6 @@ dialog .thumbs img{display:block;width:100%;height:100%;object-fit:cover}
 .fine{font-size:.85rem;color:var(--muted);margin:1rem 0 0;max-width:30rem}
 .ytcta{margin-top:1.25rem;padding:1.1rem 1.25rem;border:2px solid var(--ink)}
 .ytcta p{margin:0 0 .8rem;font-weight:600}
-dialog.vd{max-width:min(62rem,calc(100vw - 1.5rem));background:#120A07;color:#F6EBDD}
-.vframe{position:relative;aspect-ratio:16/9;background:#000}
-.vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-dialog.vd .body{padding:1.1rem 1.5rem 1.4rem}
-dialog.vd h3{color:#F6EBDD}
-dialog.vd .btn{color:#F6EBDD}
-dialog.vd .btn:hover{background:#F6EBDD;color:#120A07;border-color:#F6EBDD}
 dialog.lb{max-width:none;width:100vw;height:100vh;height:100svh;max-height:none;background:rgba(12,6,3,.97);color:#fff;display:none}
 dialog.lb[open]{display:grid;place-items:center}
 dialog.lb img{max-width:92vw;max-height:84svh;object-fit:contain;display:block}
@@ -399,8 +310,6 @@ table.mail input{padding:.4rem .5rem!important}
 <style id="sig-style">:root{--sig:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMTAwIDUxNSI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTM0LjQgNDk1LjVDMTMyLjYgNDkyLjcgMTMyLjggNDgyLjUgMTM0LjggNDc1LjdDMTM4LjIgNDY0LjQgMTQzLjkgNDQ4LjkgMTQ3LjEgNDQyLjVDMTQ4LjggNDM5LjIgMTUyLjQgNDMxLjMgMTU1LjIgNDI1LjBDMTU3LjkgNDE4LjcgMTYxLjIgNDExLjkgMTYyLjUgNDEwLjBDMTYzLjggNDA4LjEgMTY2LjEgNDAzLjYgMTY3LjYgNDAwLjBDMTY5LjIgMzk2LjQgMTcxLjQgMzkyLjEgMTcyLjYgMzkwLjVDMTczLjggMzg4LjkgMTc2LjUgMzgzLjQgMTc4LjYgMzc4LjVDMTgwLjYgMzczLjYgMTgzLjEgMzY4LjYgMTg0LjEgMzY3LjVDMTg1LjEgMzY2LjQgMTg3LjMgMzYyLjEgMTg5LjEgMzU4LjBDMTkwLjggMzUzLjkgMTk0LjQgMzQ2LjQgMTk3LjAgMzQxLjVDMTk5LjYgMzM2LjYgMjA1LjQgMzI1LjUgMjA5LjggMzE2LjlDMjE0LjIgMzA4LjQgMjE5LjIgMjk5LjIgMjIwLjkgMjk2LjVDMjIyLjYgMjkzLjggMjI0LjAgMjkxLjEgMjI0LjAgMjkwLjVDMjI0LjAgMjg5LjggMjI1LjMgMjg3LjQgMjI3LjAgMjg1LjJDMjMwLjYgMjgwLjIgMjMwLjggMjc4LjUgMjI3LjggMjc5LjVDMjIxLjMgMjgxLjUgMTc5LjYgMjkyLjIgMTY4LjAgMjk0LjlDMTYzLjMgMjk1LjkgMTQ5LjIgMjk5LjQgMTM2LjUgMzAyLjVDMTIzLjggMzA1LjYgMTExLjUgMzA4LjUgMTA5LjAgMzA5LjBDOTcuOCAzMTAuOSA4Ni4zIDMxMy4zIDg0LjUgMzE0LjBDODEuOSAzMTUuMSA2NS44IDMxOC4zIDUxLjUgMzIwLjZDMzUuNyAzMjMuMSAyMC41IDMyMC4yIDE5LjQgMzE0LjRDMTcuNSAzMDQuMCAyMi4zIDMwMC43IDM1LjkgMzAzLjNDNDEuMCAzMDQuMyA0NC4wIDMwNC4zIDUwLjQgMzAzLjNDNjIuOCAzMDEuMyA5MC4yIDI5NS43IDEwNS4wIDI5Mi4wQzEwNi45IDI5MS42IDExMi44IDI5MC4zIDExOC4wIDI4OS4yQzEyMy4yIDI4OC4xIDEyOS41IDI4Ni43IDEzMi4wIDI4Ni4xQzEzOC43IDI4NC40IDIyMC41IDI2NC4xIDIyNy41IDI2Mi41QzI0MC40IDI1OS40IDI0MC43IDI1OS4zIDI0My45IDI1NC4wQzI0NS42IDI1MS4zIDI0OC4xIDI0Ni4yIDI0OS42IDI0Mi44QzI1Mi4xIDIzNi42IDI2MS4xIDIxNy4zIDI2NS4wIDIwOS41QzI2Ni44IDIwNi4wIDI2Ni4wIDIwNi41IDI1OC41IDIxNC4zQzI0My44IDIyOS4zIDIyNC44IDI0NS4yIDIxNS40IDI1MC40QzIxMS4zIDI1Mi43IDIwOS4yIDI1NC4wIDIwMy41IDI1Ny42QzE4OS42IDI2Ni42IDE2OS4xIDI3MS45IDE1OS4yIDI2OS4xQzE1NS4zIDI2Ny45IDE0Ni4wIDI2Mi4wIDE0Ni4wIDI2MC43QzE0Ni4wIDI2MC4xIDE0NS40IDI1OC45IDE0NC42IDI1OC4xQzEzNS4zIDI0Ny44IDEzNS42IDIwOC45IDE0NS4xIDE4My41QzE0Ni4xIDE4MC44IDE0Ny40IDE3Ni43IDE0Ny45IDE3NC41QzE0OS4yIDE2OC41IDE2MC45IDE0MS45IDE2My42IDEzOC43QzE2NC45IDEzNy4xIDE2Ni4wIDEzNS4yIDE2Ni4wIDEzNC41QzE2Ni4wIDEzMy44IDE2Ny4xIDEzMS45IDE2OC40IDEzMC4zQzE2OS43IDEyOC44IDE3MS42IDEyNS41IDE3Mi43IDEyMy4wQzE3My44IDEyMC41IDE3NS40IDExNy45IDE3Ni4zIDExNy4xQzE3Ny4zIDExNi40IDE3OC4wIDExNS4zIDE3OC4wIDExNC44QzE3OC4wIDExNC4zIDE3OC45IDExMi42IDE4MC4xIDExMS4yQzE4MS4yIDEwOS43IDE4My42IDEwNi4yIDE4NS40IDEwMy40QzE5Mi41IDkyLjAgMjE2LjkgNjcuMCAyMjAuOSA2Ny4wQzIyMS42IDY3LjAgMjIyLjMgNjYuNCAyMjIuNiA2NS42QzIyMy4yIDY0LjIgMjM3LjMgNTQuMCAyMzguOCA1NC4wQzIzOS4zIDU0LjAgMjQwLjMgNTMuMyAyNDEuMCA1Mi41QzI0Mi40IDUwLjggMjUxLjAgNDUuOCAyNjAuNSA0MS4yQzI2NC40IDM5LjMgMjY4LjEgMzcuMyAyNjguOCAzNi43QzI3My4yIDMzLjIgMjkyLjkgMjguNiAzMDAuNyAyOS4zQzMxMS40IDMwLjEgMzI1LjAgMzkuMCAzMjUuMCA0NS4xQzMyNS4wIDQ2LjEgMzI1LjQgNDcuMSAzMjUuOSA0Ny40QzMyNy45IDQ4LjcgMzI5LjMgNjEuOSAzMjguNyA3My42QzMyNy45IDg5LjMgMzI1LjcgOTkuNSAzMTguMyAxMjAuNUMzMTcuMCAxMjQuMyAzMTQuMyAxMzIuMiAzMTIuMyAxMzguMEMzMTAuNCAxNDMuOCAzMDguMiAxNDkuNiAzMDcuNSAxNTEuMEMzMDYuOCAxNTIuNCAzMDYuMCAxNTUuMiAzMDUuNiAxNTcuM0MzMDUuMCAxNjAuNSAyODYuMSAyMDUuOCAyODEuNyAyMTQuNUMyNjguMCAyNDEuNyAyNjIuMSAyNTUuNyAyNjUuMiAyNTMuM0MyNjUuOSAyNTIuOCAyNjkuMCAyNTEuOCAyNzIuMCAyNTEuMUMyNzUuMCAyNTAuNSAyNzkuMiAyNDkuNSAyODEuMiAyNDkuMEMyODkuOCAyNDYuOCAyOTIuOSAyNDYuMSAzMDAuNSAyNDQuNUMzMDQuOSAyNDMuNiAzMTYuMCAyNDEuMSAzMjUuMSAyMzguOUMzMzQuMyAyMzYuOCAzNDIuNiAyMzUuMCAzNDMuNiAyMzUuMEMzNDQuNiAyMzUuMCAzNDYuNyAyMzQuNiAzNDguNCAyMzQuMUMzNTAuMSAyMzMuNSAzNTYuOSAyMzEuOSAzNjMuNSAyMzAuNUMzODQuNCAyMjYuMCAzOTguNCAyMjIuOSA0MDIuNSAyMjEuOEM0MDQuNyAyMjEuMyA0MTEuNCAyMjAuMCA0MTcuNSAyMTkuMUM0MjMuNiAyMTguMSA0MzEuOSAyMTYuNiA0MzYuMCAyMTUuN0M0NDAuMSAyMTQuOCA0NDguNCAyMTMuMiA0NTQuNSAyMTIuMUM0NzEuNyAyMDguOCA0NzIuNiAyMDguNSA0NjYuNSAyMDcuNkM0NTkuNyAyMDYuNSA0NTYuNyAyMDQuOCA0NTQuNSAyMDAuNkM0NTMuNCAxOTguNiA0NTIuMiAxOTcuNCA0NTEuNSAxOTcuOEM0NDUuMSAyMDIuNCA0MzAuNCAyMDAuOCA0MjYuOSAxOTUuMUM0MjUuOCAxOTMuNSA0MjUuNSAxOTMuNiA0MjIuNSAxOTYuNEM0MTIuNyAyMDUuNiA0MDUuOCAyMTAuMCA0MDEuMCAyMTAuMEMzOTcuOCAyMTAuMCAzOTQuMCAyMDUuMyAzOTQuMCAyMDEuM0MzOTQuMCAxOTYuNyAzOTIuMCAxOTcuOCAzODAuNSAyMDkuMEMzNjkuNSAyMTkuNiAzNjYuNyAyMjEuMiAzNTkuMiAyMjAuOUMzNTQuNiAyMjAuNyAzNTIuNiAyMjEuMiAzNDkuMCAyMjMuM0MzNDAuOCAyMjguMSAzMzMuNiAyMjcuMCAzMjkuMCAyMjAuM0MzMjcuNSAyMTguMSAzMjcuNSAyMTguMSAzMjAuOSAyMjQuM0MzMDAuMyAyNDMuNiAyODguNSAyNDcuMSAyODAuMCAyMzYuM0MyNzMuMyAyMjcuOCAyODQuNiAyMDcuNyAzMDQuNyAxOTIuNEMzMDkuMCAxODkuMiAzMTIuNyAxODYuMSAzMTIuOSAxODUuN0MzMTQuNCAxODIuMiAzMjkuMyAxNzguNSAzMzUuNCAxODAuMUMzMzkuNyAxODEuMiAzNDAuMyAxODEuMSAzNDMuOCAxNzguNkMzNTcuOSAxNjguOCAzNjQuNSAxODMuNiAzNTEuNSAxOTYuMEMzNDkuNSAxOTcuOSAzNDcuMSAyMDAuOCAzNDYuMyAyMDIuNEwzNDQuOCAyMDUuNEwzNDguOCAyMDIuMkMzNTEuMCAyMDAuNCAzNTQuMSAxOTcuNSAzNTUuNyAxOTUuN0MzNTcuMiAxOTMuOSAzNjAuNyAxODkuOCAzNjMuNSAxODYuNkMzNzEuNiAxNzcuMiAzNzcuMiAxNzMuOCAzODIuNyAxNzQuNkMzODYuNCAxNzUuMSAzODcuNSAxNzUuOCAzODguMyAxNzcuOUwzODkuMyAxODAuNUwzOTUuMiAxNzcuN0M0MDUuNyAxNzIuNiA0MTIuOCAxNzIuOCA0MTUuMCAxNzguMEM0MTYuMSAxODAuNyA0MTYuNSAxODAuOSA0MTcuOSAxNzkuN0M0MjAuOSAxNzcuMiA0MjcuNSAxNzQuOCA0MzIuNiAxNzQuM0M0MzguMCAxNzMuNyA0NDIuMCAxNzYuNiA0NDIuMCAxODEuMUM0NDIuMCAxODMuNiA0NDIuMiAxODMuNSA0NTEuMCAxODAuMEM0NTYuMSAxNzcuOSA0NjAuMSAxNzUuNSA0NjMuNSAxNzIuMkM0NzguMyAxNTguMCA0ODguMyAxNTMuNyA0OTUuNCAxNTguM0M1MDMuNiAxNjMuNyA0OTUuOCAxNzguMCA0ODAuNiAxODUuMUM0NzQuMSAxODguMSA0NjkuMiAxOTIuMCA0NzEuOCAxOTIuMEM0NzUuMCAxOTIuMCA0ODkuMiAxODcuMyA0OTUuNyAxODQuMUM1MDkuNCAxNzcuMyA1MTIuOSAxNzYuMCA1MTYuNiAxNzYuMEM1MjEuMiAxNzYuMCA1MjMuMCAxNzcuNCA1MjMuMCAxODAuOUM1MjMuMCAxODYuMyA1MjEuOCAxODcuOSA1MTUuNiAxOTEuMUM1MTIuMyAxOTIuOCA1MDkuMyAxOTQuNiA1MDkuMCAxOTUuMEM1MDguNyAxOTUuNCA1MDcuNCAxOTYuMSA1MDYuMCAxOTYuNUM1MDEuOSAxOTcuNyA0ODYuNyAyMDUuMCA0ODcuMiAyMDUuNkM0ODcuNSAyMDUuOSA0OTAuOCAyMDUuNCA0OTQuNiAyMDQuNkM0OTguNCAyMDMuOCA1MDYuMCAyMDIuNCA1MTEuNSAyMDEuNUM1MTcuMCAyMDAuNiA1MjEuOCAxOTkuNiA1MjIuMSAxOTkuNEM1MjIuNSAxOTkuMiA1MjcuNSAxOTguNCA1MzMuMyAxOTcuNkM1MzkuMSAxOTYuNyA1NDguNSAxOTUuMSA1NTQuMiAxOTMuOUM1NTkuOCAxOTIuOCA1NjguMyAxOTEuMiA1NzMuMCAxOTAuNUM1NzcuNyAxODkuNyA1ODYuNyAxODguMSA1OTMuMCAxODcuMEM2MTIuNCAxODMuMyA2MjAuMiAxODIuMCA2MjcuNSAxODEuMEM2MzQuNCAxODAuMSA2NTUuNiAxNzYuNiA2NjEuNSAxNzUuNEM2NjMuNCAxNzUuMSA2NjUuMyAxNzMuNyA2NjYuNSAxNzEuN0M2NjcuNiAxNzAuMCA2NjkuMCAxNjcuOSA2NjkuNSAxNjcuMEM2NzAuMSAxNjYuMiA2NzMuMSAxNjEuNSA2NzYuMyAxNTYuN0M2NzkuNSAxNTEuOCA2ODQuOCAxNDQuMSA2ODguMiAxMzkuN0M2OTEuNSAxMzUuMiA2OTUuMSAxMjkuNiA2OTYuMiAxMjcuM0M2OTcuMiAxMjUuMCA2OTguNSAxMjIuOCA2OTkuMCAxMjIuNUM3MDAuMSAxMjEuOCA3MTUuNyA5MC4zIDcxOS45IDgwLjJDNzIzLjAgNzIuOCA3MjYuMCA1OS42IDcyNi4wIDUzLjRDNzI2LjAgNDkuNiA3MjMuMyA0OC44IDcxOS41IDUxLjNDNzE4LjQgNTIuMCA3MTQuOSA1My40IDcxMS44IDU0LjRDNzA4LjYgNTUuNSA3MDYuMCA1Ni43IDcwNi4wIDU3LjFDNzA2LjAgNTcuNSA3MDQuMyA1OC41IDcwMi4yIDU5LjRDNjk3LjQgNjEuNSA2ODUuMiA2OC43IDY4MC41IDcyLjJDNjgwLjAgNzIuNiA2NzguMSA3NC4wIDY3Ni41IDc1LjNDNjc0LjkgNzYuNSA2NzIuNCA3OC4zIDY3MS4wIDc5LjJDNjY5LjYgODAuMSA2NjQuOSA4My44IDY2MC41IDg3LjVDNjU2LjEgOTEuMSA2NTAuNSA5NS44IDY0OC4wIDk3LjhDNjQ0LjAgMTAxLjEgNjM0LjMgMTA5LjcgNjMzLjAgMTExLjBDNjMyLjcgMTExLjMgNjI5LjggMTEzLjggNjI2LjUgMTE2LjVDNjIzLjIgMTE5LjMgNjIwLjAgMTIyLjAgNjE5LjQgMTIyLjVDNjE4LjggMTIzLjAgNjE1LjcgMTI1LjggNjEyLjUgMTI4LjVDNjAwLjIgMTM5LjAgNTgzLjMgMTU3LjQgNTgxLjIgMTYyLjZDNTc3LjYgMTcxLjIgNTY2LjAgMTY5LjIgNTY2LjAgMTU5LjlDNTY2LjAgMTUxLjEgNTc1LjUgMTM5LjEgNjAwLjIgMTE2LjhDNjA1LjkgMTExLjcgNjEwLjcgMTA3LjMgNjExLjAgMTA3LjBDNjExLjMgMTA2LjcgNjEyLjcgMTA1LjUgNjE0LjMgMTA0LjNDNjE2LjkgMTAyLjMgNjE5LjAgMTAwLjUgNjM0LjQgODcuMkM2MzcuOCA4NC40IDY0MS4yIDgxLjQgNjQyLjAgODAuN0M2NDIuOSA4MC4xIDY0Ni4yIDc3LjIgNjQ5LjQgNzQuNUM2NTYuOSA2OC4xIDY2OC4yIDU5LjYgNjc0LjkgNTUuNUM2NzUuOCA1NS4wIDY3Ny45IDUzLjUgNjc5LjYgNTIuM0M2ODIuNyA1MC4xIDY4Ny43IDQ3LjUgNzAyLjAgNDAuNkM3MTYuNCAzMy43IDczMi4zIDMxLjkgNzM3LjEgMzYuNkM3NDEuMSA0MC43IDc0My4zIDUzLjAgNzQxLjUgNjEuNUM3NDAuNyA2NS42IDc0MC4wIDY5LjkgNzQwLjAgNzEuMEM3NDAuMCA3Mi4yIDczOS4zIDc0LjUgNzM4LjQgNzYuM0M3MzcuMiA3OC43IDczOS4wIDc3LjMgNzQ1LjYgNzAuOEM3NTkuNyA1Ny4wIDc2NC4wIDUzLjIgNzcxLjcgNDcuNEM3NzUuNiA0NC40IDc3OS41IDQxLjQgNzgwLjIgNDAuN0M3OTAuOCAzMC42IDgyMS40IDE2LjMgODI5LjggMTcuNkM4NDIuMSAxOS40IDg0Mi41IDMwLjUgODMxLjEgNTYuOUM4MjcuMiA2Ni4wIDgyNC4yIDczLjYgODI0LjUgNzMuOEM4MjQuNyA3NC4xIDgyNy4zIDcyLjMgODMwLjIgNjkuOEM4MzMuMSA2Ny40IDgzOS41IDYyLjMgODQ0LjUgNTguNUM4NDkuNSA1NC43IDg1My42IDUxLjMgODUzLjggNTAuOEM4NTQuMCA1MC40IDg1NC44IDUwLjAgODU1LjYgNTAuMEM4NTYuOCA1MC4wIDg2Mi41IDQ2LjYgODY4LjYgNDIuM0M4NjkuNSA0MS42IDg3Mi41IDQwLjAgODgzLjUgMzQuMkM5MDcuNiAyMS43IDkyNC43IDIwLjkgOTMwLjIgMzIuMEM5MzYuMCA0My44IDkyOC40IDcyLjkgOTEyLjMgMTAxLjBDOTA1LjYgMTEyLjggOTAyLjggMTE3LjIgODkzLjEgMTMwLjdDODgwLjkgMTQ3LjkgODY5LjYgMTYzLjQgODY4LjQgMTY0LjhDODY1LjAgMTY4LjggODYwLjIgMTc0LjcgODU2LjUgMTc5LjVDODU0LjMgMTgyLjQgODQ4LjggMTg5LjIgODQ0LjIgMTk0LjZDODIzLjkgMjE4LjcgODIzLjggMjE4LjcgODEzLjYgMjM2LjFDODEwLjUgMjQxLjQgODA4LjAgMjQ2LjIgODA4LjAgMjQ2LjdDODA4LjAgMjQ3LjIgODA2LjcgMjQ5LjYgODA1LjIgMjUyLjFDODAwLjUgMjU5LjQgNzk2LjkgMjc0LjQgNzk5LjMgMjc2LjdDODAzLjUgMjgxLjAgODIzLjcgMjc3LjUgODQyLjcgMjY5LjRDODQ0LjQgMjY4LjYgODQ2LjIgMjY4LjAgODQ2LjcgMjY4LjBDODQ3LjIgMjY4LjAgODUzLjIgMjY1LjcgODYwLjEgMjYyLjlDODY2LjkgMjYwLjEgODc0LjIgMjU3LjEgODc2LjQgMjU2LjNDODc4LjUgMjU1LjYgODgxLjQgMjU0LjMgODgyLjkgMjUzLjZDODg0LjMgMjUyLjggODg3LjEgMjUxLjkgODg5LjAgMjUxLjVDODkwLjkgMjUxLjEgODk2LjEgMjQ5LjEgOTAwLjUgMjQ3LjBDOTA0LjkgMjQ0LjkgOTEwLjcgMjQyLjUgOTEzLjMgMjQxLjVDOTE2LjIgMjQwLjUgOTE4LjUgMjM4LjkgOTE5LjIgMjM3LjZDOTIyLjggMjI5LjYgOTM4LjAgMjMzLjMgOTM4LjAgMjQyLjJDOTM4LjAgMjQ1LjggOTM1LjQgMjUxLjAgOTMzLjYgMjUxLjBDOTMyLjkgMjUxLjAgOTMxLjcgMjUxLjcgOTMxLjAgMjUyLjVDOTMwLjMgMjUzLjMgOTI3LjIgMjU0LjcgOTI0LjEgMjU1LjZDOTIxLjAgMjU2LjQgOTE0LjkgMjU4LjYgOTEwLjUgMjYwLjVDOTA2LjEgMjYyLjMgODk4LjkgMjY1LjMgODk0LjUgMjY3LjFDODkwLjEgMjY4LjggODgzLjcgMjcxLjYgODgwLjIgMjczLjFDODc2LjcgMjc0LjcgODczLjYgMjc2LjAgODczLjEgMjc2LjBDODcyLjcgMjc2LjAgODcwLjEgMjc3LjEgODY3LjMgMjc4LjVDODY0LjQgMjc5LjggODYwLjAgMjgxLjQgODU3LjMgMjgyLjFDODU0LjcgMjgyLjcgODUxLjYgMjgzLjUgODUwLjUgMjg0LjBDODI3LjYgMjkzLjEgODE2LjAgMjk2LjAgODAxLjcgMjk2LjBDNzkxLjIgMjk2LjAgNzg2LjIgMjkzLjAgNzg0LjAgMjg1LjFDNzc5LjggMjcwLjIgNzgyLjkgMjU1LjggNzk0LjkgMjM0LjhDODA2LjcgMjE0LjEgODA5LjAgMjEwLjQgODExLjMgMjA4LjBDODEyLjAgMjA3LjIgODE0LjIgMjA0LjIgODE2LjAgMjAxLjVDODE3LjkgMTk4LjggODE5LjkgMTk2LjEgODIwLjUgMTk1LjVDODIxLjEgMTk0LjkgODIzLjYgMTkyLjEgODI2LjEgMTg5LjFDODI4LjUgMTg2LjEgODMxLjMgMTgyLjcgODMyLjIgMTgxLjZDODMzLjIgMTgwLjQgODM2LjUgMTc2LjMgODM5LjcgMTcyLjVDODQyLjkgMTY4LjYgODQ2LjYgMTY0LjMgODQ3LjkgMTYzLjBDODQ5LjEgMTYxLjYgODUwLjkgMTU5LjQgODUxLjggMTU4LjBDODUyLjcgMTU2LjYgODU2LjggMTUxLjEgODYxLjAgMTQ1LjdDODczLjQgMTI5LjYgODg1LjMgMTEyLjggODg3LjcgMTA4LjBDODg4LjIgMTA3LjIgODkwLjggMTAzLjIgODkzLjUgOTkuMUM4OTkuOSA4OS43IDg5OS4xIDkxLjEgOTA0LjQgODAuMUM5MDYuOSA3NC45IDkwOS4wIDcwLjEgOTA5LjAgNjkuNUM5MDkuMCA2OC44IDkxMC4zIDY1LjIgOTExLjkgNjEuNEM5MTkuNCA0My4yIDkxOS4wIDM4LjkgOTA5LjYgNDEuN0M4OTEuMCA0Ny4yIDg5MC41IDQ3LjQgODU2LjUgNzAuNEM4MzUuMyA4NC44IDgxMy41IDEwNi44IDc5NC43IDEzMi45Qzc5Mi4xIDEzNi41IDc4OC4zIDE0MS41IDc4Ni4yIDE0My45Qzc4NC4yIDE0Ni4yIDc4Mi4zIDE0OC43IDc4Mi4xIDE0OS40Qzc4MS45IDE1MC4wIDc4MS4xIDE1MS4yIDc4MC4zIDE1Mi4yQzc3OS4wIDE1My43IDc3OS4yIDE1My44IDc4Mi45IDE1My4zQzc4OC4zIDE1Mi42IDc5MC4wIDE1NC4xIDc5MC4wIDE1OS43Qzc5MC4wIDE2NC44IDc4OC40IDE2NS44IDc3Ny4xIDE2OC4xQzc3MS4xIDE2OS4yIDc2NS4wIDE3Mi44IDc2NS4wIDE3NS4yQzc2NS4wIDE3NS43IDc2My4xIDE3OC42IDc2MC44IDE4MS41Qzc1OC40IDE4NC41IDc1NS43IDE4OC4xIDc1NC43IDE4OS41Qzc1My4wIDE5MS44IDc1Mi4zIDE5Mi4xIDc0Ny43IDE5MS44Qzc0MC44IDE5MS40IDczOC45IDE4OC41IDc0MC44IDE4MS40Qzc0Mi40IDE3NS41IDc0My40IDE3NS43IDcyOS41IDE3OC42QzcyMi45IDE3OS45IDcxMy43IDE4MS43IDcwOS4wIDE4Mi41QzcwNC4zIDE4My40IDY5Ni4zIDE4NC44IDY5MS4xIDE4NS43TDY4MS43IDE4Ny41TDY3Ny4zIDE5NC4wQzY3NC45IDE5Ny42IDY3MC40IDIwNC4zIDY2Ny4yIDIwOC45QzY2NC4xIDIxMy41IDY2MC45IDIxOC41IDY2MC4xIDIxOS45QzY1OS4zIDIyMS4zIDY1Ny42IDIyMy44IDY1Ni4zIDIyNS4zQzY1NS4xIDIyNi45IDY1NC4wIDIyOC43IDY1NC4wIDIyOS41QzY1NC4wIDIzMC4yIDY1My4zIDIzMS40IDY1Mi40IDIzMi4xQzY1MS41IDIzMi44IDY0OS44IDIzNS4zIDY0OC42IDIzNy42QzY0Ny41IDIzOS45IDY0NC40IDI0NS4wIDY0MS44IDI0OC44QzYzOS4yIDI1Mi43IDYzNi40IDI1Ny4yIDYzNS42IDI1OC43QzYzMS44IDI2NS43IDYyNi41IDI2OC4zIDYxOS44IDI2Ni43QzYxMy42IDI2NS4xIDYxNC4wIDI1MS40IDYyMC41IDI0Ni4wQzYyMS40IDI0NS4zIDYyMi44IDI0My4zIDYyMy42IDI0MS42QzYyNC40IDIzOS45IDYyNy41IDIzNS4xIDYzMC41IDIzMS4wQzYzMy41IDIyNi45IDYzNi44IDIyMS42IDYzNy45IDIxOS40QzYzOS4wIDIxNy4xIDY0MC4zIDIxNC45IDY0MC45IDIxNC42QzY0Mi4yIDIxMy44IDY1MS42IDE5OC4zIDY1My4wIDE5NC42QzY1NC4wIDE5MS44IDY1NC4wIDE5MS43IDY1MC44IDE5Mi41QzY0Ny4yIDE5My4yIDY0MC4xIDE5NC40IDYyOS43IDE5NS45QzYyNi4wIDE5Ni41IDYyMi42IDE5Ny4xIDYyMi4xIDE5Ny40QzYyMS43IDE5Ny43IDYxOC43IDE5OC40IDYxNS40IDE5OC45QzYxMi4yIDE5OS41IDYwMy4wIDIwMS4xIDU5NS4wIDIwMi41QzU4Ny4wIDIwNC4wIDU3Ny45IDIwNS41IDU3NC43IDIwNi4xQzU3MS40IDIwNi42IDU2OC40IDIwNy4yIDU2Ny45IDIwNy41QzU2Ny41IDIwNy44IDU2NC4zIDIwOC41IDU2MC44IDIwOS4wQzU1Ny4zIDIwOS41IDU1MS4xIDIxMC41IDU0Ny4wIDIxMS4zQzUyOS45IDIxNC42IDUyMi4yIDIxNi4xIDUxNy41IDIxNy4xQzUxMS44IDIxOC4zIDUwNS4xIDIxOS40IDQ5Ni41IDIyMC44QzQ4Mi40IDIyMy4xIDQ2Ni43IDIyNi4xIDQ2NS43IDIyNi43QzQ2NS4wIDIyNy4xIDQ2Mi4wIDIyNy43IDQ1OS4wIDIyOC4xQzQ1My4xIDIyOC43IDQ0Mi40IDIzMC43IDQyMy41IDIzNC43QzQxNi45IDIzNi4xIDQwOS4zIDIzNy42IDQwNi43IDIzOC4xQzQwMS41IDIzOS4wIDM4Mi40IDI0My40IDM3NC41IDI0NS41QzM3MS44IDI0Ni4zIDM2Ni4xIDI0Ny40IDM2Mi4wIDI0OC4xQzM1Ny45IDI0OC44IDM1My43IDI0OS43IDM1Mi44IDI1MC4yQzM1MS4zIDI1MC45IDM0Mi4yIDI1My4wIDMyMC4wIDI1Ny41QzMxMi4zIDI1OS4xIDMwMi40IDI2MS41IDI5Mi4wIDI2NC4xQzI4MS40IDI2Ni45IDI2Ny4xIDI3MC4xIDI2My4wIDI3MC43QzI1NC4xIDI3Mi4xIDI1MS41IDI3NS4wIDI0MS41IDI5NC41QzI0MC4xIDI5Ny4yIDIzNy40IDMwMi4yIDIzNS42IDMwNS41QzIzMy43IDMwOC44IDIzMC4wIDMxNS44IDIyNy40IDMyMS4wQzIyNC43IDMyNi4yIDIyMS45IDMzMS40IDIyMS4wIDMzMi41QzIyMC4xIDMzMy42IDIxOC40IDMzNi44IDIxNy4yIDMzOS41QzIxNi4xIDM0Mi4yIDIxMS40IDM1MS43IDIwNi45IDM2MC41QzIwMi40IDM2OS4zIDE5Ny4zIDM3OS4yIDE5NS43IDM4Mi41QzE5NC4xIDM4NS44IDE5MC44IDM5MS43IDE4OC41IDM5NS42QzE4Ni4xIDM5OS41IDE4Mi44IDQwNi4wIDE4MS4xIDQxMC4wQzE3OS4zIDQxNC4xIDE3Ni42IDQxOS42IDE3NS4wIDQyMi4yQzE3My40IDQyNC43IDE3MC4zIDQzMS4xIDE2OC4xIDQzNi4yQzE2NS45IDQ0MS4zIDE2Mi41IDQ0OC40IDE2MC42IDQ1MS45QzE1OC42IDQ1NS4zIDE1Ny4wIDQ1OC43IDE1Ny4wIDQ1OS4yQzE1Ny4wIDQ1OS44IDE1NS45IDQ2Mi44IDE1NC42IDQ2NS45QzE1My4zIDQ2OS4wIDE1MS41IDQ3NC4wIDE1MC43IDQ3Ny4wQzE0NS45IDQ5My43IDE0NS4yIDQ5NS41IDE0Mi45IDQ5Ni43QzEzOS4xIDQ5OC43IDEzNi4yIDQ5OC4yIDEzNC40IDQ5NS41ek0xODUuNyAyNDcuNEMxOTcuOCAyNDEuNCAyMDkuMyAyMzQuMiAyMTcuNSAyMjcuNUMyMjAuMiAyMjUuMyAyMjMuNiAyMjIuNiAyMjUuMCAyMjEuNUMyMjYuMyAyMjAuNCAyMzUuNSAyMTEuNSAyNDUuMyAyMDEuN0wyNjMuMiAxODMuOEwyNjcuOCAxODQuMkMyNzAuNCAxODQuNSAyNzMuMiAxODUuMCAyNzQuMSAxODUuNEMyNzUuNSAxODYuMCAyODcuNyAxNjAuMiAyOTAuOSAxNDkuNUMyOTEuNCAxNDcuOCAyOTMuMyAxNDIuNyAyOTUuMCAxMzguMEMyOTYuOCAxMzMuMyAyOTguNiAxMjcuNyAyOTkuMCAxMjUuNUMyOTkuNSAxMjMuMyAzMDEuMiAxMTguNCAzMDIuOSAxMTQuN0MzMDQuNiAxMTAuOSAzMDYuMCAxMDYuNyAzMDYuMCAxMDUuM0MzMDYuMCAxMDQuMCAzMDYuNSAxMDEuOSAzMDcuMiAxMDAuN0MzMDkuNCA5Ni41IDMxMy4wIDc2LjcgMzEzLjAgNjguNUMzMTMuMCA0NS4wIDMwMC40IDM5LjMgMjc2LjYgNTEuOEMyNzMuOCA1My4zIDI3MC44IDU0LjcgMjcwLjAgNTUuMEMyNTguMiA1OS4wIDIxOC4xIDg4LjUgMjA5LjAgOTkuOUMyMDcuNiAxMDEuNiAyMDQuOCAxMDQuOSAyMDIuOCAxMDcuMkMyMDAuNyAxMDkuNSAxOTkuMCAxMTEuOCAxOTkuMCAxMTIuM0MxOTkuMCAxMTIuNyAxOTYuOSAxMTUuNyAxOTQuNCAxMTguOEMxOTEuOCAxMjEuOSAxODguOCAxMjYuNyAxODcuNSAxMjkuNUMxODYuMyAxMzIuMiAxODQuNiAxMzUuMSAxODMuNyAxMzUuOUMxODIuNyAxMzYuNiAxODIuMCAxMzcuOCAxODIuMCAxMzguNUMxODIuMCAxMzkuMyAxODAuOSAxNDEuMSAxNzkuNiAxNDIuN0MxNzguMyAxNDQuMiAxNzYuMSAxNDguMiAxNzQuNyAxNTEuNUMxNzMuMyAxNTQuOCAxNzEuMCAxNTkuNSAxNjkuNiAxNjIuMEMxNjguMiAxNjQuNSAxNjcuMCAxNjcuMyAxNjcuMCAxNjguM0MxNjcuMCAxNjkuMiAxNjYuNiAxNzAuOCAxNjYuMCAxNzEuOEMxNjQuMSAxNzUuMiAxNjAuMCAxODYuMCAxNjAuMCAxODcuN0MxNjAuMCAxODguNyAxNTkuMSAxOTIuMSAxNTguMCAxOTUuM0MxNTEuNyAyMTQuMSAxNTIuOCAyNDIuMSAxNjAuMCAyNDYuNUMxNjAuNiAyNDYuOCAxNjEuMCAyNDcuOCAxNjEuMCAyNDguNkMxNjEuMCAyNDkuNSAxNjIuMCAyNTEuMSAxNjMuMiAyNTIuMUMxNjYuNyAyNTUuMSAxNzIuNiAyNTMuOCAxODUuNyAyNDcuNHpNOTkxLjAgMjA4LjlDOTg5LjEgMjA4LjMgOTg2LjggMjA3LjMgOTg2LjAgMjA2LjZDOTg1LjIgMjA1LjkgOTgzLjggMjA1LjAgOTgzLjAgMjA0LjZDOTgyLjIgMjA0LjMgOTc4LjggMjAyLjQgOTc1LjUgMjAwLjVDOTcyLjIgMTk4LjYgOTY2LjYgMTk1LjcgOTYzLjAgMTk0LjBDOTU5LjQgMTkyLjQgOTU0LjcgMTkwLjEgOTUyLjUgMTg4LjlDOTUwLjMgMTg3LjcgOTQ2LjEgMTg1LjQgOTQzLjMgMTgzLjlDOTM0LjYgMTc5LjQgOTIyLjQgMTY5LjkgOTA5LjYgMTU3LjdDOTAyLjAgMTUwLjQgODk5LjggMTQ0LjIgOTAzLjMgMTM5LjVDOTA1LjkgMTM2LjAgOTI3LjMgMTM3LjggOTM4LjIgMTQyLjRDOTQwLjAgMTQzLjEgOTQ1LjMgMTQ1LjIgOTUwLjAgMTQ3LjBDOTU0LjcgMTQ4LjggOTU5LjIgMTUwLjggOTYwLjAgMTUxLjVDOTYwLjggMTUyLjEgOTYyLjkgMTUzLjIgOTY0LjcgMTUzLjlDOTY2LjQgMTU0LjYgOTY5LjMgMTU2LjMgOTcxLjEgMTU3LjZDOTc1LjIgMTYwLjYgOTc2LjAgMTYwLjYgOTc2LjAgMTU3LjZDOTc2LjAgMTU1LjMgOTgwLjUgMTQ4LjcgOTgzLjggMTQ2LjJDOTg0LjcgMTQ1LjUgOTkzLjQgMTM3LjIgMTAwMy4wIDEyNy43QzEwNDcuMiA4NC4zIDEwNTMuMiA4MC4wIDEwNzAuNCA4MC4wQzEwNzkuNSA4MC4wIDEwODMuNSA5MC45IDEwNzkuMSAxMDQuMEMxMDc3LjIgMTA5LjcgMTA2OS45IDEyNC4zIDEwNjcuNiAxMjcuMEMxMDY2LjkgMTI3LjggMTA2Ni4wIDEyOS4yIDEwNjUuNiAxMzAuMEMxMDY1LjIgMTMwLjggMTA2Mi43IDEzNC43IDEwNTkuOSAxMzguNUMxMDU3LjIgMTQyLjMgMTA1Mi41IDE0OS4xIDEwNDkuNiAxNTMuNUMxMDQ2LjYgMTU3LjkgMTA0MC45IDE2Ni4wIDEwMzYuNyAxNzEuNUMxMDMyLjYgMTc3LjAgMTAyNi42IDE4NS4xIDEwMjMuMyAxODkuNEMxMDEwLjYgMjA2LjcgMTAwMS43IDIxMi4xIDk5MS4wIDIwOC45ek0xMDA0LjAgMTg0LjdDMTAwOC4yIDE4MC43IDEwMTQuMSAxNzQuMCAxMDE3LjIgMTY5LjlDMTAyMC40IDE2NS44IDEwMjUuNSAxNTkuMSAxMDI4LjcgMTU1LjBDMTAzMS45IDE1MC45IDEwMzUuNyAxNDUuNyAxMDM3LjMgMTQzLjVDMTA0Ny45IDEyOC4yIDEwNTMuOCAxMTkuMiAxMDU1LjUgMTE2LjBDMTA1Ni42IDExMy45IDEwNTguMiAxMTEuNCAxMDU5LjEgMTEwLjRDMTA2MC40IDEwOC45IDEwNjUuMCA5OS42IDEwNjUuMCA5OC41QzEwNjUuMCA5Ny40IDEwNTguNSA5OS44IDEwNTYuNyAxMDEuNkMxMDU1LjUgMTAyLjkgMTA1NC4xIDEwNC4wIDEwNTMuNiAxMDQuMEMxMDUyLjYgMTA0LjAgMTA0Ni44IDEwOS4zIDEwMjkuMCAxMjYuNEMxMDIyLjYgMTMyLjUgMTAxMy45IDE0MC43IDEwMDkuNiAxNDQuNUMxMDA1LjMgMTQ4LjMgMTAwMC44IDE1Mi40IDk5OS43IDE1My41Qzk5OC41IDE1NC42IDk5NC45IDE1Ny43IDk5MS44IDE2MC4zQzk4OC42IDE2Mi45IDk4Ni4wIDE2NS40IDk4Ni4wIDE2NS44Qzk4Ni4wIDE2Ni42IDk5Mi43IDE3My43IDk5NS44IDE3Ni4yQzk5OS42IDE3OS4zIDk5OC4zIDE5MC4wIDk5NC4yIDE5MC4wQzk5Mi43IDE5MC4wIDk5Mi43IDE5MC4yIDk5NC4wIDE5MS4wQzk5Ni4yIDE5Mi40IDk5NS45IDE5Mi42IDEwMDQuMCAxODQuN3pNOTY5LjAgMTc3LjZDOTY5LjAgMTc3LjQgOTY2LjkgMTc1LjkgOTY0LjIgMTc0LjRDOTYxLjYgMTcyLjkgOTU5LjMgMTcxLjMgOTU5LjAgMTcwLjlDOTU4LjcgMTcwLjUgOTU1LjYgMTY4LjcgOTUyLjAgMTY2LjhDOTQ4LjQgMTY0LjkgOTQ0LjIgMTYyLjUgOTQyLjUgMTYxLjRMOTM5LjUgMTU5LjVMOTQxLjggMTYyLjVDOTQzLjEgMTY0LjEgOTQ2LjcgMTY2LjUgOTQ5LjggMTY3LjhDOTUyLjkgMTY5LjIgOTU2LjggMTcxLjIgOTU4LjUgMTcyLjRDOTYwLjEgMTczLjUgOTYzLjAgMTc1LjMgOTY1LjAgMTc2LjJDOTY5LjIgMTc4LjIgOTY5LjAgMTc4LjEgOTY5LjAgMTc3LjZ6TTcxMS4wIDE2Ny4xQzcxOC40IDE2NS45IDcyNi41IDE2NC41IDcyOS4wIDE2My45QzczMS41IDE2My4zIDczNS44IDE2Mi41IDczOC41IDE2Mi4wQzc1Mi42IDE1OS41IDc1MS41IDE2MC4wIDc1Ni45IDE1Mi41Qzc1OS43IDE0OC43IDc2NC4wIDE0Mi44IDc2Ni40IDEzOS41Qzc3NS45IDEyNi44IDc3Ny43IDEyNC4zIDc4MS4xIDExOS4wQzc4My4xIDExNi4wIDc4Ni42IDExMC4xIDc4OC45IDEwNi4wQzc5MS4yIDEwMS45IDc5My41IDk3LjggNzk0LjAgOTcuMEM3OTkuNyA4Ny42IDgxNy42IDQ4LjYgODIwLjUgMzkuM0w4MjEuOSAzNS4xTDgxOS4yIDM2LjFDODE3LjcgMzYuNyA4MTMuMSAzOS4xIDgwOC45IDQxLjZDODA0LjcgNDQuMCA4MDAuOSA0Ni4wIDgwMC4zIDQ2LjBDNzk5LjcgNDYuMCA3OTguNiA0Ni43IDc5Ny45IDQ3LjdDNzk3LjEgNDguNiA3OTQuMCA1MS4xIDc5MS4wIDUzLjRDNzc3LjIgNjMuNSA3NjEuMiA3OC41IDc0Mi40IDk4LjlDNzM5LjIgMTAyLjUgNzM1LjQgMTA2LjUgNzM0LjAgMTA3LjlDNzMxLjQgMTEwLjUgNzIzLjggMTIwLjIgNzIxLjAgMTI0LjRDNzIwLjIgMTI1LjcgNzE4LjQgMTI4LjMgNzE3LjAgMTMwLjJDNzA2LjggMTQ0LjcgNjk1LjAgMTYzLjcgNjk1LjAgMTY1LjhDNjk1LjAgMTY2LjEgNjk0LjIgMTY3LjIgNjkzLjIgMTY4LjNDNjkxLjUgMTcwLjMgNjkxLjYgMTcwLjMgNjk0LjUgMTY5LjdDNjk2LjEgMTY5LjQgNzAzLjYgMTY4LjIgNzExLjAgMTY3LjF6TTM0NS44IDEzNC45QzM0Mi42IDEzMy4xIDM0My41IDEyNi45IDM0Ny44IDEyMC4yQzM0OS44IDExNi45IDM1My4zIDExMS40IDM1NS41IDEwOC4wQzM1Ny43IDEwNC41IDM2MC4yIDEwMC41IDM2MS4wIDk5LjBDMzYxLjggOTcuNiAzNjMuMSA5NS43IDM2My44IDk0LjlDMzY0LjUgOTQuMSAzNjUuNyA5Mi43IDM2Ni40IDkxLjZDMzY4LjAgODkuMyAzNzcuMiA4OC4xIDM3OS41IDkwLjBDMzgzLjQgOTMuMiAzODIuNiAxMDAuOSAzNzcuOCAxMDYuOEMzNzYuMCAxMDkuMCAzNzAuOSAxMTUuNCAzNjYuNSAxMjEuMUMzNTQuOCAxMzYuMyAzNTEuNyAxMzguNCAzNDUuOCAxMzQuOXoiLz48L3N2Zz4=")}</style>
 </head>
 <body>
-<div id="intro" role="presentation"><svg id="intro-sig" viewBox="0 0 1100 515" role="img" aria-label="Jánne Moreno"><defs><mask id="intro-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1100" height="515"><g fill="none" stroke="#fff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" data-s="0.0" data-e="0.0577" d="M24.0 312.0L61.0 310.0L223.0 271.0L238.0 270.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.0577" data-e="0.12146" d="M139.0 489.0L150.0 452.0L212.0 328.0L236.0 286.0L238.0 270.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.12146" data-e="0.20345" d="M198.0 99.0L171.0 139.0L153.0 179.0L145.0 213.0L145.0 233.0L148.0 246.0L153.0 255.0L164.0 261.0L183.0 258.0L219.0 237.0L258.0 201.0L268.0 198.0L269.0 201.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.20345" data-e="0.2852" d="M198.0 99.0L231.0 68.0L277.0 41.0L290.0 37.0L303.0 37.0L309.0 39.0L316.0 46.0L320.0 59.0L320.0 79.0L312.0 113.0L284.0 187.0L280.0 193.0L269.0 201.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.2852" data-e="0.29008" d="M238.0 270.0L249.0 265.0L253.0 260.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.29008" data-e="0.34997" d="M253.0 260.0L257.0 262.0L276.0 259.0L290.0 254.0L393.0 231.0L456.0 220.0L474.0 214.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.34997" data-e="0.36372" d="M253.0 260.0L257.0 244.0L269.0 218.0L276.0 218.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.36372" data-e="0.36916" d="M269.0 201.0L273.0 203.0L272.0 211.0L276.0 218.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.36916" data-e="0.37972" d="M276.0 218.0L287.0 227.0L293.0 227.0L306.0 212.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.37972" data-e="0.38628" d="M306.0 212.0L314.0 206.0L328.0 201.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.38628" data-e="0.39453" d="M328.0 201.0L336.0 190.0L348.0 186.0L351.0 182.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.39453" data-e="0.40749" d="M341.0 208.0L344.0 212.0L359.0 210.0L379.0 189.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.40749" data-e="0.41788" d="M350.0 128.0L373.0 96.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.41788" data-e="0.42448" d="M379.0 189.0L404.0 189.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.42448" data-e="0.44011" d="M404.0 189.0L409.0 190.0L427.0 185.0L432.0 185.0L436.0 190.0L460.0 188.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.44011" data-e="0.44967" d="M460.0 188.0L488.0 165.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.44967" data-e="0.45464" d="M460.0 188.0L464.0 198.0L472.0 199.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.45464" data-e="0.45881" d="M472.0 199.0L472.0 212.0L474.0 214.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.45881" data-e="0.46932" d="M480.0 199.0L516.0 182.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.46932" data-e="0.51818" d="M482.0 209.0L492.0 213.0L630.0 187.0L650.0 184.0L661.0 184.0L663.0 186.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.51818" data-e="0.58233" d="M572.0 159.0L600.0 127.0L645.0 88.0L671.0 67.0L705.0 47.0L719.0 42.0L732.0 44.0L733.0 59.0L730.0 72.0L730.0 81.0L732.0 83.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.58233" data-e="0.60468" d="M622.0 259.0L661.0 199.0L663.0 186.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.60468" data-e="0.61038" d="M663.0 186.0L681.0 174.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.61038" data-e="0.63804" d="M681.0 174.0L685.0 160.0L720.0 106.0L732.0 83.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.63804" data-e="0.65666" d="M681.0 174.0L688.0 177.0L741.0 168.0L750.0 170.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.65666" data-e="0.68758" d="M732.0 83.0L735.0 87.0L745.0 83.0L780.0 50.0L807.0 32.0L823.0 27.0L824.0 31.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.68758" data-e="0.69136" d="M747.0 184.0L750.0 170.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.69136" data-e="0.69743" d="M750.0 170.0L769.0 157.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.69743" data-e="0.72056" d="M769.0 157.0L772.0 146.0L815.0 83.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.72056" data-e="0.72479" d="M769.0 157.0L773.0 160.0L784.0 159.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.72479" data-e="0.87128" d="M815.0 83.0L831.0 79.0L876.0 46.0L905.0 33.0L914.0 32.0L923.0 36.0L923.0 54.0L915.0 76.0L890.0 120.0L810.0 223.0L791.0 261.0L790.0 279.0L792.0 283.0L801.0 287.0L828.0 283.0L855.0 274.0L928.0 243.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.87128" data-e="0.8865" d="M815.0 83.0L817.0 67.0L828.0 39.0L829.0 33.0L824.0 31.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.8865" data-e="0.89322" d="M911.0 145.0L934.0 156.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.89322" data-e="0.90241" d="M934.0 156.0L931.0 158.0L935.0 168.0L943.0 174.0L953.0 177.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.90241" data-e="0.91398" d="M934.0 156.0L937.0 152.0L952.0 156.0L962.0 162.0L966.0 173.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.91398" data-e="0.91967" d="M953.0 177.0L956.0 181.0L963.0 182.0L966.0 173.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.91967" data-e="0.99553" d="M976.0 167.0L980.0 164.0L980.0 160.0L1045.0 98.0L1062.0 90.0L1069.0 90.0L1072.0 93.0L1070.0 105.0L1060.0 124.0L1019.0 181.0L1004.0 197.0L999.0 199.0L989.0 198.0L980.0 183.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/><path pathLength="1" data-s="0.99553" data-e="1.0" d="M976.0 167.0L976.0 175.0L980.0 183.0" stroke-dasharray="1" stroke-dashoffset="1" style="visibility:hidden"/></g></mask></defs><path d="M136.3 493.4C134.1 490.0 135.1 482.5 139.5 469.5C143.9 456.2 146.3 450.0 149.1 444.5C150.8 441.2 154.4 433.3 157.2 427.0C159.9 420.7 163.2 413.9 164.5 412.0C165.8 410.1 168.1 405.6 169.6 402.0C171.2 398.4 173.4 394.1 174.6 392.5C175.8 390.9 178.5 385.4 180.6 380.5C182.6 375.6 185.1 370.6 186.1 369.5C187.1 368.4 189.3 364.1 191.1 360.0C192.8 355.9 196.4 348.4 199.0 343.5C201.6 338.6 207.4 327.5 211.8 318.9C216.2 310.4 221.2 301.2 222.9 298.5C224.6 295.8 226.0 293.1 226.0 292.5C226.0 291.8 227.2 289.5 228.8 287.4C230.3 285.3 232.3 281.8 233.3 279.7L235.1 275.8L230.8 276.5C228.4 276.8 225.4 277.5 224.0 278.0C222.6 278.5 212.5 281.3 201.5 284.1C176.0 290.6 176.1 290.6 166.0 292.9C161.3 293.9 147.2 297.4 134.5 300.5C121.8 303.6 109.5 306.5 107.0 307.0C95.6 308.9 84.3 311.3 82.5 312.0C80.1 313.1 69.1 315.3 67.0 315.2C66.2 315.2 63.9 315.7 62.0 316.2C60.1 316.8 55.6 317.7 52.0 318.2C34.7 320.5 22.9 318.7 21.5 313.3C20.5 309.0 25.7 302.5 28.8 304.4C32.5 306.7 49.1 307.0 56.5 305.0C58.1 304.5 62.2 303.6 65.5 303.0C75.3 301.1 99.0 296.0 107.0 294.0C108.9 293.6 114.8 292.3 120.0 291.2C125.2 290.1 131.5 288.7 134.0 288.1C142.5 285.9 200.5 271.8 202.5 271.4C203.6 271.2 208.8 269.9 214.0 268.5C219.2 267.1 226.2 265.3 229.5 264.5C242.4 261.4 242.7 261.3 245.9 256.0C247.6 253.3 250.1 248.2 251.6 244.8C253.0 241.3 256.1 234.4 258.5 229.5C270.7 204.0 273.6 197.7 282.8 176.0C288.3 163.1 293.0 151.6 293.3 150.5C293.6 149.4 295.2 144.7 297.0 140.0C298.8 135.3 300.6 129.7 301.0 127.5C301.5 125.3 303.2 120.5 304.8 116.9C306.5 113.2 308.0 108.7 308.3 106.9C308.5 105.0 309.2 102.4 309.8 101.0C314.4 90.4 316.6 62.8 313.5 54.0C308.9 41.0 294.3 39.4 274.5 49.8C271.8 51.3 268.8 52.7 268.0 53.0C256.2 57.0 216.1 86.5 207.0 97.9C205.6 99.6 202.8 102.9 200.8 105.2C198.7 107.5 197.0 109.8 197.0 110.3C197.0 110.7 194.9 113.7 192.4 116.8C189.8 119.9 186.8 124.7 185.5 127.5C184.3 130.2 182.6 133.1 181.7 133.9C180.7 134.6 180.0 135.8 180.0 136.5C180.0 137.3 178.9 139.1 177.6 140.7C176.3 142.2 174.1 146.2 172.7 149.5C171.3 152.8 169.0 157.5 167.6 160.0C166.2 162.5 165.0 165.3 165.0 166.3C165.0 167.2 164.6 168.8 164.0 169.8C162.0 173.3 157.8 184.6 157.5 187.0C157.3 188.4 156.3 192.5 155.2 196.3C151.4 208.6 150.1 229.3 152.5 236.5C154.7 243.0 156.9 247.8 158.0 248.5C158.5 248.8 159.0 249.9 159.1 250.8C159.2 254.8 164.3 257.1 170.6 255.9C181.1 254.0 206.0 240.6 219.5 229.5C222.2 227.3 225.6 224.6 227.0 223.5C228.3 222.4 237.4 213.5 247.2 203.8C265.3 185.7 266.5 184.9 271.5 187.2C277.7 190.0 273.3 196.3 247.5 221.1C235.8 232.3 220.9 244.2 213.4 248.4C209.4 250.7 207.2 251.9 201.5 255.6C188.5 263.9 169.2 269.4 161.2 267.1C157.3 265.9 148.0 260.0 148.0 258.7C148.0 258.1 147.4 256.9 146.6 256.1C137.7 246.2 137.9 210.1 147.1 185.5C148.1 182.8 149.4 178.7 149.9 176.5C151.2 170.5 162.9 143.9 165.6 140.7C166.9 139.1 168.0 137.2 168.0 136.5C168.0 135.8 169.1 133.9 170.4 132.3C171.7 130.8 173.6 127.5 174.7 125.0C175.8 122.5 177.4 119.9 178.3 119.1C179.3 118.4 180.0 117.3 180.0 116.8C180.0 116.3 180.9 114.6 182.1 113.2C183.2 111.7 185.6 108.2 187.4 105.4C194.5 94.0 218.9 69.0 222.9 69.0C223.6 69.0 224.3 68.4 224.6 67.6C225.2 66.2 239.3 56.0 240.8 56.0C241.3 56.0 242.3 55.3 243.0 54.5C244.4 52.8 253.0 47.8 262.5 43.2C266.4 41.3 270.2 39.2 271.0 38.6C274.7 35.7 292.3 31.3 299.3 31.5C308.9 31.8 323.0 41.1 323.0 47.1C323.0 48.1 323.4 49.1 323.9 49.4C325.7 50.6 327.2 63.2 326.7 72.8C325.9 87.0 323.3 98.6 316.3 118.5C315.0 122.3 312.3 130.2 310.3 136.0C308.4 141.8 306.2 147.6 305.5 149.0C304.8 150.4 304.0 153.2 303.6 155.3C303.0 158.6 283.7 204.7 279.7 212.5C276.8 218.1 265.3 242.5 263.5 247.0C262.5 249.5 261.1 252.2 260.5 253.0C257.4 256.9 257.6 257.2 262.1 256.5C264.5 256.1 266.9 255.5 267.5 255.1C268.1 254.7 271.0 253.8 274.0 253.1C277.0 252.5 281.2 251.5 283.2 251.0C285.3 250.4 288.7 249.6 290.8 249.0C292.8 248.5 296.3 247.8 298.5 247.4C300.7 247.0 303.2 246.5 304.0 246.3C308.5 245.5 315.7 243.9 323.1 242.0C327.7 240.8 332.6 239.7 334.0 239.4C336.9 239.0 344.8 237.3 350.0 236.0C351.9 235.5 358.9 234.0 365.5 232.5C387.5 227.7 400.5 224.8 404.5 223.9C406.7 223.3 409.6 222.7 411.0 222.5C412.4 222.2 417.6 221.4 422.5 220.5C427.4 219.7 434.6 218.4 438.5 217.6C464.8 212.2 481.4 209.0 485.9 208.5C487.7 208.3 492.5 207.5 496.4 206.6C500.3 205.8 508.0 204.4 513.5 203.5C519.0 202.6 523.8 201.6 524.1 201.4C524.5 201.2 529.5 200.4 535.3 199.6C541.1 198.7 550.5 197.1 556.2 196.0C561.8 194.8 567.6 193.7 569.0 193.5C572.2 193.1 580.3 191.7 595.0 189.0C608.2 186.6 610.8 186.1 615.1 185.5C616.8 185.3 619.0 184.8 620.0 184.5C621.0 184.2 625.1 183.5 629.2 183.0C636.1 182.1 656.9 178.7 663.5 177.4C665.4 177.1 667.3 175.7 668.5 173.7C669.6 172.0 671.0 169.9 671.5 169.0C672.1 168.2 675.1 163.5 678.3 158.7C681.5 153.8 686.8 146.1 690.2 141.7C693.5 137.2 697.1 131.6 698.2 129.3C699.2 127.0 700.5 124.8 701.0 124.5C702.1 123.8 717.7 92.3 721.9 82.2C725.7 73.0 728.7 57.2 728.1 49.2C728.0 47.6 720.1 47.6 717.5 49.3C716.4 50.0 712.9 51.4 709.8 52.4C706.6 53.5 704.0 54.7 704.0 55.1C704.0 55.5 702.3 56.5 700.2 57.4C695.4 59.5 683.2 66.7 678.5 70.2C678.0 70.6 676.1 72.0 674.5 73.3C672.9 74.5 670.4 76.3 669.0 77.2C667.6 78.1 662.9 81.8 658.5 85.5C654.1 89.1 648.5 93.8 646.0 95.8C642.0 99.1 632.3 107.7 631.0 109.0C630.7 109.3 627.8 111.8 624.5 114.5C621.2 117.3 618.0 120.0 617.4 120.5C616.8 121.0 613.7 123.8 610.5 126.5C598.2 137.0 581.3 155.4 579.2 160.6C577.4 164.8 574.2 166.2 570.6 164.3C562.7 160.1 573.2 145.0 602.5 118.6C608.0 113.6 612.7 109.3 613.0 109.0C613.3 108.7 614.7 107.5 616.3 106.3C618.9 104.3 621.0 102.5 636.4 89.2C639.8 86.4 643.2 83.4 644.0 82.7C644.9 82.1 648.2 79.2 651.4 76.5C658.9 70.1 670.2 61.6 676.9 57.5C677.8 57.0 679.9 55.5 681.6 54.3C684.7 52.1 689.7 49.5 704.0 42.6C718.0 35.9 730.7 34.3 735.2 38.7C740.4 43.9 741.2 60.2 736.9 72.5C736.3 74.2 734.9 78.2 733.8 81.5C732.7 84.8 731.1 88.8 730.3 90.5C729.2 92.6 730.3 91.8 733.5 88.0C742.3 77.9 765.4 55.6 773.2 49.7C777.4 46.6 781.5 43.4 782.2 42.7C792.4 33.0 822.9 18.5 829.9 20.1C840.4 22.5 839.7 30.3 826.1 62.0C818.3 80.1 816.7 84.7 818.5 83.3C819.7 82.3 824.5 78.3 829.1 74.4C833.7 70.6 841.5 64.3 846.5 60.5C851.5 56.7 855.6 53.3 855.8 52.8C856.0 52.4 856.8 52.0 857.6 52.0C858.8 52.0 864.5 48.6 870.6 44.3C871.5 43.6 874.5 42.0 885.5 36.2C919.8 18.4 935.3 25.6 928.4 56.3C925.7 68.3 914.4 93.2 904.2 109.6C903.0 111.5 894.3 124.2 891.1 128.7C878.9 145.9 867.6 161.4 866.4 162.8C863.0 166.8 858.2 172.7 854.5 177.5C852.3 180.4 846.8 187.2 842.2 192.6C821.9 216.7 821.8 216.7 811.6 234.1C808.5 239.4 806.0 244.2 806.0 244.7C806.0 245.2 804.7 247.6 803.2 250.1C801.6 252.5 800.0 255.9 799.5 257.5C799.1 259.2 798.5 260.9 798.3 261.5C795.0 270.8 796.1 280.9 800.4 281.0C801.6 281.0 805.4 281.0 809.0 281.0C815.1 281.0 834.4 275.8 844.7 271.4C846.4 270.6 848.2 270.0 848.7 270.0C849.2 270.0 855.2 267.7 862.1 264.9C868.9 262.1 876.2 259.1 878.4 258.3C880.5 257.6 883.4 256.3 884.9 255.6C886.3 254.8 889.1 253.9 891.0 253.5C892.9 253.1 898.1 251.1 902.5 249.0C906.9 246.9 912.7 244.5 915.3 243.5C918.2 242.5 920.5 240.9 921.2 239.6C923.6 234.2 931.0 234.3 934.5 239.6C936.5 242.6 934.5 249.0 931.6 249.0C930.9 249.0 929.7 249.7 929.0 250.5C928.3 251.3 925.2 252.7 922.1 253.6C919.0 254.4 912.9 256.6 908.5 258.5C904.1 260.3 896.9 263.3 892.5 265.1C888.1 266.8 881.7 269.6 878.2 271.1C874.7 272.7 871.6 274.0 871.1 274.0C870.7 274.0 868.1 275.1 865.3 276.5C862.4 277.8 858.0 279.4 855.3 280.1C852.7 280.7 849.6 281.5 848.5 282.0C811.7 296.6 793.2 298.0 787.2 286.3C781.3 274.8 784.5 258.5 796.9 236.8C808.7 216.1 811.0 212.4 813.3 210.0C814.0 209.2 816.2 206.2 818.0 203.5C819.9 200.8 821.9 198.1 822.5 197.5C823.1 196.9 825.6 194.1 828.1 191.1C830.5 188.1 833.3 184.7 834.2 183.6C835.2 182.4 838.5 178.3 841.7 174.5C844.9 170.6 848.6 166.3 849.9 165.0C851.1 163.6 852.9 161.4 853.8 160.0C854.7 158.6 858.8 153.1 863.0 147.7C875.4 131.6 887.3 114.8 889.7 110.0C890.2 109.2 892.8 105.2 895.5 101.1C901.9 91.7 901.1 93.1 906.4 82.1C908.9 76.9 911.0 72.1 911.0 71.5C911.0 70.8 912.3 67.2 913.9 63.4C918.0 53.4 919.0 49.9 919.0 44.8C919.0 36.9 917.0 36.5 900.3 42.0C888.1 45.9 885.8 47.2 854.5 68.4C833.0 83.0 811.5 104.8 792.1 131.7C789.1 135.8 785.2 140.9 783.4 142.9C781.5 144.9 780.0 147.0 780.0 147.6C780.0 148.2 779.3 149.3 778.6 150.0C775.7 152.3 772.7 158.4 774.7 157.5C782.6 154.2 788.0 155.1 788.0 159.7C788.0 162.6 784.7 164.2 775.1 166.1C769.1 167.2 763.0 170.8 763.0 173.2C763.0 173.7 761.1 176.6 758.8 179.5C756.4 182.5 753.7 186.0 752.7 187.4C748.8 193.0 740.8 189.0 742.9 182.4C745.0 175.8 745.1 172.8 743.2 173.4C740.8 174.1 731.2 175.9 727.0 176.4C725.1 176.7 721.0 177.6 718.0 178.4C715.0 179.2 710.7 180.1 708.5 180.4C700.3 181.5 697.6 181.9 688.5 183.6C687.4 183.8 685.0 184.3 683.2 184.6C680.4 185.1 679.0 186.5 675.4 191.9C672.9 195.5 668.4 202.3 665.2 206.9C662.1 211.5 658.9 216.5 658.1 217.9C657.3 219.3 655.6 221.8 654.3 223.3C653.1 224.9 652.0 226.7 652.0 227.4C652.0 228.1 651.1 229.5 650.1 230.4C649.0 231.4 647.6 233.6 646.9 235.3C646.2 237.1 645.0 239.2 644.3 240.2C643.5 241.1 640.7 245.4 638.0 249.7C630.5 261.7 628.7 263.9 625.8 264.5C616.9 266.6 614.7 256.6 622.2 248.4C623.3 247.2 624.9 244.9 625.8 243.2C626.7 241.5 629.8 236.9 632.5 233.0C635.2 229.0 638.6 223.9 640.0 221.5C641.4 219.2 644.3 214.6 646.5 211.4C648.6 208.1 651.8 202.7 653.6 199.2C655.4 195.7 657.6 192.0 658.6 190.9C660.7 188.6 657.7 188.3 650.0 190.1C645.5 191.2 640.6 192.0 627.7 193.9C624.0 194.5 620.6 195.1 620.1 195.4C619.7 195.7 616.7 196.4 613.4 196.9C610.2 197.5 601.0 199.1 593.0 200.5C585.0 201.9 576.9 203.3 575.0 203.5C573.1 203.8 569.7 204.6 567.5 205.2C565.3 205.8 560.8 206.6 557.5 207.1C550.8 208.1 548.5 208.5 542.0 209.9C539.5 210.4 533.7 211.5 529.0 212.4C524.3 213.3 518.2 214.5 515.5 215.0C512.8 215.6 508.9 216.2 507.0 216.5C505.1 216.8 501.5 217.4 499.0 218.0C496.5 218.5 488.9 219.9 482.0 221.0C475.1 222.2 467.7 223.6 465.5 224.2C463.3 224.8 459.9 225.4 457.9 225.6C455.9 225.8 450.5 226.9 445.9 228.0C441.3 229.1 436.4 230.0 435.0 230.0C433.6 230.0 427.5 231.1 421.5 232.5C415.4 233.9 408.1 235.5 405.1 236.0C399.0 237.1 379.1 241.6 374.5 243.0C372.9 243.5 369.7 244.2 367.5 244.6C357.8 246.1 351.7 247.5 350.3 248.3C349.6 248.7 347.9 249.2 346.3 249.5C344.8 249.7 341.2 250.4 338.5 251.0C335.8 251.6 332.3 252.2 330.9 252.4C329.5 252.6 327.8 253.0 327.2 253.4C326.5 253.8 322.8 254.7 318.8 255.5C310.9 257.0 301.8 259.1 290.0 262.1C279.4 264.9 265.1 268.1 261.0 268.7C252.1 270.1 249.5 273.0 239.5 292.5C238.1 295.2 235.4 300.2 233.6 303.5C231.7 306.8 228.0 313.8 225.4 319.0C222.7 324.2 219.9 329.4 219.0 330.5C218.1 331.6 216.4 334.8 215.2 337.5C214.1 340.2 209.4 349.7 204.9 358.5C200.4 367.3 195.3 377.2 193.7 380.5C192.1 383.8 188.8 389.7 186.5 393.6C184.1 397.5 180.8 404.0 179.1 408.0C177.3 412.1 174.6 417.6 173.0 420.2C171.4 422.7 168.3 429.1 166.1 434.2C163.9 439.3 160.5 446.4 158.6 449.9C156.6 453.3 155.0 456.7 155.0 457.2C155.0 457.8 153.9 460.8 152.6 463.9C151.3 467.0 149.5 472.2 148.5 475.5C142.9 495.0 143.1 494.5 139.9 495.3C138.6 495.7 137.4 495.1 136.3 493.4zM286.2 238.0C279.1 233.6 278.8 229.1 284.8 218.2C289.2 210.1 296.7 202.0 306.7 194.4C311.0 191.2 314.7 188.1 314.9 187.7C315.5 186.3 326.3 181.9 329.5 181.8C333.2 181.7 337.0 182.8 339.2 184.7C340.6 186.0 340.9 186.0 341.7 184.6C343.1 182.1 349.2 178.0 351.5 178.0C358.6 178.0 357.9 184.9 349.9 193.5C344.0 199.9 338.7 211.0 341.6 211.0C342.7 211.0 354.8 201.0 357.7 197.7C359.2 195.9 362.8 191.8 365.5 188.6C376.4 175.9 387.0 173.0 387.0 182.7C387.0 185.6 387.8 185.6 391.9 182.6C403.9 173.7 417.5 175.3 412.5 185.0L411.0 187.9L414.4 185.9C416.3 184.8 418.4 183.2 419.1 182.4C420.6 180.6 428.0 177.3 432.4 176.5C436.0 175.8 440.7 179.9 439.5 182.7C439.2 183.4 438.7 184.7 438.4 185.6C436.7 189.8 459.0 180.4 465.5 174.2C481.7 158.7 492.7 154.9 496.0 163.6C497.8 168.3 490.6 176.6 479.1 182.9C468.8 188.6 465.4 191.7 467.4 193.7C469.6 195.9 486.1 191.8 497.7 186.1C515.3 177.4 517.7 176.7 519.9 179.4C522.3 182.3 520.1 185.7 513.7 189.1C510.3 190.8 507.3 192.6 507.0 193.0C506.7 193.4 505.4 194.1 504.0 194.5C502.6 194.9 497.7 197.0 493.0 199.3C488.3 201.5 483.8 203.5 483.0 203.6C482.2 203.7 478.7 204.3 475.4 204.8C463.6 206.8 459.7 204.9 454.3 194.2C454.2 194.0 452.7 194.5 450.8 195.3C443.3 198.6 442.2 198.8 438.2 198.0C433.0 197.1 429.2 194.6 427.9 191.3C426.9 188.5 426.8 188.5 420.4 194.5C407.3 206.8 402.1 209.3 398.4 205.3C395.8 202.5 395.8 202.0 397.6 194.7L398.3 191.9L392.9 195.1C389.9 196.9 383.4 202.2 378.5 207.0C366.8 218.4 359.7 221.8 357.2 217.5C356.5 216.1 355.3 216.5 349.5 220.0C339.1 226.0 332.2 224.6 330.4 216.1C330.1 214.7 329.7 213.1 329.6 212.7C329.5 212.2 325.6 215.6 320.9 220.2C302.4 238.3 293.8 242.6 286.2 238.0zM304.0 219.9C310.3 214.8 326.6 199.0 325.7 199.0C319.7 199.0 292.0 222.4 292.0 227.5C292.0 228.5 298.9 224.1 304.0 219.9zM993.0 206.7C991.1 206.2 988.8 205.3 988.0 204.6C987.2 203.9 985.8 203.0 985.0 202.6C984.2 202.3 980.8 200.4 977.5 198.5C974.2 196.6 968.6 193.7 965.0 192.0C961.4 190.4 956.7 188.1 954.5 186.9C952.3 185.7 948.1 183.4 945.3 181.9C931.7 174.8 905.6 152.1 904.5 146.5C903.5 141.6 905.9 139.5 912.2 139.6C917.9 139.8 932.2 142.5 934.9 143.9C935.8 144.4 939.2 145.7 942.5 146.8C956.5 151.6 981.9 166.0 988.2 172.7C990.1 174.8 992.6 177.3 993.8 178.2C997.9 181.5 996.0 187.5 990.4 188.6C987.7 189.1 986.5 188.4 979.4 182.3C975.1 178.6 969.2 174.2 966.5 172.6C963.8 171.0 961.3 169.3 961.0 168.9C960.6 168.3 958.0 166.9 944.5 159.7C941.2 158.0 927.8 153.8 927.3 154.4C927.1 154.6 929.1 156.2 931.6 158.1C934.2 160.0 937.7 162.9 939.4 164.5C941.1 166.2 945.0 168.6 948.0 169.9C951.0 171.2 954.9 173.3 956.7 174.6C958.4 175.9 960.1 177.0 960.5 177.0C961.6 177.0 982.3 187.3 989.0 191.2C992.6 193.3 996.0 195.0 996.6 195.0C998.3 195.0 1013.2 179.8 1019.4 171.7C1022.4 167.8 1027.5 161.1 1030.7 157.0C1033.9 152.9 1037.7 147.7 1039.3 145.5C1049.9 130.2 1055.8 121.2 1057.5 118.0C1058.6 115.9 1060.2 113.4 1061.1 112.4C1063.6 109.6 1067.0 101.1 1067.0 97.9C1067.0 95.0 1063.9 93.7 1062.5 96.0C1062.2 96.5 1060.8 97.0 1059.5 97.0C1058.3 97.0 1056.2 98.1 1054.9 99.5C1053.6 100.8 1052.1 102.0 1051.6 102.0C1050.6 102.0 1044.8 107.3 1027.0 124.4C1020.6 130.5 1011.9 138.7 1007.6 142.5C1003.3 146.3 998.9 150.3 997.8 151.3C985.0 163.1 980.9 165.4 978.7 161.9C976.2 157.9 976.9 157.0 1004.6 130.0C1047.0 88.6 1051.5 85.1 1065.3 82.7L1072.2 81.6L1075.0 84.7C1078.9 89.0 1079.6 94.3 1077.2 101.6C1075.2 107.6 1068.0 122.2 1065.6 125.0C1064.9 125.8 1064.0 127.2 1063.6 128.0C1063.2 128.8 1060.7 132.7 1057.9 136.5C1055.2 140.3 1051.3 146.0 1049.3 149.0C1045.3 155.0 1031.1 174.5 1021.5 187.1C1018.2 191.4 1014.7 196.1 1013.7 197.4C1009.2 203.8 999.1 208.3 993.0 206.7zM698.3 171.5C702.8 170.7 707.9 169.8 709.5 169.5C722.7 167.7 733.5 165.8 734.4 165.2C735.0 164.9 737.8 164.2 740.5 163.8C753.9 161.8 753.5 162.0 758.9 154.5C761.7 150.7 766.0 144.8 768.4 141.5C777.9 128.8 779.7 126.3 783.1 121.0C785.1 118.0 788.6 112.1 790.9 108.0C793.2 103.9 795.5 99.8 796.0 99.0C798.5 94.8 814.6 61.9 816.0 58.0C817.6 53.8 821.2 44.4 824.8 35.7C825.6 33.7 826.1 31.8 825.8 31.5C825.0 30.7 813.6 35.6 806.3 39.9C802.5 42.1 798.9 44.0 798.3 44.0C797.7 44.0 796.6 44.7 795.9 45.7C795.1 46.6 792.0 49.1 789.0 51.4C775.2 61.5 759.2 76.5 740.4 96.9C737.2 100.5 733.4 104.5 732.0 105.9C729.4 108.5 721.8 118.2 719.0 122.4C718.2 123.7 716.4 126.3 715.0 128.2C706.5 140.2 701.8 147.4 697.9 154.5C695.5 158.9 693.0 163.4 692.3 164.5C691.6 165.6 690.6 167.5 690.1 168.7C689.6 169.8 688.6 171.1 688.1 171.5C686.4 172.5 686.8 174.3 688.5 173.6C689.3 173.3 693.7 172.4 698.3 171.5zM347.8 132.9C345.1 131.4 345.6 128.7 349.8 122.2C351.8 118.9 355.3 113.4 357.5 110.0C359.7 106.5 362.2 102.5 363.0 101.0C363.8 99.6 365.1 97.7 365.8 96.9C366.5 96.1 367.6 94.7 368.4 93.6C370.6 90.4 377.1 90.8 378.8 94.3C380.4 97.7 379.8 99.8 375.7 104.9C373.9 107.0 368.9 113.4 364.5 119.1C353.0 134.0 351.6 135.2 347.8 132.9z" fill="currentColor" fill-rule="evenodd" mask="url(#intro-mask)"/></svg><svg id="intro-bird" viewBox="0 0 160 80" aria-hidden="true"><g class="bird"><path class="wing far" d="M74 37C66 14 82-1 114 2 99 11 92 26 90 40Z" fill="#43464d"/><path d="M48 40 4 44 2 52 9 56 52 49Z" fill="#45484f"/><path d="M2 52 9 56 16 53 6 49Z" fill="#fff"/><path d="M44 40C52 31 74 30 96 36 106 39 112 42 108 46 100 52 70 54 52 50 45 48 42 44 44 40Z" fill="#a9adb4"/><path d="M52 49C72 54 100 52 108 46 102 56 72 58 52 51Z" fill="#eceef0"/><circle cx="110" cy="37" r="8" fill="#a9adb4"/><path d="M117 35 137 38 117 40.5Z" fill="#2b2c30"/><circle cx="113" cy="35" r="2.7" fill="#e6d368"/><circle cx="113.4" cy="35" r="1.3" fill="#0f0f12"/><g class="wing near"><path d="M72 39C63 15 80-3 113 0 97 10 89 26 86 42Z" fill="#555961"/><path d="M92 8C99 4 106 2 113 2 105 7 100 16 97 27Z" fill="#fff"/><path d="M72 39C66 25 70 11 82 3 77 15 77 29 81 41Z" fill="#3d4047" opacity=".7"/></g></g></svg>
-<button id="intro-skip" type="button">Saltar</button></div>
 
 <header class="bar" id="bar">
   <button class="icon-btn" id="open-menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
@@ -453,18 +362,9 @@ table.mail input{padding:.4rem .5rem!important}
     </button>
   </section>
 
-  <!-- MÚSICA (2.ª sección): discos de vinilo -->
-  <section class="sec sec-music" id="music" aria-labelledby="h-music">
-    <h2 id="h-music" class="split" data-k="musica" data-es="Música" data-en="Music">Música</h2>
-    <div class="crate" id="songs"></div>
-  </section>
-
-  <!-- GALERÍA: una foto a la vez, se desliza -->
-  <section class="gal" id="gallery" role="region" aria-roledescription="carousel" aria-label="Fotos">
-    <div class="track" id="gal-track" tabindex="0"></div>
-    <button class="gnav gprev" id="gal-prev" type="button" aria-label="Foto anterior">‹</button>
-    <button class="gnav gnext" id="gal-next" type="button" aria-label="Foto siguiente">›</button>
-    <div class="gfoot"><div class="gbar" id="gal-bar" role="scrollbar" aria-controls="gal-track" aria-orientation="horizontal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0" aria-label="Fotos"><div class="gthumb" id="gal-thumb"></div></div></div>
+  <!-- GALERÍA: las fotos entran al bajar -->
+  <section class="gal" id="gallery" aria-label="Fotos">
+    <div class="cols" id="gal-cols"></div>
   </section>
 
   <!-- SHOWS -->
@@ -479,16 +379,22 @@ table.mail input{padding:.4rem .5rem!important}
     </div>
   </section>
 
+  <!-- MÚSICA -->
+  <section class="sec sec-music" id="music" aria-labelledby="h-music">
+    <div class="in">
+      <h2 id="h-music" data-k="musica" data-es="Música" data-en="Music">Música</h2>
+      <p class="lede" data-k="toca-una-portada-para-escuchar-la-cancion-o-elige-tu-platafo" data-es="Toca una portada para escuchar la canción, o elige tu plataforma." data-en="Tap a cover to listen, or pick your platform.">Toca una portada para escuchar la canción, o elige tu plataforma.</p>
+      <div class="songs" id="songs"></div>
+    </div>
+  </section>
+
   <!-- OPEN MIC -->
   <section class="sec sec-mic" id="openmic" aria-labelledby="h-mic">
     <div class="in">
       <h2 id="h-mic">Open Mic @ Libros de la Luna</h2>
-      <div class="mic-main" id="openmic-main"></div>
-      <div id="mic-past-wrap" hidden>
-        <div class="rule" aria-hidden="true"></div>
-        <h3 class="more-h" style="margin-top:0" data-k="open-mics-pasados" data-es="Open mics pasados" data-en="Past open mics">Open mics pasados</h3>
-        <div class="mgrid" id="mics-grid"></div>
-      </div>
+      <div id="openmic-info"></div>
+      <div class="rule" aria-hidden="true"></div>
+      <div class="mgrid" id="mics-grid"></div>
     </div>
   </section>
 
@@ -517,7 +423,7 @@ table.mail input{padding:.4rem .5rem!important}
   </section>
 
   <!-- CONÓCEME -->
-  <section class="sec sec-meet" id="meet" aria-labelledby="h-meet">
+  <section class="sec" id="meet" aria-labelledby="h-meet">
     <div class="in">
       <h2 id="h-meet" data-k="conoceme" data-es="Conóceme" data-en="Meet me">Conóceme</h2>
       <div class="meet" style="margin-top:2rem">
@@ -531,10 +437,8 @@ table.mail input{padding:.4rem .5rem!important}
 </main>
 
 <footer class="foot">
-  <div id="follow-wrap">
-    <h2 data-k="sigueme" data-es="Sígueme" data-en="Follow me">Sígueme</h2>
-    <ul class="social" id="social" aria-label="Redes sociales"></ul>
-  </div>
+  <h2 data-k="sigueme" data-es="Sígueme" data-en="Follow me">Sígueme</h2>
+  <ul class="social" id="social" aria-label="Redes sociales"></ul>
   <div class="legal">
     <a class="is-off" aria-disabled="true" data-k="aviso-de-privacidad" data-es="Aviso de privacidad" data-en="Privacy notice">Aviso de privacidad</a>
     <a class="is-off" aria-disabled="true" data-k="terminos-y-condiciones" data-es="Términos y condiciones" data-en="Terms and conditions">Términos y condiciones</a>
@@ -560,13 +464,6 @@ table.mail input{padding:.4rem .5rem!important}
   <button class="nav-b prev" id="lb-prev" type="button" aria-label="Foto anterior">‹</button>
   <figure><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure>
   <button class="nav-b next-b" id="lb-next" type="button" aria-label="Foto siguiente">›</button>
-</dialog>
-
-<!-- Reproductor de video -->
-<dialog id="vdlg" class="vd" aria-labelledby="vd-title">
-  <button class="x" id="vd-x" type="button" aria-label="Cerrar">×</button>
-  <div class="vframe" id="vframe"></div>
-  <div class="body"><h3 id="vd-title"></h3><a class="btn" id="vd-yt" target="_blank" rel="noopener"></a></div>
 </dialog>
 
 <!-- Ventana: administración (solo para la artista) -->
@@ -2895,14 +2792,14 @@ var qrcode = function() {
      github: dónde vive la página (para publicar desde el panel). Se puede
      dejar vacío y llenarlo dentro del panel, en la pestaña Publicar.
      ============================================================ */
-  var CONFIG = { github: { owner: "lixkordaz", repo: "JanneMoreno", branch: "main" } };
+  var CONFIG = { github: { owner: "", repo: "", branch: "main" } };
 
   /* Acceso al panel: aquí NO está la contraseña, solo su "huella" (hash).
      Para cambiar usuario o contraseña: panel → Correos y acceso → "Cambiar usuario o contraseña". */
   var ADMIN = { salt: "70956de41cf497d1ea1eb53233c694c8", hash: "acde15375bc69c1fa360fb0b72b56efb897e55f9583c6575b10bc38285352a64", iter: 250000 };
 
   /* Contenido original (el mismo de content.json). Si content.json existe, manda sobre este. */
-  var DEFAULTS = {"_leeme":"Contenido de la página de Jánne Moreno. Se edita desde el panel (enlace “Acceso” al final de la página). Cada texto es {\"es\": \"...\", \"en\": \"...\"}. Las imágenes son nombres de la página o rutas dentro de la carpeta img/.","settings":{"colors":{"bg":"#EDE4D8","ink":"#2A1A14","logo":"#C42100","shows":["#E7DED4","#D9BF9C"],"mic":["#B4CCC0","#C48F65"],"videos":["#F7A323","#EF8419"],"shop":["#B7A3B5","#BB8746"],"footer":["#2A1A14","#2A1A14"],"musicbg":["#2B1A11","#150B07"]},"mailing":{"endpoint":""},"signature":"","signatureAr":2.1359,"social":[{"type":"youtube","url":"https://www.youtube.com/@janne.moreno"}],"intro":true},"hero":{"image":"hero","pos":"47% 40%","alt":{"es":"Jánne Moreno frente a un mural, con los brazos abiertos","en":"Jánne Moreno in front of a mural, arms open"}},"gallery":["g1","g5","g8900","g3","may1","g9160","g13","g8809","may8","g8847","g8915","g9096","g3b"],"shows":{"upcoming":[{"id":"2026-10-24-day-of-the-dead-xicago","when":"2026-10-24","name":{"es":"Day of the Dead Xicágo","en":"Day of the Dead Xicágo"},"short":{"es":"24 de octubre","en":"October 24"},"date":{"es":"Sábado 24 de octubre de 2026 · 3 a 8 pm","en":"Saturday, October 24, 2026 · 3 to 8 pm"},"info":{"es":"Ofrendas, música y arte en el National Museum of Mexican Art, 1852 W 19th St, Chicago. Entrada gratuita.","en":"Ofrendas, music and art at the National Museum of Mexican Art, 1852 W 19th St, Chicago. Free admission."},"link":"https://NationalMuseumOfMexicanArt.org","flyer":"fl_dod"},{"id":"2026-10-31-wmf-dia-de-los-muertos","when":"2026-10-31","name":{"es":"Día de los Muertos: una noche de arte y música en vivo","en":"Día de los Muertos: an evening of art and live music"},"short":{"es":"31 de octubre","en":"October 31"},"date":{"es":"Sábado 31 de octubre · 6 a 8 pm","en":"Saturday, October 31 · 6 to 8 pm"},"info":{"es":"Concierto de Jánne Moreno con The World Music Foundation, 1066 W Granville Ave, Chicago. Lotería y premios, pan dulce y concurso de catrinas y catrines.","en":"Concert by Jánne Moreno with The World Music Foundation, 1066 W Granville Ave, Chicago. Lotería and prizes, pan dulce and a catrina / catrín costume contest."},"link":"https://TheWMF.org/dia","flyer":"fl_oct31"}],"past":[{"when":"2026-10-04","name":{"es":"Pilsen Community Books","en":"Pilsen Community Books"},"date":{"es":"4 de octubre de 2026","en":"October 4, 2026"},"desc":{"es":"Su primera vez en Pilsen Community Books, 1531 W 18th St, Chicago.","en":"Her first time at Pilsen Community Books, 1531 W 18th St, Chicago."},"link":"","videos":"","photos":["pcb1","pcb2","pcb3","pcb4","pcbfl"],"pos":"50% 30%"},{"when":"2026-08-30","name":{"es":"Loving Heart Cafe Matinee","en":"Loving Heart Cafe Matinee"},"date":{"es":"30 de agosto","en":"August 30"},"desc":{"es":"Matinee dominical con Jacob Revels, Ngozzi, Nicholas A. Randall y Jánne Moreno, en 838 W Montrose Ave, Chicago.","en":"Sunday matinee with Jacob Revels, Ngozzi, Nicholas A. Randall and Jánne Moreno, at 838 W Montrose Ave, Chicago."},"link":"","videos":"","photos":["lovingfl"],"pos":"50% 35%"},{"when":"2026-08-29","name":{"es":"Edgewater Music Fest","en":"Edgewater Music Fest"},"date":{"es":"29 de agosto","en":"August 29"},"desc":{"es":"Set acústico de 3:00 a 3:50 pm en el escenario acústico de la carpa de Rattleback Records, presentado por The WMF.","en":"Acoustic set, 3:00 to 3:50 pm, on the acoustic stage in the Rattleback Records tent, presented by The WMF."},"link":"","videos":"","photos":["edgefl"],"pos":"50% 20%"},{"when":"2026-05-16","name":{"es":"Show del 16 de mayo","en":"May 16 show"},"date":{"es":"16 de mayo de 2026","en":"May 16, 2026"},"desc":{"es":"Aquí va el nombre del lugar y una descripción corta del show.","en":"The venue name and a short description of the show go here."},"link":"","videos":"","photos":["may8","may1","may9"],"pos":"50% 35%"}]},"music":[{"title":{"es":"Soy de ti","en":"Soy de ti"},"cover":"cover","pos":"50% 85%","spotify":"","apple":"","ytmusic":"","vinyl":""},{"title":{"es":"Título de la canción","en":"Song title"},"cover":"","pos":"50% 50%","spotify":"","apple":"","ytmusic":"","vinyl":""},{"title":{"es":"Título de la canción","en":"Song title"},"cover":"","pos":"50% 50%","spotify":"","apple":"","ytmusic":"","vinyl":""},{"title":{"es":"Título de la canción","en":"Song title"},"cover":"","pos":"50% 50%","spotify":"","apple":"","ytmusic":"","vinyl":""}],"openmic":{"image":"","info":{"es":"Organizo open mics en Libros de la Luna. Aquí van la fecha, la hora, cómo apuntarse para tocar y cualquier otro dato.","en":"I host open mics at Libros de la Luna. Date, time, how to sign up to play and any other details go here."},"date":{"es":"Próxima fecha por confirmar","en":"Next date to be confirmed"},"link":"","past":[]},"videos":[{"title":{"es":"Título del video","en":"Video title"},"url":"","thumb":""},{"title":{"es":"Título del video","en":"Video title"},"url":"","thumb":""},{"title":{"es":"Título del video","en":"Video title"},"url":"","thumb":""}],"shop":{"storeButton":{"enabled":false,"url":"","label":{"es":"Ir a la tienda","en":"Go to the store"}},"note":{"es":"","en":""},"items":[{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"op2","pos":"62% 35%","onlyAtShows":false},{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"m1292","pos":"50% 40%","onlyAtShows":false},{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"m1217","pos":"50% 40%","onlyAtShows":false},{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"m1211","pos":"50% 35%","onlyAtShows":false},{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"m1282","pos":"50% 40%","onlyAtShows":false},{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"m1264","pos":"50% 35%","onlyAtShows":false}],"hidden":true},"meet":{"photo":"bio","pos":"50% 30%","bio":{"es":"Aquí va la biografía de Jánne Moreno. Cuenta de dónde viene, cómo empezó a hacer música y qué la mueve hoy.\n\nDespués, agrega lo que marcó su camino: canciones, shows y proyectos, como el Open Mic que organiza en Libros de la Luna.","en":"Jánne Moreno’s biography goes here. Tell where she comes from, how she started making music and what drives her today.\n\nThen add what shaped her path: songs, shows and projects, like the Open Mic she hosts at Libros de la Luna."},"gallery":[]},"texts":{},"dims":{"hero":1.858,"op2":1.5005,"fl_dod":1.0,"fl_oct31":0.7725,"pcb1":0.7318,"pcb2":1.62,"pcb3":0.6664,"pcb4":0.6664,"pcbfl":0.75,"lovingfl":0.75,"edgefl":0.75,"may1":1.5007,"may8":1.5007,"may9":1.5007,"m1211":0.6667,"m1217":1.5,"m1264":1.5,"m1282":1.5,"m1292":0.6667,"bio":0.667,"cover":0.6667,"g1":0.6436,"g3":0.6614,"g5":1.3397,"g8809":0.6664,"g8847":0.6664,"g8900":0.6664,"g8915":0.6664,"g9096":0.6664,"g9160":0.6664,"g3b":0.6664,"g13":1.0}};
+  var DEFAULTS = {"_leeme":"Contenido de la página de Jánne Moreno. Se edita desde el panel (enlace “Acceso” al final de la página). Cada texto es {\"es\": \"...\", \"en\": \"...\"}. Las imágenes son nombres de la página o rutas dentro de la carpeta img/.","settings":{"colors":{"bg":"#EDE4D8","ink":"#2A1A14","logo":"#C42100","shows":["#E7DED4","#D9BF9C"],"music":["#B8421F","#5E4D4A"],"mic":["#B4CCC0","#C48F65"],"videos":["#F7A323","#EF8419"],"shop":["#B7A3B5","#BB8746"],"footer":["#2A1A14","#2A1A14"]},"links":{"youtube":"https://www.youtube.com/@janne.moreno","instagram":"","spotify":"","tiktok":"","facebook":""},"mailing":{"endpoint":""},"signature":"","signatureAr":2.1359},"hero":{"image":"hero","pos":"47% 40%","alt":{"es":"Jánne Moreno frente a un mural, con los brazos abiertos","en":"Jánne Moreno in front of a mural, arms open"}},"gallery":["g1","g8900","g3","g9160","g5","g8809","g8847","g8915","g9096","g3b","g13"],"shows":{"upcoming":[{"id":"2026-10-24-day-of-the-dead-xicago","when":"2026-10-24","name":{"es":"Day of the Dead Xicágo","en":"Day of the Dead Xicágo"},"short":{"es":"24 de octubre","en":"October 24"},"date":{"es":"Sábado 24 de octubre de 2026 · 3 a 8 pm","en":"Saturday, October 24, 2026 · 3 to 8 pm"},"info":{"es":"Ofrendas, música y arte en el National Museum of Mexican Art, 1852 W 19th St, Chicago. Entrada gratuita.","en":"Ofrendas, music and art at the National Museum of Mexican Art, 1852 W 19th St, Chicago. Free admission."},"link":"https://NationalMuseumOfMexicanArt.org","flyer":"fl_dod"},{"id":"2026-10-31-wmf-dia-de-los-muertos","when":"2026-10-31","name":{"es":"Día de los Muertos: una noche de arte y música en vivo","en":"Día de los Muertos: an evening of art and live music"},"short":{"es":"31 de octubre","en":"October 31"},"date":{"es":"Sábado 31 de octubre · 6 a 8 pm","en":"Saturday, October 31 · 6 to 8 pm"},"info":{"es":"Concierto de Jánne Moreno con The World Music Foundation, 1066 W Granville Ave, Chicago. Lotería y premios, pan dulce y concurso de catrinas y catrines.","en":"Concert by Jánne Moreno with The World Music Foundation, 1066 W Granville Ave, Chicago. Lotería and prizes, pan dulce and a catrina / catrín costume contest."},"link":"https://TheWMF.org/dia","flyer":"fl_oct31"}],"past":[{"when":"2026-10-04","name":{"es":"Pilsen Community Books","en":"Pilsen Community Books"},"date":{"es":"4 de octubre de 2026","en":"October 4, 2026"},"desc":{"es":"Su primera vez en Pilsen Community Books, 1531 W 18th St, Chicago.","en":"Her first time at Pilsen Community Books, 1531 W 18th St, Chicago."},"link":"","videos":"","photos":["pcb1","pcb2","pcb3","pcb4","pcbfl"],"pos":"50% 30%"},{"when":"2026-08-30","name":{"es":"Loving Heart Cafe Matinee","en":"Loving Heart Cafe Matinee"},"date":{"es":"30 de agosto","en":"August 30"},"desc":{"es":"Matinee dominical con Jacob Revels, Ngozzi, Nicholas A. Randall y Jánne Moreno, en 838 W Montrose Ave, Chicago.","en":"Sunday matinee with Jacob Revels, Ngozzi, Nicholas A. Randall and Jánne Moreno, at 838 W Montrose Ave, Chicago."},"link":"","videos":"","photos":["lovingfl"],"pos":"50% 35%"},{"when":"2026-08-29","name":{"es":"Edgewater Music Fest","en":"Edgewater Music Fest"},"date":{"es":"29 de agosto","en":"August 29"},"desc":{"es":"Set acústico de 3:00 a 3:50 pm en el escenario acústico de la carpa de Rattleback Records, presentado por The WMF.","en":"Acoustic set, 3:00 to 3:50 pm, on the acoustic stage in the Rattleback Records tent, presented by The WMF."},"link":"","videos":"","photos":["edgefl"],"pos":"50% 20%"},{"when":"2026-05-16","name":{"es":"Show del 16 de mayo","en":"May 16 show"},"date":{"es":"16 de mayo de 2026","en":"May 16, 2026"},"desc":{"es":"Aquí va el nombre del lugar y una descripción corta del show.","en":"The venue name and a short description of the show go here."},"link":"","videos":"","photos":["may8","may1","may9"],"pos":"50% 35%"}]},"music":[{"title":{"es":"Soy de ti","en":"Soy de ti"},"cover":"cover","pos":"50% 85%","spotify":"","apple":"","ytmusic":""},{"title":{"es":"Título de la canción","en":"Song title"},"cover":"","pos":"50% 50%","spotify":"","apple":"","ytmusic":""},{"title":{"es":"Título de la canción","en":"Song title"},"cover":"","pos":"50% 50%","spotify":"","apple":"","ytmusic":""},{"title":{"es":"Título de la canción","en":"Song title"},"cover":"","pos":"50% 50%","spotify":"","apple":"","ytmusic":""}],"openmic":{"info":{"es":"Organizo open mics en Libros de la Luna. Aquí van la fecha, la hora, cómo apuntarse para tocar y cualquier otro dato.","en":"I host open mics at Libros de la Luna. Date, time, how to sign up to play and any other details go here."},"date":{"es":"Próxima fecha por confirmar","en":"Next date to be confirmed"},"link":"","photos":[]},"videos":[{"title":{"es":"Título del video","en":"Video title"},"url":"","thumb":""},{"title":{"es":"Título del video","en":"Video title"},"url":"","thumb":""},{"title":{"es":"Título del video","en":"Video title"},"url":"","thumb":""}],"shop":{"storeButton":{"enabled":false,"url":"","label":{"es":"Ir a la tienda","en":"Go to the store"}},"note":{"es":"","en":""},"items":[{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"op2","pos":"62% 35%","onlyAtShows":false},{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"m1292","pos":"50% 40%","onlyAtShows":false},{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"m1217","pos":"50% 40%","onlyAtShows":false},{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"m1211","pos":"50% 35%","onlyAtShows":false},{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"m1282","pos":"50% 40%","onlyAtShows":false},{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"m1264","pos":"50% 35%","onlyAtShows":false}]},"meet":{"photo":"bio","pos":"50% 30%","bio":{"es":"Aquí va la biografía de Jánne Moreno. Cuenta de dónde viene, cómo empezó a hacer música y qué la mueve hoy.\n\nDespués, agrega lo que marcó su camino: canciones, shows y proyectos, como el Open Mic que organiza en Libros de la Luna.","en":"Jánne Moreno’s biography goes here. Tell where she comes from, how she started making music and what drives her today.\n\nThen add what shaped her path: songs, shows and projects, like the Open Mic she hosts at Libros de la Luna."},"gallery":[]},"texts":{}};
 
   var IMG = {};          /* fotos incluidas en este archivo (al final) + fotos nuevas en memoria */
   var CONTENT = null;    /* contenido activo */
@@ -2918,18 +2815,18 @@ var qrcode = function() {
         suSoon:"Las suscripciones estarán disponibles muy pronto.",suOk:"¡Gracias! Quedaste en la lista.",suBad:"Escribe un correo válido, por ejemplo tu@correo.com.",suErr:"No se pudo enviar. Intenta de nuevo en un momento.",
         ytText:"¿Te gustaría suscribirte también a mi canal de YouTube? Es un clic.",ytBtn:"Suscribirme en YouTube",
         photo:"Foto",gal:"Foto de Jánne Moreno",photoN:"Foto ",photosLbl:"Fotos",flyerOf:"Flyer de",coverOf:"Portada de",pending:"Enlace pendiente",
-        toEn:"English",langLabel:"Cambiar a inglés",menuOpen:"Abrir menú",close:"Cerrar",more2:"Ver más",prevPh:"Foto anterior",nextPh:"Foto siguiente",skip:"Saltar",listen:"Escuchar ahora",onYT:"Ver en YouTube",playVideo:"Reproducir video:"},
+        toEn:"English",langLabel:"Cambiar a inglés",menuOpen:"Abrir menú",close:"Cerrar",more2:"Ver más"},
     en:{more:"More info",videos:"Watch videos",watch:"Watch here",next:"Next show",noUp:"New dates will be announced soon.",
         spotify:"Open on Spotify",apple:"Open on Apple Music",ytm:"Open on YouTube Music",scan:"Scan the code to listen on Spotify.",
         qrPend:"The QR code appears once the Spotify link is added.",onlyShows:"Only at shows",
         suSoon:"Sign-ups will be available very soon.",suOk:"Thank you! You’re on the list.",suBad:"Enter a valid email, for example you@email.com.",suErr:"Couldn’t send. Please try again in a moment.",
         ytText:"Would you also like to subscribe to my YouTube channel? It’s one click.",ytBtn:"Subscribe on YouTube",
         photo:"Photo",gal:"Photo of Jánne Moreno",photoN:"Photo ",photosLbl:"Photos",flyerOf:"Flyer for",coverOf:"Cover of",pending:"Link coming soon",
-        toEn:"Español",langLabel:"Switch to Spanish",menuOpen:"Open menu",close:"Close",more2:"See more",prevPh:"Previous photo",nextPh:"Next photo",skip:"Skip",listen:"Listen now",onYT:"Watch on YouTube",playVideo:"Play video:"}
+        toEn:"Español",langLabel:"Switch to Spanish",menuOpen:"Open menu",close:"Close",more2:"See more"}
   };
   var T0 = JSON.parse(JSON.stringify(T));   /* copia de los textos originales */
   var UI_LABELS = [["more","Botón “Más información”"],["videos","Botón “Ver videos”"],["watch","“Ver aquí” (videos)"],["next","“Próximo show” (portada)"],
-    ["noUp","Aviso cuando no hay shows próximos"],["listen","Botón “Escuchar ahora” (música)"],["onYT","Botón “Ver en YouTube” (reproductor)"],["spotify","Botón “Abrir en Spotify”"],["apple","Botón “Abrir en Apple Music”"],["ytm","Botón “Abrir en YouTube Music”"],
+    ["noUp","Aviso cuando no hay shows próximos"],["spotify","Botón “Abrir en Spotify”"],["apple","Botón “Abrir en Apple Music”"],["ytm","Botón “Abrir en YouTube Music”"],
     ["onlyShows","Etiqueta “Solo en eventos” (tienda)"],["suOk","Mensaje al suscribirse"],["ytText","Invitación a YouTube (después de suscribirse)"],["ytBtn","Botón de YouTube (después de suscribirse)"]];
 
   var ICON = {
@@ -2941,16 +2838,6 @@ var qrcode = function() {
     tiktok:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.4 2.6 2 4.2 5 4.4"/></svg>',
     facebook:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-8h2.8l.5-3.2H14V7.9c0-.9.4-1.6 1.7-1.6h1.7V3.5c-.4-.1-1.4-.2-2.5-.2-2.5 0-4.1 1.5-4.1 4.2v2.3H8v3.2h2.8v8"/></svg>'
   };
-  ICON.x = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20"/></svg>';
-  ICON.soundcloud = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17h10a3.5 3.5 0 0 0 .4-7A5 5 0 0 0 8 8.5 4.2 4.2 0 0 0 7 17z"/></svg>';
-  ICON.bandcamp = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-10h12l-6 10z"/></svg>';
-  ICON.whatsapp = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4.2A8 8 0 1 1 8.4 18.9L4 20z"/><path d="M9 9c.5 2.5 2.5 4.5 5 5l1-1.2-1.8-1-.9.7c-.8-.4-1.5-1.1-1.9-1.9l.7-.9-1-1.8z"/></svg>';
-  ICON.email = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="M3 7l9 6 9-6"/></svg>';
-  ICON.web = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>';
-  ICON.link = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.6 0l3-3a4 4 0 0 0-5.6-5.6l-1 1"/><path d="M14 10a4 4 0 0 0-5.6 0l-3 3a4 4 0 0 0 5.6 5.6l1-1"/></svg>';
-  /* plataformas disponibles para las redes del pie: nombre y ícono */
-  var SOCIAL = {instagram:["Instagram","instagram"], youtube:["YouTube","youtube"], spotify:["Spotify","spotify"], applemusic:["Apple Music","apple"], tiktok:["TikTok","tiktok"], facebook:["Facebook","facebook"],
-    x:["X","x"], soundcloud:["SoundCloud","soundcloud"], bandcamp:["Bandcamp","bandcamp"], whatsapp:["WhatsApp","whatsapp"], email:["Correo","email"], web:["Sitio web","web"], link:["Otro enlace","link"]};
   var PLAY = '<span class="playbtn"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></i></span>';
 
   /* ---------------- utilidades ---------------- */
@@ -3040,7 +2927,7 @@ var qrcode = function() {
     function one(k){ return /^#[0-9a-f]{6}$/i.test(c[k] || "") ? c[k] : d[k]; }
     function two(k){ var v = c[k] || d[k]; return [/^#[0-9a-f]{6}$/i.test(v[0]) ? v[0] : d[k][0], /^#[0-9a-f]{6}$/i.test(v[1]) ? v[1] : d[k][1]]; }
     r.setProperty("--bg", one("bg")); r.setProperty("--ink", one("ink")); r.setProperty("--logo", one("logo"));
-    [["shows","shows"],["musicbg","music"],["mic","mic"],["videos","vid"],["shop","shop"],["footer","foot"]].forEach(function(p){
+    [["shows","shows"],["music","music"],["mic","mic"],["videos","vid"],["shop","shop"],["footer","foot"]].forEach(function(p){
       var v = two(p[0]); r.setProperty("--" + p[1] + "-a", v[0]); r.setProperty("--" + p[1] + "-b", v[1]); r.setProperty("--" + p[1] + "-fg", pickFg(v[0], v[1]));
     });
   }
@@ -3065,7 +2952,7 @@ var qrcode = function() {
       var o = tx[n.k];
       n.el.setAttribute("data-es", (o && o.es) ? o.es : n.es);
       n.el.setAttribute("data-en", (o && o.en) ? o.en : n.en);
-      if (!n.el.classList.contains("split")) n.el.textContent = n.el.getAttribute("data-" + lang);
+      n.el.textContent = n.el.getAttribute("data-" + lang);
     });
     UI_LABELS.forEach(function(p){
       var o = tx["ui." + p[0]];
@@ -3077,6 +2964,15 @@ var qrcode = function() {
   /* ---------------- pintar cada sección ---------------- */
   var MEMO = {};
   function once(name, key, fn){ if (MEMO[name] === key) return; MEMO[name] = key; fn(); }
+  var IO = null;
+  function reveal(el){
+    if (!("IntersectionObserver" in window)){ el.classList.add("in"); return; }
+    if (!IO) IO = new IntersectionObserver(function(list){
+      list.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("in"); IO.unobserve(e.target); } });
+    }, {threshold:0.06, rootMargin:"0px 0px -5% 0px"});
+    IO.observe(el);
+  }
+
   function renderHero(){
     var C = CONTENT, hi = $("hero-img"), s = srcOf(C.hero.image);
     if (s){ hi.src = s; hi.hidden = false; } else { hi.removeAttribute("src"); hi.hidden = true; }
@@ -3094,56 +2990,16 @@ var qrcode = function() {
     var many = d._list.length > 1; $("lb-prev").hidden = !many; $("lb-next").hidden = !many;
   }
   function stepLb(n){ var d = $("lb"), L = d._list.length; d._i = (d._i + n + L) % L; showLb(); }
-  var RM = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
-  function gPad(){ return parseFloat(getComputedStyle($("gal-track")).paddingLeft) || 0; }
-  function gStart(el){ return el.offsetLeft - gPad(); }
-  function galAtEnd(){ var t = $("gal-track"); return t.scrollWidth > t.clientWidth + 8 && t.scrollLeft >= t.scrollWidth - t.clientWidth - 4; }
-  function galIdx(){
-    var t = $("gal-track"), s = t.children, n = s.length, i, best = 0, bd = 1e9;
-    if (!n) return 0;
-    if (galAtEnd()) return n - 1;
-    for (i = 0; i < n; i++){ var d = Math.abs(gStart(s[i]) - t.scrollLeft); if (d < bd){ bd = d; best = i; } }
-    return best;
-  }
-  function updGal(){
-    var t = $("gal-track"), n = t.children.length, bar = $("gal-bar"), th = $("gal-thumb");
-    $("gal-prev").hidden = $("gal-next").hidden = n < 2;
-    var max = t.scrollWidth - t.clientWidth, bw = bar.clientWidth;
-    if (!bw) return;
-    if (max <= 2){ th.style.width = bw + "px"; th.style.transform = "none"; bar.setAttribute("aria-valuenow", "0"); return; }
-    var tw = Math.max(44, bw * t.clientWidth / t.scrollWidth), p = Math.max(0, Math.min(1, t.scrollLeft / max));
-    th.style.width = tw + "px"; th.style.transform = "translateX(" + (p * (bw - tw)) + "px)";
-    bar.setAttribute("aria-valuenow", String(Math.round(p * 100)));
-  }
-  function goGal(i){
-    var t = $("gal-track"), n = t.children.length; if (!n) return;
-    i = Math.max(0, Math.min(n - 1, i)); t.scrollTo({left:gStart(t.children[i]), behavior:RM ? "auto" : "smooth"});
-  }
-  function stepGal(dir){
-    var t = $("gal-track"), s = t.children, n = s.length, x = t.scrollLeft, i, l, target = null, bh = RM ? "auto" : "smooth";
-    if (!n) return;
-    if (dir > 0){
-      if (galAtEnd()){ t.scrollTo({left:0, behavior:bh}); return; }
-      for (i = 0; i < n; i++){ l = gStart(s[i]); if (l > x + 4){ target = l; break; } }
-    } else {
-      if (x <= 4){ t.scrollTo({left:t.scrollWidth, behavior:bh}); return; }
-      for (i = n - 1; i >= 0; i--){ l = gStart(s[i]); if (l < x - 4){ target = l; break; } }
-    }
-    t.scrollTo({left:target == null ? 0 : target, behavior:bh});
-  }
   function renderGallery(){
-    var track = $("gal-track"), keep = galIdx(), dims = CONTENT.dims || {}; clear(track);
+    var cols = $("gal-cols"); clear(cols);
     var list = (CONTENT.gallery || []).filter(function(k){ return srcOf(k); });
-    $("gallery").hidden = !list.length; if (!list.length){ updGal(); return; }
+    $("gallery").hidden = !list.length;
+    var items = list.map(function(k){ return {src:srcOf(k), alt:TT("gal")}; });
     list.forEach(function(k, i){
-      var s = srcOf(k), ar = dims[k];
-      var img = h("img", {src:s, alt:TT("gal"), loading:i < 3 ? "eager" : "lazy", decoding:"async", draggable:"false"});
-      var sl = h("div", {"class":"slide", role:"group", "aria-roledescription":"slide", "aria-label":(i + 1) + " / " + list.length}, img);
-      if (ar) sl.style.setProperty("--ar", ar);
-      else img.addEventListener("load", function(){ if (img.naturalHeight){ sl.style.setProperty("--ar", (img.naturalWidth / img.naturalHeight).toFixed(4)); updGal(); } });
-      track.append(sl);
+      var b = h("button", {type:"button", "class":"g-item", style:"--d:" + ((i % 3) * 140) + "ms", "aria-label":TT("photoN") + (i + 1)}, h("img", {src:srcOf(k), alt:TT("gal"), loading:"lazy", decoding:"async"}));
+      b.addEventListener("click", function(){ openLb(items, i); });
+      cols.append(b); reveal(b);
     });
-    track.style.scrollBehavior = "auto"; track.scrollLeft = gStart(track.children[Math.min(keep, list.length - 1)]); track.style.scrollBehavior = ""; updGal();
   }
   function tileFor(s, i){
     var k = (s.photos && s.photos[0]) || s.flyer || "";
@@ -3162,167 +3018,47 @@ var qrcode = function() {
     });
     (S.past || []).forEach(function(s, i){ pa.append(tileFor(s, i)); });
   }
-  /* ---------------- música: discos de vinilo ---------------- */
-  var vinOn = -1, VC = {}, musicSeen = false, IOV = null;
-  function centerVinyl(){
-    var box = $("songs"), r = box.getBoundingClientRect(), bh = $("bar").offsetHeight;
-    window.scrollTo({top:Math.max(0, r.top + window.scrollY + box.clientHeight / 2 - (window.innerHeight + bh) / 2), behavior:RM ? "auto" : "smooth"});
-  }
-  function setVinyl(i, doScroll){
-    vinOn = i;
-    Array.prototype.forEach.call($("songs").children, function(v, k){
-      var on = k === i; v.classList.toggle("open", on);
-      var s = v.querySelector(".sleeve"); if (s) s.setAttribute("aria-expanded", on ? "true" : "false");
-    });
-    layoutFocus(i);
-    if (doScroll && i >= 0) centerVinyl();
-  }
-  /* El vinilo elegido se agranda y se centra; los demás se alejan y se apagan */
-  function layoutFocus(i){
-    var box = $("songs"), items = box.children, n = items.length, k, wrap, on = i >= 0 && i < n;
-    box.classList.toggle("focus", on);
-    for (k = 0; k < n; k++){ wrap = items[k].firstChild; wrap.style.removeProperty("--tx"); wrap.style.removeProperty("--ty"); wrap.style.removeProperty("--s"); }
-    if (!on) return;
-    var sel = items[i], W = box.clientWidth, H = box.clientHeight, cx = W / 2, cy = H / 2, sw = sel.offsetWidth, sh = sel.offsetHeight;
-    var s = Math.max(1.25, Math.min(1.9, (W * 0.94) / (sw * 1.65), (window.innerHeight * 0.8) / sh));
-    var sx = sel.offsetLeft + sw / 2, sy = sel.offsetTop + sh / 2, halfW = sw * 1.65 * s / 2, halfH = sh * s / 2;
-    function put(el, tx, ty, sc){ el.style.setProperty("--tx", tx.toFixed(1) + "px"); el.style.setProperty("--ty", ty.toFixed(1) + "px"); el.style.setProperty("--s", String(sc)); }
-    put(sel.firstChild, cx - sx, cy - sy, s.toFixed(3));
-    var left = [], right = [];
-    for (k = 0; k < n; k++){
-      if (k === i) continue;
-      var it = items[k], ow = it.offsetWidth, oh = it.offsetHeight, ox = it.offsetLeft + ow / 2, oy = it.offsetTop + oh / 2, dx = ox - cx, dy = oy - cy;
-      if (Math.abs(dy) < oh * 0.4){ (dx < 0 ? left : right).push({el:it, dx:dx, ow:ow, ox:ox}); }      /* misma fila: se van hacia los lados */
-      else {                                                                                            /* otra fila: se van hacia arriba o abajo */
-        var sg = dy < 0 ? -1 : 1;
-        put(it.firstChild, dx * 0.12, sg * Math.max(Math.abs(dy) * 1.1, halfH + oh * 0.62 / 2 + 18) - dy, 0.62);
-      }
-    }
-    left.sort(function(a, b){ return b.dx - a.dx; }); right.sort(function(a, b){ return a.dx - b.dx; });
-    [[left, -1], [right, 1]].forEach(function(g){
-      g[0].forEach(function(o, j){
-        var step = o.ow * 0.62 + 18, target = cx + g[1] * (halfW + 28 + o.ow * 0.31 + j * step);
-        put(o.el.firstChild, target - o.ox, 0, 0.62);
-      });
-    });
-  }
-  function rgb2hsl(r, g, b){
-    r /= 255; g /= 255; b /= 255;
-    var mx = Math.max(r, g, b), mn = Math.min(r, g, b), l = (mx + mn) / 2, s = 0, hh = 0, d = mx - mn;
-    if (d){ s = l > .5 ? d / (2 - mx - mn) : d / (mx + mn); hh = mx === r ? (g - b) / d + (g < b ? 6 : 0) : mx === g ? (b - r) / d + 2 : (r - g) / d + 4; hh *= 60; }
-    return [hh, s, l];
-  }
-  /* El color del disco sale de los tonos más vivos de la portada */
-  function dominantColor(src, fallback, cb){
-    if (VC[src]) return cb(VC[src]);
-    var im = new Image();
-    im.onload = function(){
-      var col = fallback;
-      try {
-        var c = document.createElement("canvas"); c.width = c.height = 32;
-        var x = c.getContext("2d"); x.drawImage(im, 0, 0, 32, 32);
-        var d = x.getImageData(0, 0, 32, 32).data, R = 0, G = 0, B = 0, W = 0, i;
-        for (i = 0; i < d.length; i += 4){
-          var r = d[i], g = d[i + 1], b = d[i + 2], mx = Math.max(r, g, b), mn = Math.min(r, g, b), sat = mx ? (mx - mn) / mx : 0, w = sat * sat * (mx / 255) + 0.0001;
-          R += r * w; G += g * w; B += b * w; W += w;
-        }
-        var hs = rgb2hsl(R / W, G / W, B / W);
-        col = "hsl(" + Math.round(hs[0]) + " " + Math.round(Math.max(64, Math.min(92, hs[1] * 100))) + "% " + Math.round(Math.max(44, Math.min(56, hs[2] * 100))) + "%)";
-      } catch(e) {}
-      VC[src] = col; cb(col);
-    };
-    im.onerror = function(){ cb(fallback); };
-    im.src = src;
-  }
   function renderMusic(){
-    var box = $("songs"), M = CONTENT.music || []; clear(box);
-    M.forEach(function(m, i){
-      var ttl = t(m.title), src = srcOf(m.cover), fb = "#" + (GRAD[gOf(i + 2)].split(",")[0].replace("#", ""));
-      var sleeve = h("button", {"class":"sleeve", type:"button", "aria-expanded":"false", "aria-label":ttl}, h("span", {"class":"cov"}, fill(m.cover, gOf(i + 2), "", m.pos)));
-      var disc = h("span", {"class":"disc", "aria-hidden":"true"}, h("span", {"class":"plate"}, h("span", {"class":"lab"}), h("span", {"class":"hole"})));
-      var stage = h("div", {"class":"vstage"}, disc, sleeve), slot = h("div", {"class":"vslot"}, stage);
-      var listen = h("button", {"class":"listen", type:"button", "aria-haspopup":"dialog"}, TT("listen"));
-      listen.addEventListener("click", function(e){ e.stopPropagation(); openSong(m, i); });
-      var v = h("div", {"class":"vinyl", style:"--d:" + (i * 150) + "ms;--r0:" + (i % 2 ? 3 : -3) + "deg"},
-        h("div", {"class":"vwrap"}, h("div", {"class":"vtitle"}, ttl), slot, h("div", {"class":"vcta"}, listen)));
-      var manual = /^#[0-9a-f]{6}$/i.test(m.vinyl || "") ? m.vinyl : "";
-      v.style.setProperty("--vc", manual || fb);
-      if (!manual && src) dominantColor(src, fb, function(col){ v.style.setProperty("--vc", col); });
-      slot.addEventListener("click", function(e){ e.stopPropagation(); setVinyl(vinOn === i ? -1 : i, true); });
-      /* al pasar el mouse, la esquina más cercana al cursor se acerca un poco */
-      slot.addEventListener("pointermove", function(e){
-        if (e.pointerType === "touch") return;
-        var r = slot.getBoundingClientRect(), x = ((e.clientX - r.left) / r.width) * 2 - 1, y = ((e.clientY - r.top) / r.height) * 2 - 1;
-        stage.style.setProperty("--ry", (-x * 11).toFixed(2) + "deg"); stage.style.setProperty("--rx", (y * 11).toFixed(2) + "deg"); stage.style.setProperty("--sc", "1.04");
+    var box = $("songs"); clear(box);
+    (CONTENT.music || []).forEach(function(m, i){
+      var plats = h("ul", {"class":"plats"});
+      [["spotify","sp","Spotify","spotify"],["apple","","Apple Music","apple"],["ytmusic","","YouTube Music","ytm"]].forEach(function(p){
+        plats.append(h("li", {}, A(m[p[0]], "plat " + p[1], h("span", {html:ICON[p[3]], style:"display:contents"}))));
+        plats.lastChild.firstChild.setAttribute("aria-label", p[2] + " — " + t(m.title));
       });
-      slot.addEventListener("pointerleave", function(){ stage.style.removeProperty("--rx"); stage.style.removeProperty("--ry"); stage.style.removeProperty("--sc"); });
-      box.append(v);
-    });
-    /* los discos entran armoniosamente la primera vez que se llega a la sección */
-    var instant = RM || !("IntersectionObserver" in window) || musicSeen || $("admin").open;
-    if (!instant){
-      Array.prototype.forEach.call(box.children, function(v){ v.classList.add("pre"); });
-      if (!IOV) IOV = new IntersectionObserver(function(l){
-        l.forEach(function(e){ if (e.isIntersecting){ musicSeen = true; Array.prototype.forEach.call(e.target.children, function(v){ v.classList.add("go"); }); IOV.unobserve(e.target); } });
-      }, {threshold:0.22});
-      IOV.observe(box);
-    }
-    setVinyl(Math.min(vinOn, M.length - 1));
-  }
-  /* título con letras que aparecen una a una */
-  function renderSplit(){
-    Array.prototype.forEach.call(document.querySelectorAll(".split"), function(el){
-      var txt = el.getAttribute("data-" + lang) || ""; if (el._txt === txt) return; el._txt = txt;
-      clear(el); el.setAttribute("aria-label", txt);
-      Array.from(txt).forEach(function(ch, i){ el.append(h("span", {"class":"ch", "aria-hidden":"true", style:"--i:" + i}, ch === " " ? "\u00A0" : ch)); });
+      var cover = h("button", {"class":"cover-btn", type:"button", "aria-haspopup":"dialog", "aria-label":TT("coverOf") + " " + t(m.title)}, frame("sq", m.cover, gOf(i + 2), "", m.pos));
+      cover.addEventListener("click", function(){ openSong(m, i); });
+      box.append(h("article", {"class":"song"}, h("h3", {"class":"song-title"}, t(m.title)), cover, plats));
     });
   }
-
   function renderOpenMic(){
-    var o = CONTENT.openmic, main = $("openmic-main"); clear(main);
-    var has = !!srcOf(o.image);
-    main.className = "mic-main" + (has ? "" : " noimg");
-    if (has) main.append(h("div", {"class":"mic-img"}, frame("natural", o.image, 9, t(o.info))));
-    var txt = h("div", {}, h("p", {"class":"lede", style:"margin-bottom:1rem"}, t(o.info)), h("p", {"class":"mic-date"}, t(o.date)));
-    if (o.link) txt.append(A(o.link, "btn solid", TT("more")));
-    main.append(txt);
-    var P = o.past || [], g = $("mics-grid"); clear(g);
-    P.forEach(function(s, i){
-      var ph = (s.photos || []).filter(function(k){ return srcOf(k); }), nm = t(s.name) || "Open Mic";
-      var b = h("button", {"class":"tile", type:"button"}, frame(ph.length ? "natural" : "fl", ph[0] || "", gOf(i + 3), nm), h("b", {}, nm), h("span", {"class":"d"}, t(s.date)));
-      b.addEventListener("click", function(){ var c = {}, k; for (k in s) c[k] = s[k]; c.kind = "mic"; c.name = t(s.name) ? s.name : "Open Mic"; openDetail(c); });
+    var o = CONTENT.openmic, box = $("openmic-info"); clear(box);
+    box.append(h("p", {"class":"lede", style:"margin-bottom:1rem"}, t(o.info)), h("p", {"class":"mic-date"}, t(o.date)));
+    if (o.link) box.append(A(o.link, "btn solid", TT("more")));
+    var g = $("mics-grid"); clear(g);
+    var list = (o.photos || []).filter(function(k){ return srcOf(k); }), items = list.map(function(k){ return {src:srcOf(k), alt:"Open Mic"}; });
+    list.forEach(function(k, i){
+      var b = h("button", {"class":"g-btn", type:"button", "aria-label":TT("photoN") + (i + 1)}, frame("sq", k, gOf(i + 3), "Open Mic"));
+      b.addEventListener("click", function(){ openLb(items, i); });
       g.append(b);
     });
-    $("mic-past-wrap").hidden = !P.length;
-  }
-  /* video: se reproduce aquí mismo (YouTube sin cookies); "Ver aquí" lleva a YouTube */
-  function playVideo(v){
-    var id = ytId(v.url);
-    if (!id){ if (v.url) window.open(v.url, "_blank", "noopener"); return; }
-    var fr = $("vframe"); clear(fr);
-    fr.append(h("iframe", {src:"https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0", title:t(v.title) || "Video", allow:"autoplay; encrypted-media; picture-in-picture; fullscreen", allowfullscreen:"allowfullscreen", referrerpolicy:"strict-origin-when-cross-origin"}));
-    $("vd-title").textContent = t(v.title); var y = $("vd-yt"); y.textContent = TT("onYT"); y.href = v.url;
-    openModal($("vdlg"));
+    $("openmic").querySelector(".rule").hidden = !list.length;
   }
   function videoCard(v, i){
     var id = ytId(v.url), th = v.thumb || (id ? "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg" : "");
     var f = frame("wd", th, gOf(i + 6), t(v.title)); f.insertAdjacentHTML("beforeend", PLAY);
-    var d = h("div", {"class":"vid"});
-    if (v.url){
-      var b = h("button", {"class":"vplay", type:"button", "aria-label":TT("playVideo") + " " + t(v.title)}, f, h("h3", {}, t(v.title)));
-      b.addEventListener("click", function(){ playVideo(v); });
-      d.append(b, A(v.url, "watch", TT("watch")));
-    } else d.append(f, h("h3", {}, t(v.title)));
-    return d;
+    var inner = h("span", {}, f, h("h3", {}, t(v.title)), v.url ? h("span", {"class":"watch"}, TT("watch")) : null);
+    if (v.url) return A(v.url, "vid", inner);
+    var d = h("div", {"class":"vid"}); d.append(inner); return d;
   }
   function renderVideos(){
     var box = $("vids-grid"), V = CONTENT.videos || []; clear(box);
     V.slice(0, 3).forEach(function(v, i){ box.append(videoCard(v, i)); });
     var ul = $("more-vids"); clear(ul);
     V.slice(3).forEach(function(v){
-      var row = h("span", {"class":"row"}, h("span", {}, t(v.title)), h("span", {"aria-hidden":"true"}, "▶"));
-      if (v.url){ var b = h("button", {"class":"mrow", type:"button", "aria-label":TT("playVideo") + " " + t(v.title)}, row); b.addEventListener("click", function(){ playVideo(v); }); ul.append(h("li", {}, b)); }
-      else ul.append(h("li", {}, row));
+      var inner = h("span", {}, v.title ? t(v.title) : "");
+      ul.append(h("li", {}, v.url ? A(v.url, "", h("span", {"class":"row"}, h("span", {}, t(v.title)), h("span", {"aria-hidden":"true"}, "→")))
+                                  : h("span", {"class":"row"}, h("span", {}, t(v.title)))));
     });
     $("more-wrap").hidden = V.length <= 3;
   }
@@ -3336,12 +3072,6 @@ var qrcode = function() {
     var b = $("shop-btn"); clear(b);
     var sb = S.storeButton || {};
     if (sb.enabled && sb.url) b.append(A(sb.url, "btn", t(sb.label) || "Shop"));
-  }
-  function applyShopVisibility(){
-    var hid = !!(CONTENT.shop && CONTENT.shop.hidden);
-    $("shop").hidden = hid;
-    Array.prototype.forEach.call(document.querySelectorAll('a[href="#shop"]'), function(a){ (a.closest("li") || a).hidden = hid; });
-    document.documentElement.style.setProperty("--meet-from", hid ? "var(--vid-b)" : "var(--shop-b)");
   }
   function renderMeet(){
     var M = CONTENT.meet, ph = $("meet-photo"); clear(ph);
@@ -3357,22 +3087,12 @@ var qrcode = function() {
     });
     g.hidden = !list.length;
   }
-  function socialList(){ var S = (CONTENT.settings || {}).social; return Array.isArray(S) ? S.filter(function(x){ return x && x.url; }) : []; }
-  function socialHref(s){ return (s.type === "email" && s.url.indexOf("@") > 0 && !/^mailto:/i.test(s.url)) ? "mailto:" + s.url : s.url; }
-  function ytChannel(){
-    var S = ((CONTENT.settings || {}).social) || [], i;
-    for (i = 0; i < S.length; i++) if (S[i].type === "youtube" && S[i].url) return S[i].url;
-    return "";
-  }
   function renderSocial(){
-    var ul = $("social"); clear(ul); var L = socialList();
-    L.forEach(function(s){
-      var def = SOCIAL[s.type] || SOCIAL.link, label = s.label || def[0];
-      var a = h("a", {href:socialHref(s), "aria-label":label, title:label}, h("span", {html:ICON[def[1]], style:"display:contents"}));
-      if (/^https?:/i.test(s.url)){ a.target = "_blank"; a.rel = "noopener"; }
+    var L = (CONTENT.settings && CONTENT.settings.links) || {}, ul = $("social"); clear(ul);
+    ["instagram","youtube","spotify","tiktok","facebook"].forEach(function(n){
+      var a = A(L[n], "", h("span", {html:ICON[n], style:"display:contents"})); a.setAttribute("aria-label", n.charAt(0).toUpperCase() + n.slice(1));
       ul.append(h("li", {}, a));
     });
-    $("follow-wrap").hidden = !L.length;
   }
 
   var dlg = $("dlg");
@@ -3397,9 +3117,7 @@ var qrcode = function() {
     } else body.append(frame("wd", "", 1, t(s.name)));
     body.append(h("div", {"class":"body"},
       h("h3", {id:"dlg-title"}, t(s.name)), h("p", {"class":"date"}, t(s.date)), h("p", {}, t(s.desc)),
-      (s.kind === "mic"
-        ? (s.videos ? h("div", {"class":"row"}, A(s.videos, "btn solid", TT("videos"))) : null)
-        : h("div", {"class":"row"}, A(s.link, "btn solid", TT("more")), A(s.videos, "btn", TT("videos"))))));
+      h("div", {"class":"row"}, A(s.link, "btn solid", TT("more")), A(s.videos, "btn", TT("videos")))));
     openModal(dlg);
   }
 
@@ -3426,66 +3144,27 @@ var qrcode = function() {
     openModal(songdlg);
   }
 
-  /* ---------------- aparecer al bajar ---------------- */
-  var REVEAL_SEL = ".sec h2:not(.split),.sec .lede,.mic-date,.shop-note,.up,.tile,.vid,.item,#more-wrap h3,.morelist li,#openmic-info .btn,.mgrid .g-btn,.meet .mp,#meet-bio p,.gstrip .g-btn,.foot h2,.social li,.legal,#gal-track";
-  var IO = null;
-  function armReveal(){
-    var instant = !("IntersectionObserver" in window) || RM || $("admin").open;
-    Array.prototype.forEach.call(document.querySelectorAll(REVEAL_SEL), function(el){
-      if (el.classList.contains("rv")) return;
-      var idx = el.parentNode ? Array.prototype.indexOf.call(el.parentNode.children, el) : 0;
-      el.style.setProperty("--d", ((idx % 4) * 90) + "ms");
-      el.classList.add("rv");
-      if (instant){ el.classList.add("rvin"); return; }
-      if (!IO) IO = new IntersectionObserver(function(l){ l.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("rvin"); IO.unobserve(e.target); } }); }, {threshold:0.08, rootMargin:"0px 0px -6% 0px"});
-      IO.observe(el);
-    });
-    Array.prototype.forEach.call(document.querySelectorAll(".split"), function(el){
-      if (el.classList.contains("spw")) return; el.classList.add("spw");
-      if (instant){ el.classList.add("rvin"); return; }
-      if (!IO) IO = new IntersectionObserver(function(l){ l.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("rvin"); IO.unobserve(e.target); } }); }, {threshold:0.08, rootMargin:"0px 0px -6% 0px"});
-      IO.observe(el);
-    });
-  }
-
-  /* contenido de versiones anteriores: redes sueltas -> lista; fotos de open mic -> open mics pasados */
-  function normalize(c, loaded){
-    var S = c.settings = c.settings || {};
-    if (loaded && loaded.settings && !loaded.settings.social && loaded.settings.links){
-      var L = loaded.settings.links;
-      S.social = ["instagram", "youtube", "spotify", "tiktok", "facebook"].filter(function(k){ return L[k]; }).map(function(k){ return {type:k, url:L[k]}; });
-    }
-    if (!Array.isArray(S.social)) S.social = [];
-    var o = c.openmic = c.openmic || {}; o.past = Array.isArray(o.past) ? o.past : [];
-    if (Array.isArray(o.photos) && o.photos.length && !o.past.length) o.photos.forEach(function(k){ o.past.push({name:"", date:"", desc:"", videos:"", photos:[k]}); });
-    delete o.photos;
-    return c;
-  }
-
   /* ---------------- render general ---------------- */
   function render(){
     var C = CONTENT, L = lang + "|";
-    applyColors(); applyTexts(); renderSplit(); applySignature();
+    applyColors(); applyTexts(); applySignature();
     once("hero", L + j(C.hero) + j((C.shows.upcoming || [])[0]), renderHero);
-    once("gallery", L + j(C.gallery) + j(C.dims), renderGallery);
+    once("gallery", L + j(C.gallery), renderGallery);
     once("shows", L + j(C.shows), renderShows);
     once("music", L + j(C.music), renderMusic);
     once("openmic", L + j(C.openmic), renderOpenMic);
     once("videos", L + j(C.videos), renderVideos);
     once("shop", L + j(C.shop), renderShop);
     once("meet", L + j(C.meet), renderMeet);
-    once("social", L + j((C.settings || {}).social), renderSocial);
-    applyShopVisibility();
-    armReveal();
+    once("social", L + j((C.settings || {}).links), renderSocial);
   }
   function setLang(l){
     lang = l; MEMO = {};
     document.documentElement.lang = l;
     var b = $("lang"); b.textContent = T[l].toEn; b.setAttribute("aria-label", T[l].langLabel);
     $("open-menu").setAttribute("aria-label", TT("menuOpen"));
-    ["dlg-x","song-x","su-x","lb-x","ad-x","vd-x"].forEach(function(id){ $(id).setAttribute("aria-label", TT("close")); });
+    ["dlg-x","song-x","su-x","lb-x","ad-x"].forEach(function(id){ $(id).setAttribute("aria-label", TT("close")); });
     $("cue").setAttribute("aria-label", TT("more2"));
-    $("gal-prev").setAttribute("aria-label", TT("prevPh")); $("gal-next").setAttribute("aria-label", TT("nextPh"));
     $("su-email").placeholder = l === "es" ? "tu@correo.com" : "you@email.com";
     render();
     [dlg, songdlg].forEach(function(d){ if (d.open) d.close(); });
@@ -3494,17 +3173,13 @@ var qrcode = function() {
 
   /* ---------------- barra, menú y desplazamiento ---------------- */
   var bar = $("bar"), menu = $("menu"), openBtn = $("open-menu");
-  var heroEl = $("top");
-  function onScroll(){
-    bar.classList.toggle("solid", window.scrollY > window.innerHeight * 0.65);
-    heroEl.style.setProperty("--hp", Math.min(1, Math.max(0, window.scrollY / Math.max(1, window.innerHeight))).toFixed(3));
-  }
+  function onScroll(){ bar.classList.toggle("solid", window.scrollY > window.innerHeight * 0.65); }
   window.addEventListener("scroll", onScroll, {passive:true}); onScroll();
   function closeMenu(){ if (!menu.hidden){ menu.hidden = true; openBtn.setAttribute("aria-expanded", "false"); document.body.style.overflow = ""; } }
   openBtn.addEventListener("click", function(){ menu.hidden = false; openBtn.setAttribute("aria-expanded", "true"); document.body.style.overflow = "hidden"; $("close-menu").focus(); });
   $("close-menu").addEventListener("click", function(){ closeMenu(); openBtn.focus(); });
   document.addEventListener("keydown", function(e){
-    if (e.key === "Escape"){ closeMenu(); if (!document.querySelector("dialog[open]")) setVinyl(-1); }
+    if (e.key === "Escape") closeMenu();
     var lb = $("lb"); if (lb.open){ if (e.key === "ArrowRight") stepLb(1); else if (e.key === "ArrowLeft") stepLb(-1); }
   });
   Array.prototype.forEach.call(document.querySelectorAll("[data-scroll]"), function(a){
@@ -3514,13 +3189,10 @@ var qrcode = function() {
       if (el) el.scrollIntoView({behavior:"smooth", block:"start"});
     });
   });
-  $("cue").addEventListener("click", function(){ $("music").scrollIntoView({behavior:"smooth", block:"start"}); });
-  /* al tocar cualquier otra cosa, el disco se guarda en su funda */
-  document.addEventListener("click", function(e){ if (!e.target.closest(".vslot") && !e.target.closest(".listen")) setVinyl(-1); });
+  $("cue").addEventListener("click", function(){ var g = $("gallery"); (g.hidden ? $("shows") : g).scrollIntoView({behavior:"smooth", block:"start"}); });
 
   /* ---------------- ventanas ---------------- */
-  wireClose($("dlg"), "dlg-x"); wireClose($("songdlg"), "song-x"); wireClose($("lb"), "lb-x"); wireClose($("signup"), "su-x"); wireClose($("admin"), "ad-x"); wireClose($("vdlg"), "vd-x");
-  $("vdlg").addEventListener("close", function(){ clear($("vframe")); });
+  wireClose($("dlg"), "dlg-x"); wireClose($("songdlg"), "song-x"); wireClose($("lb"), "lb-x"); wireClose($("signup"), "su-x"); wireClose($("admin"), "ad-x");
   $("lb-prev").addEventListener("click", function(){ stepLb(-1); });
   $("lb-next").addEventListener("click", function(){ stepLb(1); });
   (function(){ /* deslizar para cambiar de foto en el visor */
@@ -3535,7 +3207,7 @@ var qrcode = function() {
     b.addEventListener("click", function(){ closeMenu(); $("su-status").textContent = ""; $("su-yt").hidden = true; openModal(signup); });
   });
   function showYt(){
-    var y = ytChannel(); if (!y) return;
+    var y = (((CONTENT.settings || {}).links) || {}).youtube; if (!y) return;
     $("su-yt-text").textContent = TT("ytText");
     var b = $("su-yt-btn"); b.textContent = TT("ytBtn");
     b.href = y.replace(/[?#].*$/, "").replace(/\/videos\/?$/, "") + "?sub_confirmation=1";
@@ -3553,128 +3225,7 @@ var qrcode = function() {
     fetch(ep, {method:"POST", mode:"no-cors", headers:{"Content-Type":"text/plain;charset=utf-8"}, body:JSON.stringify({action:"subscribe", email:v, lang:lang})})
       .then(ok).catch(function(){ s.textContent = TT("suErr"); s.className = "status errtxt"; });
   });
-  window.addEventListener("resize", function(){ if (vinOn >= 0) layoutFocus(vinOn); });
   $("lang").addEventListener("click", function(){ setLang(lang === "es" ? "en" : "es"); });
-
-  /* ---------------- tira de fotos de la galería ---------------- */
-  (function(){
-    var track = $("gal-track"), raf = 0, visible = false, drag = null;
-    track.addEventListener("scroll", function(){ cancelAnimationFrame(raf); raf = requestAnimationFrame(updGal); }, {passive:true});
-    $("gal-prev").addEventListener("click", function(){ stepGal(-1); });
-    $("gal-next").addEventListener("click", function(){ stepGal(1); });
-    window.addEventListener("resize", function(){
-      var i = galIdx(); if (!track.children.length) return;
-      track.style.scrollBehavior = "auto"; track.scrollLeft = gStart(track.children[i]); track.style.scrollBehavior = ""; updGal();
-    });
-    if ("IntersectionObserver" in window) new IntersectionObserver(function(l){ visible = l[0].isIntersecting; }, {threshold:0.5}).observe($("gallery"));
-    document.addEventListener("keydown", function(e){
-      if (!visible || document.querySelector("dialog[open]") || !menu.hidden) return;
-      var tg = e.target && e.target.tagName; if (tg === "INPUT" || tg === "TEXTAREA" || tg === "SELECT") return;
-      if (e.key === "ArrowRight"){ e.preventDefault(); stepGal(1); } else if (e.key === "ArrowLeft"){ e.preventDefault(); stepGal(-1); }
-    });
-    /* arrastrar con el mouse (en el celular se desliza con el dedo) */
-    track.addEventListener("pointerdown", function(e){
-      if (e.pointerType !== "mouse" || e.button !== 0) return;
-      drag = {x:e.clientX, left:track.scrollLeft}; track.classList.add("drag");
-      try { track.setPointerCapture(e.pointerId); } catch(x) {}
-    });
-    track.addEventListener("pointermove", function(e){ if (drag) track.scrollLeft = drag.left - (e.clientX - drag.x); });
-    function end(e){
-      if (!drag) return;
-      var dx = e.clientX - drag.x, start = drag.left; drag = null; track.classList.remove("drag");
-      if (Math.abs(dx) > 60){ track.scrollLeft = start; stepGalFrom(start, dx < 0 ? 1 : -1); }
-      else track.scrollTo({left:start, behavior:RM ? "auto" : "smooth"});
-    }
-    /* avanzar o retroceder desde la posición donde empezó el arrastre */
-    function stepGalFrom(x, dir){
-      var s = track.children, n = s.length, i, l, target = null, bh = RM ? "auto" : "smooth";
-      if (dir > 0){ for (i = 0; i < n; i++){ l = gStart(s[i]); if (l > x + 4){ target = l; break; } } }
-      else { for (i = n - 1; i >= 0; i--){ l = gStart(s[i]); if (l < x - 4){ target = l; break; } } }
-      track.scrollTo({left:target == null ? x : target, behavior:bh});
-    }
-    track.addEventListener("pointerup", end); track.addEventListener("pointercancel", end);
-    /* barra deslizante: arrastrar la barra o tocar un punto de la línea */
-    var gbar = $("gal-bar"), gth = $("gal-thumb"), bd = null;
-    function setFromX(cx, off){
-      var r = gbar.getBoundingClientRect(), tw = gth.offsetWidth, span = r.width - tw, max = track.scrollWidth - track.clientWidth;
-      var x = Math.max(0, Math.min(span, cx - r.left - off)); track.scrollLeft = span > 0 ? x / span * max : 0;
-    }
-    gbar.addEventListener("pointerdown", function(e){
-      var tr = gth.getBoundingClientRect(), on = e.clientX >= tr.left && e.clientX <= tr.right;
-      track.classList.add("drag"); try { gbar.setPointerCapture(e.pointerId); } catch(x) {}
-      bd = {off: on ? e.clientX - tr.left : tr.width / 2}; setFromX(e.clientX, bd.off);
-    });
-    gbar.addEventListener("pointermove", function(e){ if (bd) setFromX(e.clientX, bd.off); });
-    function bend(){ if (!bd) return; bd = null; track.classList.remove("drag"); }
-    gbar.addEventListener("pointerup", bend); gbar.addEventListener("pointercancel", bend);
-    gbar.addEventListener("keydown", function(e){
-      if (e.key === "ArrowRight"){ e.preventDefault(); stepGal(1); } else if (e.key === "ArrowLeft"){ e.preventDefault(); stepGal(-1); }
-    });
-  })();
-
-  /* ---------------- animación de entrada: se dibuja la firma, vuela un cenzontle y se abre la página ---------------- */
-  var intro = {on: document.documentElement.classList.contains("introing"), started: false, done: false};
-  function finishIntro(){
-    if (intro.done) return; intro.done = true;
-    var root = document.documentElement, ov = $("intro");
-    root.classList.add("intro-go"); root.classList.remove("introing");
-    if (ov){ ov.style.display = "none"; ov.style.webkitMaskImage = ov.style.maskImage = ""; }
-    root.classList.remove("intro-go");
-    try { sessionStorage.setItem("jm-intro", "1"); } catch(e) {}
-  }
-  function startIntro(){
-    if (!intro.on || intro.started) return; intro.started = true;
-    if (CONTENT.settings && CONTENT.settings.intro === false){ finishIntro(); return; }
-    var root = document.documentElement, ov = $("intro"), bird = $("intro-bird"), skip = $("intro-skip");
-    var segs = Array.prototype.slice.call(ov.querySelectorAll("#intro-mask path"));
-    skip.textContent = TT("skip"); window.scrollTo(0, 0);
-    var W = window.innerWidth, H = window.innerHeight, t0 = performance.now(), revealAt = null, rc = {x:W / 2, y:H / 2}, skipped = false, raf = 0;
-    var P0 = {x:-0.12 * W, y:0.66 * H}, P1 = {x:0.2 * W, y:0.06 * H}, P2 = {x:0.56 * W, y:0.7 * H}, P3 = {x:1.14 * W, y:0.06 * H};
-    var SIG0 = 0.35, SIGT = 3.3, B0 = 1.6, BT = 3.2, REVT = 1.5;
-    var birdW = bird.getBoundingClientRect().width || 120;
-    function clamp(v, a, b){ return Math.max(a, Math.min(b, v)); }
-    function eio(u){ return u < .5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2; }
-    function esine(u){ return -(Math.cos(Math.PI * u) - 1) / 2; }
-    function bez(u){ var a = 1 - u; return {x:a*a*a*P0.x + 3*a*a*u*P1.x + 3*a*u*u*P2.x + u*u*u*P3.x, y:a*a*a*P0.y + 3*a*a*u*P1.y + 3*a*u*u*P2.y + u*u*u*P3.y}; }
-    function bezd(u){ var a = 1 - u; return {x:3*a*a*(P1.x - P0.x) + 6*a*u*(P2.x - P1.x) + 3*u*u*(P3.x - P2.x), y:3*a*a*(P1.y - P0.y) + 6*a*u*(P2.y - P1.y) + 3*u*u*(P3.y - P2.y)}; }
-    function placeBird(u){
-      var e = eio(u), p = bez(e), d = bezd(e), ang = clamp(Math.atan2(d.y, d.x) * 180 / Math.PI, -38, 38);
-      var bw = birdW, bh = birdW * 80 / 160;
-      bird.style.opacity = "1";
-      bird.style.transform = "translate(" + (p.x - bw / 2).toFixed(1) + "px," + (p.y - bh / 2).toFixed(1) + "px) rotate(" + ang.toFixed(1) + "deg)";
-      return p;
-    }
-    var R = Math.hypot(Math.max(W / 2, W - W / 2), H) + 60;
-    function frame(now){
-      if (intro.done) return;
-      var t = (now - t0) / 1000;
-      var p = skipped ? 1 : esine(clamp((t - SIG0) / SIGT, 0, 1));
-      segs.forEach(function(s){
-        var a = parseFloat(s.getAttribute("data-s")), b = parseFloat(s.getAttribute("data-e")), l = clamp((p - a) / (b - a), 0, 1);
-        s.style.visibility = l > 0 ? "visible" : "hidden"; s.style.strokeDashoffset = String(1 - l);
-      });
-      if (t > 0.8) skip.classList.add("on");
-      var u = (t - B0) / BT;
-      if (!skipped && u > 0 && u < 1){ var bp = placeBird(u); if (revealAt === null && u >= 0.8){ revealAt = now; rc = {x:bp.x, y:bp.y}; root.classList.add("intro-go"); } }
-      else if (u >= 1 || skipped) bird.style.opacity = "0";
-      if (revealAt !== null){
-        var rt = clamp((now - revealAt) / 1000 / (skipped ? 0.7 : REVT), 0, 1), r = eio(rt) * R;
-        var m = "radial-gradient(circle at " + rc.x.toFixed(0) + "px " + rc.y.toFixed(0) + "px, transparent " + r.toFixed(0) + "px, #000 " + (r + 4).toFixed(0) + "px)";
-        ov.style.webkitMaskImage = m; ov.style.maskImage = m;
-        if (rt >= 1){ finishIntro(); return; }
-      }
-      raf = requestAnimationFrame(frame);
-    }
-    function doSkip(){
-      if (skipped || intro.done) return; skipped = true;
-      if (revealAt === null){ revealAt = performance.now(); rc = {x:W / 2, y:H / 2}; root.classList.add("intro-go"); }
-      else { /* ya se estaba abriendo: se termina rápido */ revealAt = Math.min(revealAt, performance.now() - 400); }
-    }
-    skip.addEventListener("click", doSkip);
-    document.addEventListener("keydown", function(e){ if (e.key === "Escape" && !intro.done) doSkip(); });
-    setTimeout(finishIntro, 14000);
-    raf = requestAnimationFrame(frame);
-  }
 
   /* ============================================================
      PANEL DE ADMINISTRACIÓN (solo para la artista)
@@ -3745,7 +3296,7 @@ var qrcode = function() {
         var c = document.createElement("canvas"); c.width = Math.round(w * sc); c.height = Math.round(hh * sc);
         var x = c.getContext("2d"); x.fillStyle = "#fff"; x.fillRect(0, 0, c.width, c.height); x.drawImage(im, 0, 0, c.width, c.height);
         URL.revokeObjectURL(url);
-        c.toBlob(function(b){ if (!b){ rej(new Error("No se pudo procesar la imagen.")); return; } b._ar = Math.round(c.width / c.height * 10000) / 10000; res(b); }, "image/jpeg", 0.85);
+        c.toBlob(function(b){ b ? res(b) : rej(new Error("No se pudo procesar la imagen.")); }, "image/jpeg", 0.85);
       };
       im.onerror = function(){ URL.revokeObjectURL(url); rej(new Error("No se pudo leer la imagen. Usa un archivo JPG, PNG o WEBP.")); };
       im.src = url;
@@ -3780,9 +3331,7 @@ var qrcode = function() {
   }
   function saveImg(blob, base){
     var ext = blob.type === "image/png" ? "png" : "jpg", p = "img/" + slug(base) + "-" + Date.now().toString(36) + rnd() + "." + ext;
-    NEWIMG[p] = blob; IMG[p] = URL.createObjectURL(blob);
-    if (blob._ar){ CONTENT.dims = CONTENT.dims || {}; CONTENT.dims[p] = blob._ar; }
-    return p;
+    NEWIMG[p] = blob; IMG[p] = URL.createObjectURL(blob); return p;
   }
   function imgIn(obj, key, label, opts){
     opts = opts || {};
@@ -3883,8 +3432,6 @@ var qrcode = function() {
     var S = CONTENT.shows;
     S.upcoming.sort(function(a, b){ var x = whenOf(a) || "9999", y = whenOf(b) || "9999"; return x < y ? -1 : x > y ? 1 : 0; });
     S.past.sort(function(a, b){ var x = whenOf(a) || "0000", y = whenOf(b) || "0000"; return x < y ? 1 : x > y ? -1 : 0; });
-    var om = (CONTENT.openmic || {}).past;
-    if (om) om.sort(function(a, b){ var x = whenOf(a) || "0000", y = whenOf(b) || "0000"; return x < y ? 1 : x > y ? -1 : 0; });
   }
   function showDateIn(s, upcoming, onSort){
     var di = h("input", {type:"date"}), ti = h("input", {type:"time"});
@@ -3911,8 +3458,6 @@ var qrcode = function() {
     var C = CONTENT;
     p.append(h("h4", {}, "Foto de portada"), h("p", {"class":"hint"}, "Ocupa toda la pantalla al abrir la página. Mejor una foto horizontal y grande."),
       imgIn(C.hero, "image", "Foto de portada", {max:2800, name:"portada"}), posIn(C.hero, "pos", "Enfoque de la foto"), biIn(C.hero, "alt", "Descripción de la foto (para personas que no la ven)"));
-    p.append(h("h4", {}, "Animación de entrada"), h("p", {"class":"hint"}, "Al abrir la página (una vez por visita) se ve una pantalla blanca donde se dibuja la firma y vuela un cenzontle, y luego se abre la página. Puedes apagarla aquí. Si cambias la firma, la animación sigue usando la firma original; avísale a quien te ayuda para adaptarla."),
-      chk(C.settings, "intro", "Mostrar la animación de entrada"));
     p.append(h("h4", {}, "Firma (logo)"));
     var st = h("small", {"class":"hint", role:"status"}), file = h("input", {type:"file", accept:"image/*"});
     file.addEventListener("change", function(){
@@ -3924,7 +3469,7 @@ var qrcode = function() {
     p.append(h("p", {"class":"hint"}, "Sube la firma oscura sobre fondo claro (como la tienes). Se vuelve transparente sola y toma el color de la barra y de la portada."),
       h("div", {style:"background:#2A1A14;color:#F6EBDD;width:14rem;aspect-ratio:var(--sig-ar);margin:.5rem 0"}, h("span", {"class":"sig"})), file,
       btn("Volver a la firma original", function(){ C.settings.signature = ""; C.settings.signatureAr = DEFAULTS.settings.signatureAr; touch(); }), st);
-    p.append(h("h4", {}, "Galería de fotos"), h("p", {"class":"hint"}, "Aparece justo debajo de la portada, en una tira que se desliza con el dedo, con las flechas o con el mouse. Todas las fotos tienen la misma altura y el ancho se ajusta solo a cada una (las horizontales salen más anchas y las verticales más angostas). El orden de esta lista es el orden de la tira."),
+    p.append(h("h4", {}, "Galería de fotos"), h("p", {"class":"hint"}, "Aparece justo debajo de la portada; las fotos entran deslizándose al bajar y se pueden abrir en grande."),
       imgList(C.gallery, "Fotos de la galería", {max:1600, name:"galeria"}));
   }
 
@@ -3962,38 +3507,20 @@ var qrcode = function() {
       }
     });
     p.append(h("h4", {}, "Open Mic @ Libros de la Luna"));
-    var O = CONTENT.openmic; O.past = O.past || [];
-    p.append(h("p", {"class":"hint"}, "La imagen y el texto del próximo open mic aparecen juntos, arriba de la línea. La imagen se ve completa, sin recortar."),
-      imgIn(O, "image", "Imagen del próximo open mic (flyer o foto)", {max:1600, name:"openmic"}),
-      biIn(O, "info", "Descripción del evento", {multiline:true}), biIn(O, "date", "Próxima fecha"), tIn(O, "link", "Enlace (opcional)", {type:"url", ph:"https://..."}));
-    p.append(h("h4", {}, "Open mics pasados"));
-    var omHost = h("div"); p.append(omHost);
-    var drawOm = listEditor(omHost, O.past, {
-      addLabel:"Agregar open mic pasado", empty:"Todavía no hay open mics pasados.",
-      make:function(){ return {when:"", name:{es:"", en:""}, date:{es:"", en:""}, desc:{es:"", en:""}, videos:"", photos:[]}; },
-      title:function(s){ return es(s.name) || "Open Mic"; }, sub:function(s){ return es(s.date); }, thumb:function(s){ return (s.photos || [])[0]; },
-      fields:function(s, body){
-        body.append(biIn(s, "name", "Nombre (opcional; si lo dejas vacío dice “Open Mic”)"), showDateIn(s, false, function(){ sortShows(); drawOm(); }),
-          biIn(s, "desc", "Breve descripción de lo que fue el evento", {multiline:true}), tIn(s, "videos", "Enlace a un video (opcional)", {type:"url", ph:"https://..."}),
-          imgList(s.photos = s.photos || [], "Fotos del evento (la primera es la que se ve en la página; se ven completas)", {max:1600, name:"openmic"}));
-      }
-    });
+    var O = CONTENT.openmic; O.photos = O.photos || [];
+    p.append(biIn(O, "info", "Descripción", {multiline:true}), biIn(O, "date", "Próxima fecha"), tIn(O, "link", "Enlace (opcional)", {type:"url", ph:"https://..."}),
+      imgList(O.photos, "Fotos de ediciones anteriores", {max:1400, name:"openmic"}));
   }
 
   function tabMusica(p){
-    p.append(h("h4", {}, "Canciones"), h("p", {"class":"hint"}, "Cada canción es un disco de vinilo: la portada es la funda. Al tocarla, el disco se agranda, se centra y sale de la funda, con el color de la portada (o el que tú elijas); los demás se alejan. Debajo aparece “Escuchar ahora”, que lleva a Spotify, Apple Music y YouTube Music. Si dejas un enlace vacío, ese botón se ve apagado."));
+    p.append(h("h4", {}, "Canciones"), h("p", {"class":"hint"}, "Cada canción muestra su portada y tres botones: Spotify, Apple Music y YouTube Music. Si dejas un enlace vacío, ese botón se ve apagado."));
     var host = h("div"); p.append(host);
     listEditor(host, CONTENT.music, {
       addLabel:"Agregar canción", empty:"No hay canciones.",
-      make:function(){ return {title:{es:"", en:""}, cover:"", pos:"50% 50%", vinyl:"", spotify:"", apple:"", ytmusic:""}; },
+      make:function(){ return {title:{es:"", en:""}, cover:"", pos:"50% 50%", spotify:"", apple:"", ytmusic:""}; },
       title:function(m){ return es(m.title); }, sub:function(m){ return m.spotify ? "Con enlace de Spotify" : "Sin enlace de Spotify"; }, thumb:function(m){ return m.cover; },
       fields:function(m, body){
-        var auto = h("input", {type:"checkbox"}), col = h("input", {type:"color", "aria-label":"Color del vinilo"});
-        auto.checked = !m.vinyl; col.value = /^#[0-9a-f]{6}$/i.test(m.vinyl || "") ? m.vinyl : "#c8472f"; col.disabled = auto.checked;
-        auto.addEventListener("change", function(){ col.disabled = auto.checked; m.vinyl = auto.checked ? "" : col.value; touch(); });
-        col.addEventListener("input", function(){ m.vinyl = col.value; touch(); });
         body.append(biIn(m, "title", "Título de la canción"), imgIn(m, "cover", "Portada", {max:1200, name:"portada-cancion"}), posIn(m, "pos", "Enfoque de la portada"),
-          h("div", {"class":"fld"}, h("span", {}, "Color del vinilo"), h("label", {"class":"chk"}, auto, "Automático (toma el color de la portada)"), col),
           tIn(m, "spotify", "Enlace de Spotify", {type:"url", ph:"https://open.spotify.com/..."}), tIn(m, "apple", "Enlace de Apple Music", {type:"url", ph:"https://music.apple.com/..."}),
           tIn(m, "ytmusic", "Enlace de YouTube Music", {type:"url", ph:"https://music.youtube.com/..."}));
       }
@@ -4017,8 +3544,6 @@ var qrcode = function() {
 
   function tabShop(p){
     var S = CONTENT.shop; S.storeButton = S.storeButton || {enabled:false, url:"", label:{es:"Ir a la tienda", en:"Go to the store"}};
-    p.append(h("h4", {}, "Sección Shop"), h("p", {"class":"hint"}, "Mientras no tengas todo listo, ocúltala: desaparece de la página y del menú. Cuando quieras mostrarla, desmarca la casilla y publica."),
-      chk(S, "hidden", "Ocultar la sección Shop por ahora"));
     p.append(h("h4", {}, "Botón “Ir a la tienda”"), h("p", {"class":"hint"}, "Mientras no haya tienda, déjalo apagado y no aparece en la página."),
       chk(S.storeButton, "enabled", "Mostrar el botón de la tienda"), tIn(S.storeButton, "url", "Enlace de la tienda", {type:"url", ph:"https://..."}), biIn(S.storeButton, "label", "Texto del botón"),
       h("h4", {}, "Aviso general"), biIn(S, "note", "Texto bajo el título de la tienda (opcional)", {hint:"Por ejemplo: “Por ahora la mercancía solo se vende en eventos.”"}));
@@ -4043,7 +3568,7 @@ var qrcode = function() {
   }
 
   var COLOR_ROWS = [["bg","Fondo claro (barra al bajar y Conóceme)","one"],["ink","Texto principal","one"],["logo","Firma en la barra","one"],
-    ["shows","Sección Shows","two"],["musicbg","Fondo de la sección Música","two"],["mic","Sección Open Mic","two"],["videos","Sección Videos","two"],["shop","Sección Shop","two"],["footer","Pie de página","two"]];
+    ["shows","Sección Shows","two"],["music","Sección Música","two"],["mic","Sección Open Mic","two"],["videos","Sección Videos","two"],["shop","Sección Shop","two"],["footer","Pie de página","two"]];
   function tabColores(p){
     var S = CONTENT.settings; S.colors = S.colors || copy(DEFAULTS.settings.colors);
     p.append(h("h4", {}, "Colores de la página"), h("p", {"class":"hint"}, "Cada sección es un degradado de dos colores (arriba y abajo). El color del texto se elige solo para que siempre se lea bien."));
@@ -4071,20 +3596,10 @@ var qrcode = function() {
   }
 
   function tabEnlaces(p){
-    var S = CONTENT.settings; S.social = S.social || [];
-    p.append(h("h4", {}, "Redes y enlaces del pie de la página"),
-      h("p", {"class":"hint"}, "Cada red aparece como un ícono. Agrega las que uses, quita las que no, y ordénalas con las flechas. Si una red no tiene enlace, no se muestra. El enlace de YouTube también se usa para invitar a suscribirse después de que alguien deja su correo."));
-    var host = h("div"); p.append(host);
-    listEditor(host, S.social, {
-      addLabel:"Agregar red o enlace", empty:"Todavía no hay redes en el pie de la página.",
-      make:function(){ return {type:"instagram", url:""}; },
-      title:function(x){ return x.label || (SOCIAL[x.type] || SOCIAL.link)[0]; }, sub:function(x){ return x.url || "Sin enlace (no se muestra)"; },
-      fields:function(x, body){
-        var sel = h("select"); Object.keys(SOCIAL).forEach(function(k){ sel.append(h("option", {value:k}, SOCIAL[k][0])); });
-        sel.value = x.type; sel.addEventListener("change", function(){ x.type = sel.value; touch(); });
-        body.append(fld("Plataforma", sel), tIn(x, "url", "Enlace (o correo, si elegiste “Correo”)", {ph:"https://..."}), tIn(x, "label", "Nombre del botón (opcional; lo leen los lectores de pantalla)"));
-      }
-    });
+    var L = CONTENT.settings.links = CONTENT.settings.links || {};
+    p.append(h("h4", {}, "Redes y enlaces"), h("p", {"class":"hint"}, "Los íconos del pie de la página usan estos enlaces. Si uno queda vacío, su ícono se ve apagado. El de YouTube también se usa para invitar a suscribirse después de que alguien deja su correo."),
+      tIn(L, "youtube", "YouTube (enlace del canal)", {type:"url"}), tIn(L, "instagram", "Instagram", {type:"url"}), tIn(L, "spotify", "Spotify (perfil)", {type:"url"}),
+      tIn(L, "tiktok", "TikTok", {type:"url"}), tIn(L, "facebook", "Facebook", {type:"url"}));
   }
 
   function tabTextos(p){
@@ -4121,7 +3636,7 @@ var qrcode = function() {
     var tok = h("input", {type:"password", id:"ml-token", autocomplete:"off", spellcheck:"false"}), keep = h("input", {type:"checkbox", id:"ml-keep"});
     tok.value = getTok("jm-mail"); keep.checked = !!(function(){ try { return localStorage.getItem("jm-mail"); } catch(e) { return ""; } })();
     var st = h("div", {"class":"status", role:"status", "aria-live":"polite"}), tableHost = h("div"), ROWS = [];
-    p.append(fld("Clave de la lista (solo la sabes tú; no se guarda en la página)", tok, "Esta clave la crea quien instaló la lista de correos (se genera una sola vez). Si no la tienes, pídesela a esa persona."), h("label", {"class":"chk"}, keep, "Recordar en este dispositivo (solo si es tu equipo)"));
+    p.append(fld("Clave de la lista (solo la sabes tú; no se guarda en la página)", tok), h("label", {"class":"chk"}, keep, "Recordar en este dispositivo (solo si es tu equipo)"));
     function draw(filter){
       clear(tableHost);
       var rows = ROWS.filter(function(r){ return !filter || r.email.toLowerCase().indexOf(filter.toLowerCase()) >= 0; });
@@ -4198,26 +3713,18 @@ var qrcode = function() {
     }).then(function(r){ if (!r.ok) throw ghError(r); return r; });
   }
   function blobB64(b){ return new Promise(function(res, rej){ var f = new FileReader(); f.onload = function(){ res(String(f.result).split(",")[1]); }; f.onerror = rej; f.readAsDataURL(b); }); }
-  function usedImages(){ var c = copy(CONTENT); delete c.dims; var s = JSON.stringify(c); return Object.keys(NEWIMG).filter(function(k){ return s.indexOf(k) >= 0; }); }
+  function usedImages(){ var s = JSON.stringify(CONTENT); return Object.keys(NEWIMG).filter(function(k){ return s.indexOf(k) >= 0; }); }
   function problems(){
     var out = [], S = CONTENT.shows;
     S.upcoming.forEach(function(s, i){ if (!es(s.name).trim()) out.push("Un próximo show no tiene nombre."); if (!es(s.date).trim()) out.push("“" + es(s.name) + "” no tiene fecha."); });
     S.past.forEach(function(s){ if (!es(s.name).trim()) out.push("Un show pasado no tiene nombre."); });
     return out;
   }
-  function contentJson(){
-    var used = usedImages(); CONTENT.dims = CONTENT.dims || {};
-    Object.keys(NEWIMG).forEach(function(k){ if (used.indexOf(k) < 0) delete CONTENT.dims[k]; });
-    return JSON.stringify(CONTENT, null, 2) + "\n";
-  }
+  function contentJson(){ return JSON.stringify(CONTENT, null, 2) + "\n"; }
   function tabPublicar(p){
     var cfg = ghCfg();
     p.append(h("h4", {}, "Publicar los cambios"), h("p", {"class":"hint", id:"ad-dirty"}, ""),
       h("p", {}, "Mientras no publiques, lo que cambias solo lo ves tú, en este navegador. Al publicar, los cambios se guardan en GitHub y la página se actualiza para todos en uno o dos minutos."));
-    p.append(h("details", {}, h("summary", {}, "¿Qué es esto y de dónde saco estos datos?"),
-      h("p", {"class":"hint"}, "Usuario, repositorio y rama dicen dónde vive tu página en GitHub. Ya vienen escritos y normalmente no hay que cambiarlos."),
-      h("p", {"class":"hint"}, "La clave de GitHub es como una llave que permite que este panel guarde los cambios en tu página. La crea la persona dueña de la cuenta de GitHub (la guía explica cómo) y se pega aquí una sola vez. No la compartas."),
-      h("p", {"class":"hint"}, "Si todavía no tienes la clave, usa “Descargar archivos (modo manual)”: baja un archivo .zip con tus cambios (el archivo content.json y las fotos nuevas). Quien administra la cuenta de GitHub lo sube a mano (Add file → Upload files) y la página se actualiza igual. Es la misma publicación, solo hecha a mano.")));
     var o = h("input", {type:"text", value:cfg.owner, autocomplete:"off"}), r = h("input", {type:"text", value:cfg.repo, autocomplete:"off"}), b = h("input", {type:"text", value:cfg.branch, autocomplete:"off"});
     var tok = h("input", {type:"password", autocomplete:"off", spellcheck:"false"}), keep = h("input", {type:"checkbox"}), st = h("div", {"class":"status", role:"status", "aria-live":"polite"});
     tok.value = getTok("jm-gh"); keep.checked = !!(function(){ try { return localStorage.getItem("jm-gh"); } catch(e) { return ""; } })();
@@ -4345,14 +3852,14 @@ var qrcode = function() {
   }
   function init(){
     IMG = window.JM_IMG || {};
-    CONTENT = normalize(copy(DEFAULTS), null);
+    CONTENT = copy(DEFAULTS);
     var shown = false;
-    function show(){ shown = true; setLang(lang); if (location.hash === "#admin") openAdmin(); startIntro(); }
+    function show(){ shown = true; setLang(lang); if (location.hash === "#admin") openAdmin(); }
     var timer = setTimeout(function(){ if (!shown) show(); }, 3000);
     load("content.json").then(function(c){
       if (c) return c;
       return load("shows.json").then(function(s){ return s ? {shows:{upcoming:s.upcoming || [], past:s.past || []}} : null; });
-    }).then(function(c){ if (c) CONTENT = normalize(deepMerge(copy(DEFAULTS), c), c); })
+    }).then(function(c){ if (c) CONTENT = deepMerge(copy(DEFAULTS), c); })
       .then(function(){ clearTimeout(timer); show(); });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
