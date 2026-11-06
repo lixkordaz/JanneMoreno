@@ -4424,6 +4424,63 @@ var qrcode = function() {
     Object.keys(NEWIMG).forEach(function(k){ if (used.indexOf(k) < 0) delete CONTENT.dims[k]; });
     return JSON.stringify(CONTENT, null, 2) + "\n";
   }
+  /* ----- avisos por correo de shows nuevos (Gmail, mediante el script de la lista) ----- */
+  function showId(s){ return String(s.id || (whenOf(s) + "-" + slug(es(s.name)))); }
+  function sitioUrl(){ return location.href.split("#")[0].split("?")[0].replace(/index\.html$/, ""); }
+  function proximosParaAvisar(){
+    var hoy = new Date().toISOString().slice(0, 10);
+    return ((CONTENT.shows || {}).upcoming || []).filter(function(s){ var w = whenOf(s); return es(s.name) && (!w || w >= hoy); });
+  }
+  function flyerPayload(key){
+    var u = key ? srcOf(key) : "";
+    if (!u) return Promise.resolve(null);
+    return fetch(u).then(function(r){ if (!r.ok) throw new Error("x"); return r.blob(); }).then(function(b){
+      if (b.size > 1400000) return null;
+      return blobB64(b).then(function(x){ return {type:b.type || "image/jpeg", b64:x}; });
+    }).catch(function(){ return null; });
+  }
+  function enviarShow(s, st, prueba){
+    return flyerPayload(s.flyer).then(function(fl){
+      var show = {id:showId(s), name:s.name, date:s.date, info:s.info, link:s.link || "", site:sitioUrl(), flyer:fl}, acc = {enviados:0, pendientes:0, errores:0};
+      function paso(){
+        var pl = {action:"avisar", show:show}; if (prueba) pl.prueba = prueba;
+        return mailCall(pl).then(function(r){
+          acc.enviados += r.enviados || 0; acc.errores += r.errores || 0; acc.pendientes = r.pendientes || 0;
+          say(st, "Enviando “" + es(s.name) + "”… " + acc.enviados + " enviados" + (acc.pendientes ? ", faltan " + acc.pendientes : "") + ".");
+          if (!prueba && r.pendientes > 0 && r.enviados > 0 && r.cuota > 0) return paso();
+        });
+      }
+      return paso().then(function(){ return acc; });
+    });
+  }
+  function avisarShows(st){
+    var list = proximosParaAvisar();
+    if (!list.length){ say(st, "No hay shows próximos para avisar.", "ok"); return Promise.resolve(); }
+    say(st, "Revisando la lista de correos…");
+    return mailCall({action:"avisos_estado", ids:list.map(showId)}).then(function(d){
+      var nuevos = list.filter(function(s){ return !((d.shows || {})[showId(s)] || {}).enviados; });
+      if (!nuevos.length){ say(st, "No hay shows nuevos por avisar: a tu lista ya se le avisó de todos los shows próximos.", "ok"); return; }
+      if (!d.suscriptores){ say(st, "Todavía no hay correos en tu lista, así que no se envió ningún aviso.", "ok"); return; }
+      var msg = "Se enviará por Gmail el aviso de " + nuevos.map(function(s){ return "“" + es(s.name) + "”"; }).join(" y ") + " a " + d.suscriptores + (d.suscriptores === 1 ? " suscriptor" : " suscriptores") +
+        ".\n\nHoy esta cuenta de Gmail puede enviar como máximo " + d.cuota + " correos.\n\n¿Enviar ahora?";
+      if (!window.confirm(msg)){ say(st, "No se envió el aviso. Cuando quieras, usa “Enviar aviso de shows nuevos”."); return; }
+      var chain = Promise.resolve(), tot = 0, pend = 0, err = 0;
+      nuevos.forEach(function(s){ chain = chain.then(function(){ return enviarShow(s, st).then(function(r){ tot += r.enviados; pend += r.pendientes; err += r.errores; }); }); });
+      return chain.then(function(){
+        say(st, pend > 0 ? "Se enviaron " + tot + " correos. Faltan " + pend + ": se acabó el límite diario de Gmail. Mañana presiona “Enviar aviso de shows nuevos” y continúa donde se quedó."
+          : "Listo. Aviso enviado a " + tot + (tot === 1 ? " persona" : " personas") + (err ? " (" + err + " no se pudieron enviar)" : "") + ".", pend > 0 || err ? "" : "ok");
+      });
+    }).catch(function(e){ say(st, "No se pudo enviar el aviso: " + ((e && e.message) || "error del servicio."), "err"); });
+  }
+  function enviarPrueba(st){
+    var list = proximosParaAvisar(); if (!list.length){ say(st, "Primero agrega un show próximo para poder probar.", "err"); return; }
+    var last = ""; try { last = localStorage.getItem("jm-testmail") || ""; } catch(e) {}
+    var to = window.prompt("¿A qué correo te mando la prueba? (llega solo ahí, marcada como prueba)", last); if (!to) return;
+    try { localStorage.setItem("jm-testmail", to.trim()); } catch(e) {}
+    say(st, "Enviando la prueba…");
+    enviarShow(list[0], st, to.trim()).then(function(){ say(st, "Listo. Revisa tu correo (y la carpeta de spam, por si acaso).", "ok"); })
+      .catch(function(e){ say(st, "No se pudo enviar la prueba: " + ((e && e.message) || "error del servicio."), "err"); });
+  }
   function tabPublicar(p){
     var cfg = ghCfg();
     p.append(h("h4", {}, "Publicar los cambios"), h("p", {"class":"hint", id:"ad-dirty"}, ""), h("p", {"class":"hint"}, lastPubText()),
@@ -4439,6 +4496,9 @@ var qrcode = function() {
       fld("Clave de GitHub (token)", tok, "Se crea en GitHub (la guía explica cómo). Solo la usa este navegador para publicar; no se guarda en la página."),
       h("label", {"class":"chk"}, keep, "Recordar en este dispositivo (solo si es tu equipo)"));
     function readCfg(){ var c = {owner:o.value.trim(), repo:r.value.trim(), branch:b.value.trim() || "main"}; try { localStorage.setItem("jm-gh-cfg", JSON.stringify(c)); } catch(e) {} return c; }
+    var auto = h("input", {type:"checkbox"}), nst = h("div", {"class":"status", role:"status", "aria-live":"polite"});
+    auto.checked = (function(){ try { return localStorage.getItem("jm-notify") !== "0"; } catch(e) { return true; } })();
+    auto.addEventListener("change", function(){ try { localStorage.setItem("jm-notify", auto.checked ? "1" : "0"); } catch(e) {} });
     var pub = btn("Publicar cambios", function(){
       var c = readCfg(), tk = tok.value.trim(), pr = problems();
       if (pr.length){ say(st, "Antes de publicar: " + pr[0], "err"); return; }
@@ -4457,6 +4517,11 @@ var qrcode = function() {
         NEWIMG = {}; DIRTY = false; ORIGINAL = copy(CONTENT); updateDirty(); pub.disabled = false; clearTimeout(draftTimer); DRAFT.clear();
         try { localStorage.setItem("jm-lastpub", String(Date.now())); } catch(e) {}
         say(st, "Listo. Tus cambios ya están guardados en GitHub. La página tarda de 1 a 3 minutos en mostrarlos para todos: si recargas antes, todavía verás la versión anterior.", "ok");
+        var mEp = ((CONTENT.settings || {}).mailing || {}).endpoint;
+        if (auto.checked && mEp){
+          if (getTok("jm-mail")) avisarShows(nst);
+          else say(nst, "Para avisar por correo de los shows nuevos, escribe la clave de la lista en “Correos y acceso” y luego presiona “Enviar aviso de shows nuevos”.");
+        }
       }).catch(function(e){ pub.disabled = false; say(st, (e && e.message) || "No se pudo publicar.", "err"); });
     }, "solid");
     var dl = btn("Descargar archivos (modo manual)", function(){
@@ -4476,6 +4541,10 @@ var qrcode = function() {
       CONTENT = copy(ORIGINAL); NEWIMG = {}; DIRTY = false; MEMO = {}; clearTimeout(draftTimer); DRAFT.clear(); render(); selectTab(TAB);
     });
     p.append(h("div", {"class":"acts", style:"margin:1rem 0"}, pub, dl, discard), st);
+    p.append(h("h4", {}, "Avisos por correo a tu lista"),
+      h("p", {"class":"hint"}, "Cuando publicas un show nuevo, se le avisa por Gmail a las personas de tu lista de correos: una sola vez por show, nunca se repite. Antes de enviar te pregunta y te dice a cuántas personas. Necesita la dirección y la clave de la lista (pestaña “Correos y acceso”) y que el script esté conectado con Gmail (la guía explica cómo)."),
+      h("label", {"class":"chk"}, auto, "Avisar a mis suscriptores cuando publique un show nuevo"),
+      h("div", {"class":"acts", style:"margin:.6rem 0"}, btn("Enviar aviso de shows nuevos", function(){ avisarShows(nst); }), btn("Enviarme una prueba", function(){ enviarPrueba(nst); })), nst);
     updateDirty();
   }
 
