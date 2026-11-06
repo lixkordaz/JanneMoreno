@@ -226,45 +226,34 @@
   "music": [
     {
       "title": {
-        "es": "Soy de ti",
-        "en": "Soy de ti"
+        "es": "Soy de Ti",
+        "en": "Soy de Ti"
       },
       "cover": "cover",
       "pos": "50% 85%",
-      "spotify": "",
+      "spotify": "https://open.spotify.com/track/2YrRme1IsCJiH2CVnNR2PM",
       "apple": "",
       "ytmusic": ""
     },
     {
       "title": {
-        "es": "Título de la canción",
-        "en": "Song title"
+        "es": "Noas",
+        "en": "Noas"
       },
       "cover": "",
       "pos": "50% 50%",
-      "spotify": "",
+      "spotify": "https://open.spotify.com/track/5m370vqUJfrql0fZfRcRD2",
       "apple": "",
       "ytmusic": ""
     },
     {
       "title": {
-        "es": "Título de la canción",
-        "en": "Song title"
+        "es": "RED CLAY",
+        "en": "RED CLAY"
       },
       "cover": "",
       "pos": "50% 50%",
-      "spotify": "",
-      "apple": "",
-      "ytmusic": ""
-    },
-    {
-      "title": {
-        "es": "Título de la canción",
-        "en": "Song title"
-      },
-      "cover": "",
-      "pos": "50% 50%",
-      "spotify": "",
+      "spotify": "https://open.spotify.com/track/1ALGKFTzMnhI6V7229eAC6",
       "apple": "",
       "ytmusic": ""
     }
@@ -285,26 +274,26 @@
   "videos": [
     {
       "title": {
-        "es": "Título del video",
-        "en": "Video title"
+        "es": "Video 1",
+        "en": "Video 1"
       },
-      "url": "",
+      "url": "https://youtu.be/UbQlsfm09Ok",
       "thumb": ""
     },
     {
       "title": {
-        "es": "Título del video",
-        "en": "Video title"
+        "es": "Video 2",
+        "en": "Video 2"
       },
-      "url": "",
+      "url": "https://youtu.be/5nolXKdSNNI",
       "thumb": ""
     },
     {
       "title": {
-        "es": "Título del video",
-        "en": "Video title"
+        "es": "Video 3",
+        "en": "Video 3"
       },
-      "url": "",
+      "url": "https://youtu.be/u6XhRW7HW5Y",
       "thumb": ""
     }
   ],

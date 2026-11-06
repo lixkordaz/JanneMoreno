@@ -432,6 +432,9 @@ table.mail input{padding:.4rem .5rem!important}
 .tx{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:.6rem 0;padding-bottom:.6rem;border-bottom:1px solid var(--line)}
 .tx .lab{grid-column:1/-1;font-size:.8rem;color:var(--muted)}
 @media (max-width:560px){.tx{grid-template-columns:1fr}}
+.draftbar{border:1.5px solid #C42100;background:#FFF4EE;color:#2A1A14;padding:.8rem 1rem;margin:0 0 1rem}
+.draftbar p{margin:0 0 .6rem;font-weight:600}
+.draftbar[hidden]{display:none}
 .icons{display:flex;flex-wrap:wrap;gap:.4rem}
 .ico{width:3rem;height:3rem;padding:.2rem;border:1.5px solid #bbb;background:#fff;color:#C42100;cursor:pointer;font:600 .7rem var(--body)}
 .ico.on{border-color:#C42100;outline:2px solid #C42100}
@@ -2941,7 +2944,7 @@ var qrcode = function() {
   var ADMIN = { salt: "70956de41cf497d1ea1eb53233c694c8", hash: "acde15375bc69c1fa360fb0b72b56efb897e55f9583c6575b10bc38285352a64", iter: 250000 };
 
   /* Contenido original (el mismo de content.json). Si content.json existe, manda sobre este. */
-  var DEFAULTS = {"_leeme":"Contenido de la página de Jánne Moreno. Se edita desde el panel (enlace “Acceso” al final de la página). Cada texto es {\"es\": \"...\", \"en\": \"...\"}. Las imágenes son nombres de la página o rutas dentro de la carpeta img/.","settings":{"colors":{"bg":"#EDE4D8","ink":"#2A1A14","logo":"#C42100","shop":["#B7A3B5","#BB8746"],"footer":["#2A1A14","#2A1A14"],"musicbg":["#2B1A11","#150B07"],"showsbg":["#E7DED4","#E4D9CA"],"vidbg":["#2B1A11","#150B07"]},"mailing":{"endpoint":""},"signature":"","signatureAr":2.1359,"social":[{"type":"youtube","url":"https://www.youtube.com/@janne.moreno"}],"intro":true},"hero":{"image":"hero","pos":"47% 40%","alt":{"es":"Jánne Moreno frente a un mural, con los brazos abiertos","en":"Jánne Moreno in front of a mural, arms open"}},"gallery":["g1","g5","g8900","g3","may1","g9160","g13","g8809","may8","g8847","g8915","g9096","g3b"],"shows":{"upcoming":[{"id":"2026-10-24-day-of-the-dead-xicago","when":"2026-10-24","name":{"es":"Day of the Dead Xicágo","en":"Day of the Dead Xicágo"},"short":{"es":"24 de octubre","en":"October 24"},"date":{"es":"Sábado 24 de octubre de 2026 · 3 a 8 pm","en":"Saturday, October 24, 2026 · 3 to 8 pm"},"info":{"es":"Ofrendas, música y arte en el National Museum of Mexican Art, 1852 W 19th St, Chicago. Entrada gratuita.","en":"Ofrendas, music and art at the National Museum of Mexican Art, 1852 W 19th St, Chicago. Free admission."},"link":"https://NationalMuseumOfMexicanArt.org","flyer":"fl_dod"},{"id":"2026-10-31-wmf-dia-de-los-muertos","when":"2026-10-31","name":{"es":"Día de los Muertos: una noche de arte y música en vivo","en":"Día de los Muertos: an evening of art and live music"},"short":{"es":"31 de octubre","en":"October 31"},"date":{"es":"Sábado 31 de octubre · 6 a 8 pm","en":"Saturday, October 31 · 6 to 8 pm"},"info":{"es":"Concierto de Jánne Moreno con The World Music Foundation, 1066 W Granville Ave, Chicago. Lotería y premios, pan dulce y concurso de catrinas y catrines.","en":"Concert by Jánne Moreno with The World Music Foundation, 1066 W Granville Ave, Chicago. Lotería and prizes, pan dulce and a catrina / catrín costume contest."},"link":"https://TheWMF.org/dia","flyer":"fl_oct31"}],"past":[{"when":"2026-10-04","name":{"es":"Pilsen Community Books","en":"Pilsen Community Books"},"date":{"es":"4 de octubre de 2026","en":"October 4, 2026"},"desc":{"es":"Su primera vez en Pilsen Community Books, 1531 W 18th St, Chicago.","en":"Her first time at Pilsen Community Books, 1531 W 18th St, Chicago."},"link":"","videos":"","photos":["pcb1","pcb2","pcb3","pcb4","pcbfl"],"pos":"50% 30%"},{"when":"2026-08-30","name":{"es":"Loving Heart Cafe Matinee","en":"Loving Heart Cafe Matinee"},"date":{"es":"30 de agosto","en":"August 30"},"desc":{"es":"Matinee dominical con Jacob Revels, Ngozzi, Nicholas A. Randall y Jánne Moreno, en 838 W Montrose Ave, Chicago.","en":"Sunday matinee with Jacob Revels, Ngozzi, Nicholas A. Randall and Jánne Moreno, at 838 W Montrose Ave, Chicago."},"link":"","videos":"","photos":["lovingfl"],"pos":"50% 35%"},{"when":"2026-08-29","name":{"es":"Edgewater Music Fest","en":"Edgewater Music Fest"},"date":{"es":"29 de agosto","en":"August 29"},"desc":{"es":"Set acústico de 3:00 a 3:50 pm en el escenario acústico de la carpa de Rattleback Records, presentado por The WMF.","en":"Acoustic set, 3:00 to 3:50 pm, on the acoustic stage in the Rattleback Records tent, presented by The WMF."},"link":"","videos":"","photos":["edgefl"],"pos":"50% 20%"},{"when":"2026-05-16","name":{"es":"Show del 16 de mayo","en":"May 16 show"},"date":{"es":"16 de mayo de 2026","en":"May 16, 2026"},"desc":{"es":"Aquí va el nombre del lugar y una descripción corta del show.","en":"The venue name and a short description of the show go here."},"link":"","videos":"","photos":["may8","may1","may9"],"pos":"50% 35%"}]},"music":[{"title":{"es":"Soy de ti","en":"Soy de ti"},"cover":"cover","pos":"50% 85%","spotify":"","apple":"","ytmusic":"","vinyl":""},{"title":{"es":"Título de la canción","en":"Song title"},"cover":"","pos":"50% 50%","spotify":"","apple":"","ytmusic":"","vinyl":""},{"title":{"es":"Título de la canción","en":"Song title"},"cover":"","pos":"50% 50%","spotify":"","apple":"","ytmusic":"","vinyl":""},{"title":{"es":"Título de la canción","en":"Song title"},"cover":"","pos":"50% 50%","spotify":"","apple":"","ytmusic":"","vinyl":""}],"openmic":{"image":"","info":{"es":"Organizo open mics en Libros de la Luna. Aquí van la fecha, la hora, cómo apuntarse para tocar y cualquier otro dato.","en":"I host open mics at Libros de la Luna. Date, time, how to sign up to play and any other details go here."},"date":{"es":"Próxima fecha por confirmar","en":"Next date to be confirmed"},"link":"","past":[]},"videos":[{"title":{"es":"Título del video","en":"Video title"},"url":"","thumb":""},{"title":{"es":"Título del video","en":"Video title"},"url":"","thumb":""},{"title":{"es":"Título del video","en":"Video title"},"url":"","thumb":""}],"shop":{"storeButton":{"enabled":false,"url":"","label":{"es":"Ir a la tienda","en":"Go to the store"}},"note":{"es":"","en":""},"items":[{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"op2","pos":"62% 35%","onlyAtShows":false},{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"m1292","pos":"50% 40%","onlyAtShows":false},{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"m1217","pos":"50% 40%","onlyAtShows":false},{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"m1211","pos":"50% 35%","onlyAtShows":false},{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"m1282","pos":"50% 40%","onlyAtShows":false},{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"m1264","pos":"50% 35%","onlyAtShows":false}],"hidden":true},"meet":{"photo":"bio","pos":"50% 30%","bio":{"es":"Aquí va la biografía de Jánne Moreno. Cuenta de dónde viene, cómo empezó a hacer música y qué la mueve hoy.\n\nDespués, agrega lo que marcó su camino: canciones, shows y proyectos, como el Open Mic que organiza en Libros de la Luna.","en":"Jánne Moreno’s biography goes here. Tell where she comes from, how she started making music and what drives her today.\n\nThen add what shaped her path: songs, shows and projects, like the Open Mic she hosts at Libros de la Luna."},"gallery":[]},"texts":{},"dims":{"hero":1.858,"op2":1.5005,"fl_dod":1.0,"fl_oct31":0.7725,"pcb1":0.7318,"pcb2":1.62,"pcb3":0.6664,"pcb4":0.6664,"pcbfl":0.75,"lovingfl":0.75,"edgefl":0.75,"may1":1.5007,"may8":1.5007,"may9":1.5007,"m1211":0.6667,"m1217":1.5,"m1264":1.5,"m1282":1.5,"m1292":0.6667,"bio":0.667,"cover":0.6667,"g1":0.6436,"g3":0.6614,"g5":1.3397,"g8809":0.6664,"g8847":0.6664,"g8900":0.6664,"g8915":0.6664,"g9096":0.6664,"g9160":0.6664,"g3b":0.6664,"g13":1.0}};
+  var DEFAULTS = {"_leeme":"Contenido de la página de Jánne Moreno. Se edita desde el panel (enlace “Acceso” al final de la página). Cada texto es {\"es\": \"...\", \"en\": \"...\"}. Las imágenes son nombres de la página o rutas dentro de la carpeta img/.","settings":{"colors":{"bg":"#EDE4D8","ink":"#2A1A14","logo":"#C42100","shop":["#B7A3B5","#BB8746"],"footer":["#2A1A14","#2A1A14"],"musicbg":["#2B1A11","#150B07"],"showsbg":["#E7DED4","#E4D9CA"],"vidbg":["#2B1A11","#150B07"]},"mailing":{"endpoint":""},"signature":"","signatureAr":2.1359,"social":[{"type":"youtube","url":"https://www.youtube.com/@janne.moreno"}],"intro":true},"hero":{"image":"hero","pos":"47% 40%","alt":{"es":"Jánne Moreno frente a un mural, con los brazos abiertos","en":"Jánne Moreno in front of a mural, arms open"}},"gallery":["g1","g5","g8900","g3","may1","g9160","g13","g8809","may8","g8847","g8915","g9096","g3b"],"shows":{"upcoming":[{"id":"2026-10-24-day-of-the-dead-xicago","when":"2026-10-24","name":{"es":"Day of the Dead Xicágo","en":"Day of the Dead Xicágo"},"short":{"es":"24 de octubre","en":"October 24"},"date":{"es":"Sábado 24 de octubre de 2026 · 3 a 8 pm","en":"Saturday, October 24, 2026 · 3 to 8 pm"},"info":{"es":"Ofrendas, música y arte en el National Museum of Mexican Art, 1852 W 19th St, Chicago. Entrada gratuita.","en":"Ofrendas, music and art at the National Museum of Mexican Art, 1852 W 19th St, Chicago. Free admission."},"link":"https://NationalMuseumOfMexicanArt.org","flyer":"fl_dod"},{"id":"2026-10-31-wmf-dia-de-los-muertos","when":"2026-10-31","name":{"es":"Día de los Muertos: una noche de arte y música en vivo","en":"Día de los Muertos: an evening of art and live music"},"short":{"es":"31 de octubre","en":"October 31"},"date":{"es":"Sábado 31 de octubre · 6 a 8 pm","en":"Saturday, October 31 · 6 to 8 pm"},"info":{"es":"Concierto de Jánne Moreno con The World Music Foundation, 1066 W Granville Ave, Chicago. Lotería y premios, pan dulce y concurso de catrinas y catrines.","en":"Concert by Jánne Moreno with The World Music Foundation, 1066 W Granville Ave, Chicago. Lotería and prizes, pan dulce and a catrina / catrín costume contest."},"link":"https://TheWMF.org/dia","flyer":"fl_oct31"}],"past":[{"when":"2026-10-04","name":{"es":"Pilsen Community Books","en":"Pilsen Community Books"},"date":{"es":"4 de octubre de 2026","en":"October 4, 2026"},"desc":{"es":"Su primera vez en Pilsen Community Books, 1531 W 18th St, Chicago.","en":"Her first time at Pilsen Community Books, 1531 W 18th St, Chicago."},"link":"","videos":"","photos":["pcb1","pcb2","pcb3","pcb4","pcbfl"],"pos":"50% 30%"},{"when":"2026-08-30","name":{"es":"Loving Heart Cafe Matinee","en":"Loving Heart Cafe Matinee"},"date":{"es":"30 de agosto","en":"August 30"},"desc":{"es":"Matinee dominical con Jacob Revels, Ngozzi, Nicholas A. Randall y Jánne Moreno, en 838 W Montrose Ave, Chicago.","en":"Sunday matinee with Jacob Revels, Ngozzi, Nicholas A. Randall and Jánne Moreno, at 838 W Montrose Ave, Chicago."},"link":"","videos":"","photos":["lovingfl"],"pos":"50% 35%"},{"when":"2026-08-29","name":{"es":"Edgewater Music Fest","en":"Edgewater Music Fest"},"date":{"es":"29 de agosto","en":"August 29"},"desc":{"es":"Set acústico de 3:00 a 3:50 pm en el escenario acústico de la carpa de Rattleback Records, presentado por The WMF.","en":"Acoustic set, 3:00 to 3:50 pm, on the acoustic stage in the Rattleback Records tent, presented by The WMF."},"link":"","videos":"","photos":["edgefl"],"pos":"50% 20%"},{"when":"2026-05-16","name":{"es":"Show del 16 de mayo","en":"May 16 show"},"date":{"es":"16 de mayo de 2026","en":"May 16, 2026"},"desc":{"es":"Aquí va el nombre del lugar y una descripción corta del show.","en":"The venue name and a short description of the show go here."},"link":"","videos":"","photos":["may8","may1","may9"],"pos":"50% 35%"}]},"music":[{"title":{"es":"Soy de Ti","en":"Soy de Ti"},"cover":"cover","pos":"50% 85%","spotify":"https://open.spotify.com/track/2YrRme1IsCJiH2CVnNR2PM","apple":"","ytmusic":"","vinyl":""},{"title":{"es":"Noas","en":"Noas"},"cover":"","pos":"50% 50%","spotify":"https://open.spotify.com/track/5m370vqUJfrql0fZfRcRD2","apple":"","ytmusic":"","vinyl":""},{"title":{"es":"RED CLAY","en":"RED CLAY"},"cover":"","pos":"50% 50%","spotify":"https://open.spotify.com/track/1ALGKFTzMnhI6V7229eAC6","apple":"","ytmusic":"","vinyl":""}],"openmic":{"image":"","info":{"es":"Organizo open mics en Libros de la Luna. Aquí van la fecha, la hora, cómo apuntarse para tocar y cualquier otro dato.","en":"I host open mics at Libros de la Luna. Date, time, how to sign up to play and any other details go here."},"date":{"es":"Próxima fecha por confirmar","en":"Next date to be confirmed"},"link":"","past":[]},"videos":[{"title":{"es":"Video 1","en":"Video 1"},"url":"https://youtu.be/UbQlsfm09Ok","thumb":""},{"title":{"es":"Video 2","en":"Video 2"},"url":"https://youtu.be/5nolXKdSNNI","thumb":""},{"title":{"es":"Video 3","en":"Video 3"},"url":"https://youtu.be/u6XhRW7HW5Y","thumb":""}],"shop":{"storeButton":{"enabled":false,"url":"","label":{"es":"Ir a la tienda","en":"Go to the store"}},"note":{"es":"","en":""},"items":[{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"op2","pos":"62% 35%","onlyAtShows":false},{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"m1292","pos":"50% 40%","onlyAtShows":false},{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"m1217","pos":"50% 40%","onlyAtShows":false},{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"m1211","pos":"50% 35%","onlyAtShows":false},{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"m1282","pos":"50% 40%","onlyAtShows":false},{"name":{"es":"Nombre del producto","en":"Product name"},"price":{"es":"Precio","en":"Price"},"image":"m1264","pos":"50% 35%","onlyAtShows":false}],"hidden":true},"meet":{"photo":"bio","pos":"50% 30%","bio":{"es":"Aquí va la biografía de Jánne Moreno. Cuenta de dónde viene, cómo empezó a hacer música y qué la mueve hoy.\n\nDespués, agrega lo que marcó su camino: canciones, shows y proyectos, como el Open Mic que organiza en Libros de la Luna.","en":"Jánne Moreno’s biography goes here. Tell where she comes from, how she started making music and what drives her today.\n\nThen add what shaped her path: songs, shows and projects, like the Open Mic she hosts at Libros de la Luna."},"gallery":[]},"texts":{},"dims":{"hero":1.858,"op2":1.5005,"fl_dod":1.0,"fl_oct31":0.7725,"pcb1":0.7318,"pcb2":1.62,"pcb3":0.6664,"pcb4":0.6664,"pcbfl":0.75,"lovingfl":0.75,"edgefl":0.75,"may1":1.5007,"may8":1.5007,"may9":1.5007,"m1211":0.6667,"m1217":1.5,"m1264":1.5,"m1282":1.5,"m1292":0.6667,"bio":0.667,"cover":0.6667,"g1":0.6436,"g3":0.6614,"g5":1.3397,"g8809":0.6664,"g8847":0.6664,"g8900":0.6664,"g8915":0.6664,"g9096":0.6664,"g9160":0.6664,"g3b":0.6664,"g13":1.0}};
 
   var IMG = {};          /* fotos incluidas en este archivo (al final) + fotos nuevas en memoria */
   var CONTENT = null;    /* contenido activo */
@@ -3859,10 +3862,48 @@ var qrcode = function() {
   function fld(label, ctrl, hint){ return h("label", {"class":"fld"}, h("span", {}, label), ctrl, hint ? h("small", {"class":"hint"}, hint) : null); }
   function updateDirty(){
     var d = $("ad-dirty"); if (!d) return;
-    d.textContent = DIRTY ? "Hay cambios sin publicar. Ya los ves en la página, pero solo en este navegador hasta que los publiques." : "No hay cambios pendientes.";
+    d.textContent = DIRTY ? "Hay cambios sin publicar. Se guardan solos en este navegador (si recargas, te los ofrece de nuevo al entrar), pero la página que ve la gente no cambia hasta que presiones “Publicar cambios”." : "No hay cambios pendientes.";
+  }
+  /* borrador: los cambios sin publicar se guardan solos en este navegador (IndexedDB), con sus fotos nuevas */
+  var DRAFT = {
+    open: function(){ return new Promise(function(res, rej){ try { var r = indexedDB.open("jm-admin", 1); r.onupgradeneeded = function(){ r.result.createObjectStore("kv"); }; r.onsuccess = function(){ res(r.result); }; r.onerror = function(){ rej(r.error); }; } catch(e) { rej(e); } }); },
+    run: function(mode, fn){
+      return DRAFT.open().then(function(db){ return new Promise(function(res){
+        var tx = db.transaction("kv", mode), out; try { out = fn(tx.objectStore("kv")); } catch(e) { res(null); return; }
+        tx.oncomplete = function(){ res(out && out.result !== undefined ? out.result : true); }; tx.onerror = tx.onabort = function(){ res(null); };
+      }); }).catch(function(){ return null; });
+    },
+    get: function(){ return DRAFT.run("readonly", function(s){ return s.get("draft"); }).then(function(v){ return v && v !== true ? v : null; }); },
+    set: function(v){ return DRAFT.run("readwrite", function(s){ return s.put(v, "draft"); }); },
+    clear: function(){ return DRAFT.run("readwrite", function(s){ return s["delete"]("draft"); }); }
+  };
+  var draftTimer = null;
+  function saveDraft(){
+    clearTimeout(draftTimer);
+    draftTimer = setTimeout(function(){ if (DIRTY) DRAFT.set({content:JSON.parse(JSON.stringify(CONTENT)), imgs:NEWIMG, at:Date.now()}); }, 700);
+  }
+  function applyDraft(d){
+    CONTENT = normalize(d.content, null); NEWIMG = d.imgs || {};
+    Object.keys(NEWIMG).forEach(function(k){ try { IMG[k] = URL.createObjectURL(NEWIMG[k]); } catch(e) {} });
+    DIRTY = true; MEMO = {}; render(); selectTab(TAB); var b = $("ad-draft"); if (b) b.hidden = true; updateDirty();
+  }
+  function showDraftBanner(){
+    if (DIRTY) return;
+    DRAFT.get().then(function(d){
+      var box = $("ad-draft"); if (!d || !d.content || DIRTY || !box) return;
+      var when = new Date(d.at || Date.now()).toLocaleString(lang === "en" ? "en-US" : "es-MX");
+      clear(box); box.hidden = false;
+      box.append(h("p", {}, "Tienes cambios sin publicar guardados en este navegador (" + when + "). ¿Quieres recuperarlos?"),
+        h("div", {"class":"acts"}, btn("Recuperar mis cambios", function(){ applyDraft(d); }, "solid"),
+          btn("Descartarlos", function(){ if (!window.confirm("¿Descartar esos cambios guardados?")) return; DRAFT.clear(); box.hidden = true; })));
+    });
+  }
+  function lastPubText(){
+    var t = 0; try { t = +localStorage.getItem("jm-lastpub") || 0; } catch(e) {}
+    return t ? "Última publicación hecha desde este navegador: " + new Date(t).toLocaleString(lang === "en" ? "en-US" : "es-MX") + ". GitHub tarda de 1 a 3 minutos en reflejarla en la página." : "";
   }
   function touch(){
-    DIRTY = true; updateDirty();
+    DIRTY = true; updateDirty(); saveDraft();
     HEADS.forEach(function(x){ x.update(); });
     clearTimeout(pvTimer); pvTimer = setTimeout(render, 150);
   }
@@ -4385,7 +4426,7 @@ var qrcode = function() {
   }
   function tabPublicar(p){
     var cfg = ghCfg();
-    p.append(h("h4", {}, "Publicar los cambios"), h("p", {"class":"hint", id:"ad-dirty"}, ""),
+    p.append(h("h4", {}, "Publicar los cambios"), h("p", {"class":"hint", id:"ad-dirty"}, ""), h("p", {"class":"hint"}, lastPubText()),
       h("p", {}, "Mientras no publiques, lo que cambias solo lo ves tú, en este navegador. Al publicar, los cambios se guardan en GitHub y la página se actualiza para todos en uno o dos minutos."));
     p.append(h("details", {}, h("summary", {}, "¿Qué es esto y de dónde saco estos datos?"),
       h("p", {"class":"hint"}, "Usuario, repositorio y rama dicen dónde vive tu página en GitHub. Ya vienen escritos y normalmente no hay que cambiarlos."),
@@ -4413,8 +4454,9 @@ var qrcode = function() {
         say(st, "Guardando el contenido…");
         return putFile(c, "content.json", btoa(unescape(encodeURIComponent(contentJson()))), "Actualizar la página desde el panel", tk);
       }).then(function(){
-        NEWIMG = {}; DIRTY = false; ORIGINAL = copy(CONTENT); updateDirty(); pub.disabled = false;
-        say(st, "Listo. En uno o dos minutos la página mostrará los cambios para todos.", "ok");
+        NEWIMG = {}; DIRTY = false; ORIGINAL = copy(CONTENT); updateDirty(); pub.disabled = false; clearTimeout(draftTimer); DRAFT.clear();
+        try { localStorage.setItem("jm-lastpub", String(Date.now())); } catch(e) {}
+        say(st, "Listo. Tus cambios ya están guardados en GitHub. La página tarda de 1 a 3 minutos en mostrarlos para todos: si recargas antes, todavía verás la versión anterior.", "ok");
       }).catch(function(e){ pub.disabled = false; say(st, (e && e.message) || "No se pudo publicar.", "err"); });
     }, "solid");
     var dl = btn("Descargar archivos (modo manual)", function(){
@@ -4431,7 +4473,7 @@ var qrcode = function() {
     });
     var discard = btn("Descartar cambios", function(){
       if (!window.confirm("¿Descartar todos los cambios que no has publicado?")) return;
-      CONTENT = copy(ORIGINAL); NEWIMG = {}; DIRTY = false; MEMO = {}; render(); selectTab(TAB);
+      CONTENT = copy(ORIGINAL); NEWIMG = {}; DIRTY = false; MEMO = {}; clearTimeout(draftTimer); DRAFT.clear(); render(); selectTab(TAB);
     });
     p.append(h("div", {"class":"acts", style:"margin:1rem 0"}, pub, dl, discard), st);
     updateDirty();
@@ -4458,9 +4500,9 @@ var qrcode = function() {
     abody.append(h("div", {"class":"ad"},
       h("div", {"class":"ad-top"}, h("h3", {id:"ad-title"}, "Panel de la página"), btn("Cerrar sesión", function(){ loggedIn = false; showLogin(); })),
       h("p", {"class":"hint"}, "Cambia lo que quieras: la página se actualiza detrás de esta ventana para que veas cómo queda. Al terminar, ve a “Publicar”."),
-      tabs, h("div", {id:"ad-pane"}),
+      h("div", {id:"ad-draft", "class":"draftbar", hidden:"hidden"}), tabs, h("div", {id:"ad-pane"}),
       h("div", {"class":"bar-pub"}, h("p", {"class":"hint", id:"ad-dirty2"}, ""), btn("Ir a Publicar", function(){ selectTab("publicar"); }, "solid"))));
-    selectTab(TAB);
+    selectTab(TAB); showDraftBanner();
   }
   var _upd = updateDirty;
   updateDirty = function(){ _upd(); var d2 = $("ad-dirty2"); if (d2) d2.textContent = DIRTY ? "Hay cambios sin publicar." : "Sin cambios pendientes."; };
