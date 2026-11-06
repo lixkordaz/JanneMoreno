@@ -5,18 +5,6 @@
       "bg": "#EDE4D8",
       "ink": "#2A1A14",
       "logo": "#C42100",
-      "shows": [
-        "#E7DED4",
-        "#D9BF9C"
-      ],
-      "mic": [
-        "#B4CCC0",
-        "#C48F65"
-      ],
-      "videos": [
-        "#F7A323",
-        "#EF8419"
-      ],
       "shop": [
         "#B7A3B5",
         "#BB8746"
@@ -28,6 +16,26 @@
       "musicbg": [
         "#2B1A11",
         "#150B07"
+      ],
+      "showsbg": [
+        "#E7DED4",
+        "#E4D9CA"
+      ],
+      "vidbg": [
+        "#2B1A11",
+        "#150B07"
+      ],
+      "shows": [
+        "#E7DED4",
+        "#D9BF9C"
+      ],
+      "mic": [
+        "#B4CCC0",
+        "#C48F65"
+      ],
+      "videos": [
+        "#F7A323",
+        "#EF8419"
       ],
       "music": [
         "#B8421F",
@@ -78,28 +86,6 @@
   "shows": {
     "upcoming": [
       {
-        "id": "2026-10-24-day-of-the-dead-xicago",
-        "when": "2026-10-24",
-        "name": {
-          "es": "Day of the Dead Xicágo",
-          "en": "Day of the Dead Xicágo"
-        },
-        "short": {
-          "es": "24 de octubre",
-          "en": "October 24"
-        },
-        "date": {
-          "es": "Sábado 24 de octubre de 2026 · 3 a 8 pm",
-          "en": "Saturday, October 24, 2026 · 3 to 8 pm"
-        },
-        "info": {
-          "es": "Ofrendas, música y arte en el National Museum of Mexican Art, 1852 W 19th St, Chicago. Entrada gratuita.",
-          "en": "Ofrendas, music and art at the National Museum of Mexican Art, 1852 W 19th St, Chicago. Free admission."
-        },
-        "link": "https://NationalMuseumOfMexicanArt.org",
-        "flyer": "fl_dod"
-      },
-      {
         "id": "2026-10-31-wmf-dia-de-los-muertos",
         "when": "2026-10-31",
         "name": {
@@ -123,6 +109,28 @@
       }
     ],
     "past": [
+      {
+        "when": "2026-10-24",
+        "name": {
+          "es": "Day of the Dead Xicágo",
+          "en": "Day of the Dead Xicágo"
+        },
+        "date": {
+          "es": "Sábado 24 de octubre de 2026 · 3 a 8 pm",
+          "en": "Saturday, October 24, 2026 · 3 to 8 pm"
+        },
+        "desc": {
+          "es": "Ofrendas, música y arte en el National Museum of Mexican Art, 1852 W 19th St, Chicago. Entrada gratuita.",
+          "en": "Ofrendas, music and art at the National Museum of Mexican Art, 1852 W 19th St, Chicago. Free admission."
+        },
+        "link": "https://NationalMuseumOfMexicanArt.org",
+        "videos": "",
+        "photos": [
+          "fl_dod"
+        ],
+        "pos": "50% 35%",
+        "icon": ""
+      },
       {
         "when": "2026-10-04",
         "name": {
