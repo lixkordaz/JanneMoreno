@@ -236,18 +236,18 @@
       "cover": "cover",
       "pos": "50% 85%",
       "spotify": "https://open.spotify.com/track/2YrRme1IsCJiH2CVnNR2PM",
-      "apple": "",
-      "ytmusic": ""
+      "apple": "https://music.apple.com/us/album/soy-de-ti/6772338618?i=6772338619",
+      "ytmusic": "https://youtu.be/ztth9Jb8Pjg?is=LkajHjDvM_csDx8p"
     },
     {
       "title": {
         "es": "Noas",
         "en": "Noas"
       },
-      "cover": "",
+      "cover": "img/portada-cancion-mw4cphwf5t9e.jpg",
       "pos": "50% 50%",
       "spotify": "https://open.spotify.com/track/5m370vqUJfrql0fZfRcRD2",
-      "apple": "",
+      "apple": "https://music.apple.com/us/album/noas/1881837974?i=1881837976",
       "ytmusic": ""
     },
     {
@@ -438,6 +438,7 @@
     "g9096": 0.6664,
     "g9160": 0.6664,
     "g3b": 0.6664,
-    "g13": 1
+    "g13": 1,
+    "img/portada-cancion-mw4cphwf5t9e.jpg": 1
   }
 }
