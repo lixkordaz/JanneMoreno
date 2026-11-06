@@ -51,6 +51,10 @@
       {
         "type": "youtube",
         "url": "https://www.youtube.com/@janne.moreno"
+      },
+      {
+        "type": "spotify",
+        "url": "https://open.spotify.com/intl-es/artist/5hLMi4orRv2yZjWCb8Ud6R?si=BM7z4mbnSr2dkS4oDMW1_Q"
       }
     ],
     "intro": true,
