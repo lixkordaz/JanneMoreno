@@ -29,6 +29,10 @@
         "#E7DED4",
         "#D9BF9C"
       ],
+      "music": [
+        "#B8421F",
+        "#5E4D4A"
+      ],
       "mic": [
         "#B4CCC0",
         "#C48F65"
@@ -36,10 +40,6 @@
       "videos": [
         "#F7A323",
         "#EF8419"
-      ],
-      "music": [
-        "#B8421F",
-        "#5E4D4A"
       ]
     },
     "mailing": {
@@ -51,10 +51,6 @@
       {
         "type": "youtube",
         "url": "https://www.youtube.com/@janne.moreno"
-      },
-      {
-        "type": "spotify",
-        "url": "https://open.spotify.com/intl-es/artist/5hLMi4orRv2yZjWCb8Ud6R?si=BM7z4mbnSr2dkS4oDMW1_Q"
       }
     ],
     "intro": true,
@@ -90,6 +86,28 @@
   "shows": {
     "upcoming": [
       {
+        "id": "2026-10-24-day-of-the-dead-xicago",
+        "when": "2026-10-24",
+        "name": {
+          "es": "Day of the Dead Xicágo",
+          "en": "Day of the Dead Xicágo"
+        },
+        "short": {
+          "es": "24 de octubre",
+          "en": "October 24"
+        },
+        "date": {
+          "es": "Sábado 24 de octubre de 2026 · 3 a 8 pm",
+          "en": "Saturday, October 24, 2026 · 3 to 8 pm"
+        },
+        "info": {
+          "es": "Ofrendas, música y arte en el National Museum of Mexican Art, 1852 W 19th St, Chicago. Entrada gratuita.",
+          "en": "Ofrendas, music and art at the National Museum of Mexican Art, 1852 W 19th St, Chicago. Free admission."
+        },
+        "link": "https://NationalMuseumOfMexicanArt.org",
+        "flyer": "fl_dod"
+      },
+      {
         "id": "2026-10-31-wmf-dia-de-los-muertos",
         "when": "2026-10-31",
         "name": {
@@ -113,28 +131,6 @@
       }
     ],
     "past": [
-      {
-        "when": "2026-10-24",
-        "name": {
-          "es": "Day of the Dead Xicágo",
-          "en": "Day of the Dead Xicágo"
-        },
-        "date": {
-          "es": "Sábado 24 de octubre de 2026 · 3 a 8 pm",
-          "en": "Saturday, October 24, 2026 · 3 to 8 pm"
-        },
-        "desc": {
-          "es": "Ofrendas, música y arte en el National Museum of Mexican Art, 1852 W 19th St, Chicago. Entrada gratuita.",
-          "en": "Ofrendas, music and art at the National Museum of Mexican Art, 1852 W 19th St, Chicago. Free admission."
-        },
-        "link": "https://NationalMuseumOfMexicanArt.org",
-        "videos": "",
-        "photos": [
-          "fl_dod"
-        ],
-        "pos": "50% 35%",
-        "icon": ""
-      },
       {
         "when": "2026-10-04",
         "name": {
@@ -230,34 +226,45 @@
   "music": [
     {
       "title": {
-        "es": "Soy de Ti",
-        "en": "Soy de Ti"
+        "es": "Soy de ti",
+        "en": "Soy de ti"
       },
       "cover": "cover",
       "pos": "50% 85%",
-      "spotify": "https://open.spotify.com/track/2YrRme1IsCJiH2CVnNR2PM",
-      "apple": "https://music.apple.com/us/album/soy-de-ti/6772338618?i=6772338619",
-      "ytmusic": "https://youtu.be/ztth9Jb8Pjg?is=LkajHjDvM_csDx8p"
-    },
-    {
-      "title": {
-        "es": "Noas",
-        "en": "Noas"
-      },
-      "cover": "img/portada-cancion-mw4cphwf5t9e.jpg",
-      "pos": "50% 50%",
-      "spotify": "https://open.spotify.com/track/5m370vqUJfrql0fZfRcRD2",
-      "apple": "https://music.apple.com/us/album/noas/1881837974?i=1881837976",
+      "spotify": "",
+      "apple": "",
       "ytmusic": ""
     },
     {
       "title": {
-        "es": "RED CLAY",
-        "en": "RED CLAY"
+        "es": "Título de la canción",
+        "en": "Song title"
       },
       "cover": "",
       "pos": "50% 50%",
-      "spotify": "https://open.spotify.com/track/1ALGKFTzMnhI6V7229eAC6",
+      "spotify": "",
+      "apple": "",
+      "ytmusic": ""
+    },
+    {
+      "title": {
+        "es": "Título de la canción",
+        "en": "Song title"
+      },
+      "cover": "",
+      "pos": "50% 50%",
+      "spotify": "",
+      "apple": "",
+      "ytmusic": ""
+    },
+    {
+      "title": {
+        "es": "Título de la canción",
+        "en": "Song title"
+      },
+      "cover": "",
+      "pos": "50% 50%",
+      "spotify": "",
       "apple": "",
       "ytmusic": ""
     }
@@ -278,26 +285,26 @@
   "videos": [
     {
       "title": {
-        "es": " La malagueña | Cantando Afuera | Ping Tom Memorial Park Edition🌾",
-        "en": " La malagueña | Cantando Afuera | Ping Tom Memorial Park Edition🌾"
+        "es": "Título del video",
+        "en": "Video title"
       },
-      "url": "https://youtu.be/UbQlsfm09Ok",
+      "url": "",
       "thumb": ""
     },
     {
       "title": {
-        "es": "Jánne Moreno - Soy de Ti (Lyric Visualizer)",
-        "en": "Jánne Moreno - Soy de Ti (Lyric Visualizer)"
+        "es": "Título del video",
+        "en": "Video title"
       },
-      "url": "https://youtu.be/5nolXKdSNNI",
+      "url": "",
       "thumb": ""
     },
     {
       "title": {
-        "es": " Cargando mi Pasado | Cantando Afuera | Ping Tom Memorial Park Edition 🌾",
-        "en": " Cargando mi Pasado | Cantando Afuera | Ping Tom Memorial Park Edition 🌾"
+        "es": "Título del video",
+        "en": "Video title"
       },
-      "url": "https://youtu.be/u6XhRW7HW5Y",
+      "url": "",
       "thumb": ""
     }
   ],
@@ -438,7 +445,6 @@
     "g9096": 0.6664,
     "g9160": 0.6664,
     "g3b": 0.6664,
-    "g13": 1,
-    "img/portada-cancion-mw4cphwf5t9e.jpg": 1
+    "g13": 1
   }
 }
