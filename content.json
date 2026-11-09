@@ -1,5 +1,4 @@
 {
-  "_leeme": "Contenido de la página de Jánne Moreno. Se edita desde el panel (enlace “Acceso” al final de la página). Cada texto es {\"es\": \"...\", \"en\": \"...\"}. Las imágenes son nombres de la página o rutas dentro de la carpeta img/.",
   "settings": {
     "colors": {
       "bg": "#EDE4D8",
@@ -24,22 +23,6 @@
       "vidbg": [
         "#2B1A11",
         "#150B07"
-      ],
-      "shows": [
-        "#E7DED4",
-        "#D9BF9C"
-      ],
-      "music": [
-        "#B8421F",
-        "#5E4D4A"
-      ],
-      "mic": [
-        "#B4CCC0",
-        "#C48F65"
-      ],
-      "videos": [
-        "#F7A323",
-        "#EF8419"
       ]
     },
     "mailing": {
@@ -51,16 +34,13 @@
       {
         "type": "youtube",
         "url": "https://www.youtube.com/@janne.moreno"
+      },
+      {
+        "type": "spotify",
+        "url": "https://open.spotify.com/artist/5hLMi4orRv2yZjWCb8Ud6R"
       }
     ],
-    "intro": true,
-    "links": {
-      "youtube": "https://www.youtube.com/@janne.moreno",
-      "instagram": "",
-      "spotify": "",
-      "tiktok": "",
-      "facebook": ""
-    }
+    "intro": true
   },
   "hero": {
     "image": "hero",
@@ -86,28 +66,6 @@
   "shows": {
     "upcoming": [
       {
-        "id": "2026-10-24-day-of-the-dead-xicago",
-        "when": "2026-10-24",
-        "name": {
-          "es": "Day of the Dead Xicágo",
-          "en": "Day of the Dead Xicágo"
-        },
-        "short": {
-          "es": "24 de octubre",
-          "en": "October 24"
-        },
-        "date": {
-          "es": "Sábado 24 de octubre de 2026 · 3 a 8 pm",
-          "en": "Saturday, October 24, 2026 · 3 to 8 pm"
-        },
-        "info": {
-          "es": "Ofrendas, música y arte en el National Museum of Mexican Art, 1852 W 19th St, Chicago. Entrada gratuita.",
-          "en": "Ofrendas, music and art at the National Museum of Mexican Art, 1852 W 19th St, Chicago. Free admission."
-        },
-        "link": "https://NationalMuseumOfMexicanArt.org",
-        "flyer": "fl_dod"
-      },
-      {
         "id": "2026-10-31-wmf-dia-de-los-muertos",
         "when": "2026-10-31",
         "name": {
@@ -131,6 +89,28 @@
       }
     ],
     "past": [
+      {
+        "when": "2026-10-24",
+        "name": {
+          "es": "Day of the Dead Xicágo",
+          "en": "Day of the Dead Xicágo"
+        },
+        "date": {
+          "es": "Sábado 24 de octubre de 2026 · 3 a 8 pm",
+          "en": "Saturday, October 24, 2026 · 3 to 8 pm"
+        },
+        "desc": {
+          "es": "Ofrendas, música y arte en el National Museum of Mexican Art, 1852 W 19th St, Chicago. Entrada gratuita.",
+          "en": "Ofrendas, music and art at the National Museum of Mexican Art, 1852 W 19th St, Chicago. Free admission."
+        },
+        "link": "https://NationalMuseumOfMexicanArt.org",
+        "videos": "",
+        "photos": [
+          "fl_dod"
+        ],
+        "pos": "50% 35%",
+        "icon": ""
+      },
       {
         "when": "2026-10-04",
         "name": {
@@ -226,51 +206,39 @@
   "music": [
     {
       "title": {
-        "es": "Soy de ti",
-        "en": "Soy de ti"
+        "es": "Soy de Ti",
+        "en": "Soy de Ti"
       },
       "cover": "cover",
       "pos": "50% 85%",
-      "spotify": "",
+      "spotify": "https://open.spotify.com/track/2YrRme1IsCJiH2CVnNR2PM",
       "apple": "",
       "ytmusic": ""
     },
     {
       "title": {
-        "es": "Título de la canción",
-        "en": "Song title"
+        "es": "Noas",
+        "en": "Noas"
       },
       "cover": "",
       "pos": "50% 50%",
-      "spotify": "",
+      "spotify": "https://open.spotify.com/track/5m370vqUJfrql0fZfRcRD2",
       "apple": "",
       "ytmusic": ""
     },
     {
       "title": {
-        "es": "Título de la canción",
-        "en": "Song title"
+        "es": "RED CLAY",
+        "en": "RED CLAY"
       },
       "cover": "",
       "pos": "50% 50%",
-      "spotify": "",
-      "apple": "",
-      "ytmusic": ""
-    },
-    {
-      "title": {
-        "es": "Título de la canción",
-        "en": "Song title"
-      },
-      "cover": "",
-      "pos": "50% 50%",
-      "spotify": "",
+      "spotify": "https://open.spotify.com/track/1ALGKFTzMnhI6V7229eAC6",
       "apple": "",
       "ytmusic": ""
     }
   ],
   "openmic": {
-    "image": "",
     "info": {
       "es": "Organizo open mics en Libros de la Luna. Aquí van la fecha, la hora, cómo apuntarse para tocar y cualquier otro dato.",
       "en": "I host open mics at Libros de la Luna. Date, time, how to sign up to play and any other details go here."
@@ -280,32 +248,54 @@
       "en": "Next date to be confirmed"
     },
     "link": "",
-    "past": []
+    "past": [],
+    "upcoming": []
   },
   "videos": [
     {
       "title": {
-        "es": "Título del video",
-        "en": "Video title"
+        "es": "Video 1",
+        "en": "Video 1"
       },
-      "url": "",
-      "thumb": ""
+      "url": "https://youtu.be/UbQlsfm09Ok",
+      "thumb": "",
+      "card": "sol"
     },
     {
       "title": {
-        "es": "Título del video",
-        "en": "Video title"
+        "es": "Video 2",
+        "en": "Video 2"
       },
-      "url": "",
-      "thumb": ""
+      "url": "https://youtu.be/5nolXKdSNNI",
+      "thumb": "",
+      "card": "noa"
     },
     {
       "title": {
-        "es": "Título del video",
-        "en": "Video title"
+        "es": "Video 3",
+        "en": "Video 3"
+      },
+      "url": "https://youtu.be/u6XhRW7HW5Y",
+      "thumb": "",
+      "card": "cenzontle"
+    },
+    {
+      "title": {
+        "es": "Video 4",
+        "en": "Video 4"
       },
       "url": "",
-      "thumb": ""
+      "thumb": "",
+      "card": "cempasuchil"
+    },
+    {
+      "title": {
+        "es": "Video 5",
+        "en": "Video 5"
+      },
+      "url": "",
+      "thumb": "",
+      "card": "ukulele"
     }
   ],
   "shop": {
