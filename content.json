@@ -288,14 +288,14 @@
   ],
   "openmic": {
     "info": {
-      "es": "Organizo open mics en Libros de la Luna. Aquí van la fecha, la hora, cómo apuntarse para tocar y cualquier otro dato.",
-      "en": "I host open mics at Libros de la Luna. Date, time, how to sign up to play and any other details go here."
+      "es": "Para mi gente del Sur de Chicago. Organizamos Open mics en Libros de la Luna una vez al mes. Regalamos espacio a la gente creativa para compartir su arte: composiciones originales, talento musical, poesía, etc. \nFinalizamos la noche con una presentación especial de un artista local.\nVen a conocer gente real en tiempo real...\n",
+      "en": "For my people in Chicago Southside. We organize Open mics once a month at Libros de la Luna. We give the space for the creative ones to share their art: original compositions, musical talent, poetry, etc.\nWe end the night with a special performance of a local artist.\nCome meet real people in real time...\n"
     },
     "date": {
-      "es": "Próxima fecha por confirmar",
-      "en": "Next date to be confirmed"
+      "es": "Noviembre 13, 2026",
+      "en": "November 13th, 2026"
     },
-    "link": "",
+    "link": "https://partiful.com/e/e0vEsvA9fhUFcRKxap2O?c=n6Iix3mM",
     "past": [],
     "upcoming": []
   },
@@ -442,11 +442,11 @@
     "hidden": true
   },
   "meet": {
-    "photo": "bio",
+    "photo": "img/conoceme-mwa8irgs22j9.jpg",
     "pos": "50% 30%",
     "bio": {
-      "es": "Aquí va la biografía de Jánne Moreno. Cuenta de dónde viene, cómo empezó a hacer música y qué la mueve hoy.\n\nDespués, agrega lo que marcó su camino: canciones, shows y proyectos, como el Open Mic que organiza en Libros de la Luna.",
-      "en": "Jánne Moreno’s biography goes here. Tell where she comes from, how she started making music and what drives her today.\n\nThen add what shaped her path: songs, shows and projects, like the Open Mic she hosts at Libros de la Luna."
+      "es": "Orgullosamente norteña del estado de Coahuila, México. Mis padres me criaron en el desierto de Torreón, descubrí ahí que la música era lo mio y que quería dedicarle mi vida entera a ello. Mis composiciones son una mezcla de muchos géneros como: cumbia, boleros, jazz, bossa nova, baladas, rancheras, etc. \n\nEl haber emigrado a los Estados Unidos cambió mi vida completamente, conocí mucha gente que me ha ayudado a continuar con mi propósito. Mi música siempre comparte un mensaje importante: amor. \nEn un mundo lleno de tanto odio, yo le canto al amor y a lo que tiene valor en esta vida. Tu ahora que lees ésto, me gustaría conocerte y poder tener una charla, ya sabes donde encontrarme, aqui te he dejado toda la información♡\n",
+      "en": "Proudly norteña from the state of Coahuila, México. My parents raised me in the Torreón's dessert, where I discovered that musica was for me and that I wanted to devote my life to it. My compositions are a mix of lots of genres like: cumbia, boleros, jazz, bossa nova, baladas, rancheras, etc.\n\nMigrating to the Unites States completely changed my life, I met lots of people that has helped me to continue my purpose . My music always share an important message: love.\nIn a world full of so much hate, I sing for love and to what it matters in life. Now that you are reading this, I would like to meet you and have a conversation, you know where to find me, I've left all the the information for you♡"
     },
     "gallery": []
   },
@@ -485,6 +485,7 @@
     "g3b": 0.6664,
     "g13": 1,
     "img/flyer-mwa84qx5xs8r.jpg": 0.6413,
-    "img/flyer-mwa88eoet05o.jpg": 0.8
+    "img/flyer-mwa88eoet05o.jpg": 0.8,
+    "img/conoceme-mwa8irgs22j9.jpg": 0.6664
   }
 }
