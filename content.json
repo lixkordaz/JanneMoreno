@@ -1,5 +1,4 @@
 {
-  "_leeme": "Contenido de la página de Jánne Moreno. Se edita desde el panel (enlace “Acceso” al final de la página). Cada texto es {\"es\": \"...\", \"en\": \"...\"}. Las imágenes son nombres de la página o rutas dentro de la carpeta img/.",
   "settings": {
     "colors": {
       "bg": "#EDE4D8",
@@ -24,26 +23,10 @@
       "vidbg": [
         "#2B1A11",
         "#150B07"
-      ],
-      "shows": [
-        "#E7DED4",
-        "#D9BF9C"
-      ],
-      "mic": [
-        "#B4CCC0",
-        "#C48F65"
-      ],
-      "videos": [
-        "#F7A323",
-        "#EF8419"
-      ],
-      "music": [
-        "#B8421F",
-        "#5E4D4A"
       ]
     },
     "mailing": {
-      "endpoint": "https://script.google.com/macros/s/AKfycbwcE2sQVaNsYAGI4fQK2b-4BxAVWiM96SIMD0oM5JEdqp0iXPB3EiTe2RtoHKNLpwDZ/exec"
+      "endpoint": "https://script.google.com/macros/s/AKfycby1aq5gRSmegK4s9e3RG4N0xiNEKgn6sqtHSDmlgEQrQvU_YBK_-eFu8LGenaGEETWQkg/exec"
     },
     "signature": "",
     "signatureAr": 2.1359,
@@ -54,17 +37,10 @@
       },
       {
         "type": "spotify",
-        "url": "https://open.spotify.com/intl-es/artist/5hLMi4orRv2yZjWCb8Ud6R?si=BM7z4mbnSr2dkS4oDMW1_Q"
+        "url": "https://open.spotify.com/artist/5hLMi4orRv2yZjWCb8Ud6R"
       }
     ],
-    "intro": true,
-    "links": {
-      "youtube": "https://www.youtube.com/@janne.moreno",
-      "instagram": "",
-      "spotify": "",
-      "tiktok": "",
-      "facebook": ""
-    }
+    "intro": true
   },
   "hero": {
     "image": "hero",
@@ -90,7 +66,7 @@
   "shows": {
     "upcoming": [
       {
-        "id": "umw5mh86f",
+        "id": "umwa8480l",
         "when": "2026-11-23",
         "name": {
           "es": "Cafe Mustache",
@@ -105,20 +81,20 @@
           "en": "Monday, November 23, 2026"
         },
         "info": {
-          "es": "Alineación:\n-Mush Mush\n-Jacob Revels\n-Jánne Moreno\n-Baily",
-          "en": "Lineup:\n-Mush Mush\n-Jacob Revels\n-Jánne Moreno\n-Baily"
+          "es": "",
+          "en": ""
         },
         "link": "",
-        "flyer": "img/flyer-mw5mihid93tz.jpg",
+        "flyer": "img/flyer-mwa84qx5xs8r.jpg",
         "icon": "",
         "time": ""
       },
       {
-        "id": "umw8kibem",
+        "id": "umwa863lx",
         "when": "2026-12-19",
         "name": {
           "es": "Burlington Bar",
-          "en": ""
+          "en": "Burlington Bar"
         },
         "short": {
           "es": "19 de diciembre",
@@ -129,11 +105,11 @@
           "en": "Saturday, December 19, 2026"
         },
         "info": {
-          "es": "Puertas abren: 8pm\nShow empieza: 9pm\nABSTRACT REALIST, Sangram, Jánne Moreno",
-          "en": "Doors Open: 8pm\nShow starts: 9pm\nABSTRACT REALIST, Sangram, Jánne Moreno"
+          "es": "",
+          "en": ""
         },
-        "link": "https://dice.fm/partner/tickets/event/v359e6-jnne-moreno-sangram-abstract-realist-19th-dec-the-burlington-chicago-tickets?dice_id=10797499&dice_channel=web&dice_tags=organic&dice_campaign=Darren+Keen+dba+Personal+Space+Booking&dice_feature=mio_marketing&_branch_match_id=1605430672733158151&utm_source=web&utm_campaign=Darren+Keen+dba+Personal+Space+Booking&utm_medium=mio_marketing&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXz8nMy9ZLyUxO1UvL1S9IM7MwT0oySTYwNLOvK0pNSy0qysxLj08qyi8vTi2yDU5MSyzKBAByPg7mOwAAAA%3D%3D",
-        "flyer": "img/flyer-mw8klznc4q2b.jpg",
+        "link": "https://link.dice.fm/oa55bfb5507e?dice_id=oa55bfb5507e",
+        "flyer": "img/flyer-mwa88eoet05o.jpg",
         "icon": "",
         "time": ""
       }
@@ -284,18 +260,18 @@
       "cover": "cover",
       "pos": "50% 85%",
       "spotify": "https://open.spotify.com/track/2YrRme1IsCJiH2CVnNR2PM",
-      "apple": "https://music.apple.com/us/album/soy-de-ti/6772338618?i=6772338619",
-      "ytmusic": "https://youtu.be/ztth9Jb8Pjg?is=LkajHjDvM_csDx8p"
+      "apple": "",
+      "ytmusic": ""
     },
     {
       "title": {
         "es": "Noas",
         "en": "Noas"
       },
-      "cover": "img/portada-cancion-mw4cphwf5t9e.jpg",
+      "cover": "",
       "pos": "50% 50%",
       "spotify": "https://open.spotify.com/track/5m370vqUJfrql0fZfRcRD2",
-      "apple": "https://music.apple.com/us/album/noas/1881837974?i=1881837976",
+      "apple": "",
       "ytmusic": ""
     },
     {
@@ -311,89 +287,63 @@
     }
   ],
   "openmic": {
-    "image": "img/openmic-mw5nmxsnussp.jpg",
     "info": {
-      "es": "Para mi gente del Sur de Chicago. Organizamos Open mics en Libros de la Luna una vez al mes. Regalamos espacio a la gente creativa para compartir su arte: composiciones originales, talento musical, poesía, etc. \nFinalizamos la noche con una presentación especial de un artista local.\nVen a conocer gente real en tiempo real...",
-      "en": "For my people in Chicago Southside. We organize Open mics once a month at Libros de la Luna. We give the space for the creative ones to share their art: original compositions, musical talent, poetry, etc.\nWe end the night with a special performance of a local artist.\nCome meet real people in real time..."
+      "es": "Organizo open mics en Libros de la Luna. Aquí van la fecha, la hora, cómo apuntarse para tocar y cualquier otro dato.",
+      "en": "I host open mics at Libros de la Luna. Date, time, how to sign up to play and any other details go here."
     },
     "date": {
-      "es": "Noviembre 13, 2026",
-      "en": "November 13th, 2026"
+      "es": "Próxima fecha por confirmar",
+      "en": "Next date to be confirmed"
     },
-    "link": "https://partiful.com/e/e0vEsvA9fhUFcRKxap2O?c=0pEpMuTR",
-    "past": [
-      {
-        "when": "2026-10-09",
-        "name": {
-          "es": "Open mic con Marcela Ossa",
-          "en": "Open mic with Marcela Ossa"
-        },
-        "date": {
-          "es": "9 de octubre de 2026",
-          "en": "October 9, 2026"
-        },
-        "desc": {
-          "es": "Tuvimos la dicha de tener a Marcela Ossa quien interpretó composiciones originales y covers. Además Café CHIKÂWA nos acompañó asi como amigos y familiares estuvieron presentes. ",
-          "en": "We had the honor to have Marcela Ossa who performed original compositions and covers. Also, Café CHIKÂWA was with us just like friends and family."
-        },
-        "videos": "https://open.spotify.com/track/6VjbyspHJy9qxVPedSrrXe?si=389604a8c5b44b8e",
-        "photos": [
-          "img/openmic-mw8m6fr2tery.jpg",
-          "img/openmic-mw8kpah9gibg.jpg",
-          "img/openmic-mw8kpah9obom.jpg",
-          "img/openmic-mw8kpah99js0.jpg",
-          "img/openmic-mw8kpah8umk4.jpg",
-          "img/openmic-mw8kpah9ftnd.jpg",
-          "img/openmic-mw8koop7f58v.jpg"
-        ],
-        "time": ""
-      },
-      {
-        "when": "",
-        "name": {
-          "es": "Open mic Celebrando la Independencia de México",
-          "en": "Open mic Celebrating the Mexico's Independence Day"
-        },
-        "date": {
-          "es": "",
-          "en": ""
-        },
-        "desc": {
-          "es": "Para conmemora la Independencia de México presentamos ",
-          "en": ""
-        },
-        "videos": "",
-        "photos": [
-          "img/openmic-mw8n3o79v493.jpg"
-        ]
-      }
-    ],
+    "link": "",
+    "past": [],
     "upcoming": []
   },
   "videos": [
     {
       "title": {
-        "es": " La malagueña | Cantando Afuera | Ping Tom Memorial Park Edition🌾",
-        "en": " La malagueña | Cantando Afuera | Ping Tom Memorial Park Edition🌾"
+        "es": "Video 1",
+        "en": "Video 1"
       },
       "url": "https://youtu.be/UbQlsfm09Ok",
-      "thumb": ""
+      "thumb": "",
+      "card": "sol"
     },
     {
       "title": {
-        "es": "Jánne Moreno - Soy de Ti (Lyric Visualizer)",
-        "en": "Jánne Moreno - Soy de Ti (Lyric Visualizer)"
+        "es": "Video 2",
+        "en": "Video 2"
       },
       "url": "https://youtu.be/5nolXKdSNNI",
-      "thumb": ""
+      "thumb": "",
+      "card": "noa"
     },
     {
       "title": {
-        "es": " Cargando mi Pasado | Cantando Afuera | Ping Tom Memorial Park Edition 🌾",
-        "en": " Cargando mi Pasado | Cantando Afuera | Ping Tom Memorial Park Edition 🌾"
+        "es": "Video 3",
+        "en": "Video 3"
       },
       "url": "https://youtu.be/u6XhRW7HW5Y",
-      "thumb": ""
+      "thumb": "",
+      "card": "cenzontle"
+    },
+    {
+      "title": {
+        "es": " Piel Canela - Jánne Moreno y José Carrasquillo || Libros de la Luna",
+        "en": ""
+      },
+      "url": "https://www.youtube.com/watch?v=qPaW3V3SYgQ",
+      "thumb": "",
+      "card": "cempasuchil"
+    },
+    {
+      "title": {
+        "es": "NPR Tiny Desk Contest 2026 | Noas, Jánne Moreno",
+        "en": ""
+      },
+      "url": "https://www.youtube.com/watch?v=mZD-gcout8k",
+      "thumb": "",
+      "card": "ukulele"
     }
   ],
   "shop": {
@@ -492,11 +442,11 @@
     "hidden": true
   },
   "meet": {
-    "photo": "img/conoceme-mw5njq48wx25.jpg",
+    "photo": "bio",
     "pos": "50% 30%",
     "bio": {
-      "es": "Orgullosamente norteña del estado de Coahuila, México. Mis padres me criaron en el desierto de Torreón, descubrí ahí que la música era lo mio y que quería dedicarle mi vida entera a ello. Mis composiciones son una mezcla de muchos géneros como: cumbia, boleros, jazz, bossa nova, baladas, rancheras, etc. \n\nEl haber emigrado a los Estados Unidos cambió mi vida completamente, conocí mucha gente que me ha ayudado a continuar con mi propósito. Mi música siempre comparte un mensaje importante: amor. \nEn un mundo lleno de tanto odio, yo le canto al amor y a lo que tiene valor en esta vida. Tu ahora que lees ésto, me gustaría conocerte y poder tener una charla, ya sabes donde encontrarme, aqui te he dejado toda la información♡",
-      "en": "Proudly norteña from the state of Coahuila, México. My parents raised me in the Torreón's dessert, where I discovered that musica was for me and that I wanted to devote my life to it. My compositions are a mix of lots of genres like: cumbia, boleros, jazz, bossa nova, baladas, rancheras, etc.\n\nMigrating to the Unites States completely changed my life, I met lots of people that has helped me to continue my purpose . My music always share an important message: love.\nIn a world full of so much hate, I sing for love and to what it matters in life. Now that you are reading this, I would like to meet you and have a conversation, you know where to find me, I've left all the the information for you♡"
+      "es": "Aquí va la biografía de Jánne Moreno. Cuenta de dónde viene, cómo empezó a hacer música y qué la mueve hoy.\n\nDespués, agrega lo que marcó su camino: canciones, shows y proyectos, como el Open Mic que organiza en Libros de la Luna.",
+      "en": "Jánne Moreno’s biography goes here. Tell where she comes from, how she started making music and what drives her today.\n\nThen add what shaped her path: songs, shows and projects, like the Open Mic she hosts at Libros de la Luna."
     },
     "gallery": []
   },
@@ -534,18 +484,7 @@
     "g9160": 0.6664,
     "g3b": 0.6664,
     "g13": 1,
-    "img/portada-cancion-mw4cphwf5t9e.jpg": 1,
-    "img/flyer-mw5mihid93tz.jpg": 0.6413,
-    "img/conoceme-mw5njq48wx25.jpg": 0.6664,
-    "img/openmic-mw5nmxsnussp.jpg": 0.75,
-    "img/flyer-mw8klznc4q2b.jpg": 0.8,
-    "img/openmic-mw8koop7f58v.jpg": 0.75,
-    "img/openmic-mw8kpah8umk4.jpg": 0.75,
-    "img/openmic-mw8kpah99js0.jpg": 0.75,
-    "img/openmic-mw8kpah9gibg.jpg": 0.75,
-    "img/openmic-mw8kpah9obom.jpg": 0.75,
-    "img/openmic-mw8kpah9ftnd.jpg": 0.75,
-    "img/openmic-mw8m6fr2tery.jpg": 0.6769,
-    "img/openmic-mw8n3o79v493.jpg": 0.75
+    "img/flyer-mwa84qx5xs8r.jpg": 0.6413,
+    "img/flyer-mwa88eoet05o.jpg": 0.8
   }
 }
