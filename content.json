@@ -38,6 +38,10 @@
       {
         "type": "spotify",
         "url": "https://open.spotify.com/artist/5hLMi4orRv2yZjWCb8Ud6R"
+      },
+      {
+        "type": "applemusic",
+        "url": "https://music.apple.com/us/artist/j%C3%A1nne-moreno/1881169246"
       }
     ],
     "intro": true
@@ -257,32 +261,21 @@
         "es": "Soy de Ti",
         "en": "Soy de Ti"
       },
-      "cover": "cover",
+      "cover": "img/portada-cancion-mwa97ozqgl94.jpg",
       "pos": "50% 85%",
       "spotify": "https://open.spotify.com/track/2YrRme1IsCJiH2CVnNR2PM",
-      "apple": "",
-      "ytmusic": ""
+      "apple": "https://music.apple.com/us/album/soy-de-ti/6772338618?i=6772338619",
+      "ytmusic": "https://youtu.be/ztth9Jb8Pjg?is=LkajHjDvM_csDx8p"
     },
     {
       "title": {
         "es": "Noas",
         "en": "Noas"
       },
-      "cover": "",
+      "cover": "img/portada-cancion-mwa9bumth87m.jpg",
       "pos": "50% 50%",
       "spotify": "https://open.spotify.com/track/5m370vqUJfrql0fZfRcRD2",
-      "apple": "",
-      "ytmusic": ""
-    },
-    {
-      "title": {
-        "es": "RED CLAY",
-        "en": "RED CLAY"
-      },
-      "cover": "",
-      "pos": "50% 50%",
-      "spotify": "https://open.spotify.com/track/1ALGKFTzMnhI6V7229eAC6",
-      "apple": "",
+      "apple": "https://music.apple.com/us/album/noas/1881837974?i=1881837976",
       "ytmusic": ""
     }
   ],
@@ -296,36 +289,63 @@
       "en": "November 13th, 2026"
     },
     "link": "https://partiful.com/e/e0vEsvA9fhUFcRKxap2O?c=n6Iix3mM",
-    "past": [],
+    "past": [
+      {
+        "when": "2026-10-09",
+        "name": {
+          "es": "Open mic con Marcela Ossa",
+          "en": "Open mic with Marcela Ossa"
+        },
+        "date": {
+          "es": "9 de octubre de 2026",
+          "en": "October 9, 2026"
+        },
+        "desc": {
+          "es": "Tuvimos la dicha de tener a Marcela Ossa quien interpretó composiciones originales y covers. Además Café CHIKÂWA nos acompañó asi como amigos y familiares estuvieron presentes. ",
+          "en": "We had the honor to have Marcela Ossa who performed original compositions and covers. Also, Café CHIKÂWA was with us just like friends and family."
+        },
+        "videos": "https://open.spotify.com/artist/6bwAaUpGTFbN8121PnimnW?si=XlAphlQwTzy_CkF6R2pVFg",
+        "photos": [
+          "img/openmic-mwa95szfswha.jpg",
+          "img/openmic-mwa95szelo3i.jpg",
+          "img/openmic-mwa95szfmjzo.jpg",
+          "img/openmic-mwa95szfwuj4.jpg",
+          "img/openmic-mwa95szfhjze.jpg",
+          "img/openmic-mwa95szfyv76.jpg",
+          "img/openmic-mwa95ywwf1lh.jpg"
+        ],
+        "time": ""
+      }
+    ],
     "upcoming": []
   },
   "videos": [
     {
       "title": {
-        "es": "Video 1",
-        "en": "Video 1"
+        "es": "La Malagueña | Cantando Afuera | Ping Tom Memorial Park Edition🌾",
+        "en": ""
       },
       "url": "https://youtu.be/UbQlsfm09Ok",
+      "thumb": "",
+      "card": "cenzontle"
+    },
+    {
+      "title": {
+        "es": "Jánne Moreno - Soy de Ti (Lyric Visualizer)",
+        "en": ""
+      },
+      "url": "https://youtu.be/5nolXKdSNNI",
       "thumb": "",
       "card": "sol"
     },
     {
       "title": {
-        "es": "Video 2",
-        "en": "Video 2"
-      },
-      "url": "https://youtu.be/5nolXKdSNNI",
-      "thumb": "",
-      "card": "noa"
-    },
-    {
-      "title": {
-        "es": "Video 3",
-        "en": "Video 3"
+        "es": "Cargando mi Pasado | Cantando Afuera | Ping Tom Memorial Park Edition 🌾",
+        "en": ""
       },
       "url": "https://youtu.be/u6XhRW7HW5Y",
       "thumb": "",
-      "card": "cenzontle"
+      "card": "cempasuchil"
     },
     {
       "title": {
@@ -343,7 +363,7 @@
       },
       "url": "https://www.youtube.com/watch?v=mZD-gcout8k",
       "thumb": "",
-      "card": "ukulele"
+      "card": "noa"
     }
   ],
   "shop": {
@@ -448,7 +468,9 @@
       "es": "Orgullosamente norteña del estado de Coahuila, México. Mis padres me criaron en el desierto de Torreón, descubrí ahí que la música era lo mio y que quería dedicarle mi vida entera a ello. Mis composiciones son una mezcla de muchos géneros como: cumbia, boleros, jazz, bossa nova, baladas, rancheras, etc. \n\nEl haber emigrado a los Estados Unidos cambió mi vida completamente, conocí mucha gente que me ha ayudado a continuar con mi propósito. Mi música siempre comparte un mensaje importante: amor. \nEn un mundo lleno de tanto odio, yo le canto al amor y a lo que tiene valor en esta vida. Tu ahora que lees ésto, me gustaría conocerte y poder tener una charla, ya sabes donde encontrarme, aqui te he dejado toda la información♡\n",
       "en": "Proudly norteña from the state of Coahuila, México. My parents raised me in the Torreón's dessert, where I discovered that musica was for me and that I wanted to devote my life to it. My compositions are a mix of lots of genres like: cumbia, boleros, jazz, bossa nova, baladas, rancheras, etc.\n\nMigrating to the Unites States completely changed my life, I met lots of people that has helped me to continue my purpose . My music always share an important message: love.\nIn a world full of so much hate, I sing for love and to what it matters in life. Now that you are reading this, I would like to meet you and have a conversation, you know where to find me, I've left all the the information for you♡"
     },
-    "gallery": []
+    "gallery": [
+      "img/conoceme-mwa9jwdv7jmz.jpg"
+    ]
   },
   "texts": {},
   "dims": {
@@ -486,6 +508,16 @@
     "g13": 1,
     "img/flyer-mwa84qx5xs8r.jpg": 0.6413,
     "img/flyer-mwa88eoet05o.jpg": 0.8,
-    "img/conoceme-mwa8irgs22j9.jpg": 0.6664
+    "img/conoceme-mwa8irgs22j9.jpg": 0.6664,
+    "img/openmic-mwa95szelo3i.jpg": 0.75,
+    "img/openmic-mwa95szfmjzo.jpg": 0.75,
+    "img/openmic-mwa95szfwuj4.jpg": 0.75,
+    "img/openmic-mwa95szfswha.jpg": 0.6769,
+    "img/openmic-mwa95szfhjze.jpg": 0.75,
+    "img/openmic-mwa95szfyv76.jpg": 0.75,
+    "img/openmic-mwa95ywwf1lh.jpg": 0.75,
+    "img/portada-cancion-mwa97ozqgl94.jpg": 1,
+    "img/portada-cancion-mwa9bumth87m.jpg": 1,
+    "img/conoceme-mwa9jwdv7jmz.jpg": 0.82
   }
 }
