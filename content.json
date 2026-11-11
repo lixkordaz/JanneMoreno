@@ -55,17 +55,16 @@
     }
   },
   "gallery": [
-    "g1",
-    "g8900",
-    "g3",
-    "g9160",
+    "g13",
     "g5",
-    "g8809",
-    "g8847",
     "g8915",
-    "g9096",
+    "g9160",
+    "img/galeria-mwcrq8np31kd.jpg",
+    "img/galeria-mwcrrfbj6obt.jpg",
+    "g3",
+    "g8847",
     "g3b",
-    "g13"
+    "img/galeria-mwcrqit2eqkf.jpg"
   ],
   "shows": {
     "upcoming": [
@@ -470,9 +469,7 @@
     },
     "gallery": [
       "img/conoceme-mwa9jwdv7jmz.jpg",
-      "img/conoceme-mwcref7xjvyr.jpg",
-      "img/conoceme-mwcri65nve3t.jpg",
-      "img/conoceme-mwcrflzgq31k.jpg"
+      "img/conoceme-mwcri65nve3t.jpg"
     ]
   },
   "texts": {},
@@ -524,7 +521,10 @@
     "img/conoceme-mwa9jwdv7jmz.jpg": 0.82,
     "img/conoceme-mwcref7xjvyr.jpg": 0.6675,
     "img/conoceme-mwcrflzgq31k.jpg": 0.6667,
-    "img/conoceme-mwcri65nve3t.jpg": 1.3333
+    "img/conoceme-mwcri65nve3t.jpg": 1.3333,
+    "img/galeria-mwcrq8np31kd.jpg": 0.6669,
+    "img/galeria-mwcrqit2eqkf.jpg": 0.6676,
+    "img/galeria-mwcrrfbj6obt.jpg": 1.4995
   },
   "board": [
     {
