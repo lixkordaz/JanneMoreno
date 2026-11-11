@@ -519,5 +519,25 @@
     "img/portada-cancion-mwa97ozqgl94.jpg": 1,
     "img/portada-cancion-mwa9bumth87m.jpg": 1,
     "img/conoceme-mwa9jwdv7jmz.jpg": 0.82
-  }
+  },
+  "board": [
+    {
+      "id": "a-ejemplo",
+      "when": "",
+      "date": {
+        "es": "",
+        "en": ""
+      },
+      "text": {
+        "es": "Aquí va mi primer anuncio. Cambio este texto, las fotos, el tamaño de la letra y los colores desde el panel (pestaña Anuncios).",
+        "en": "My first announcement goes here. I change this text, the photos, the font size and the colors from the panel (Announcements tab)."
+      },
+      "images": [],
+      "link": "",
+      "fs": 20,
+      "fg": "",
+      "bg": "",
+      "hidden": true
+    }
+  ]
 }
