@@ -534,26 +534,30 @@
     "img/galeria-mwcrq8np31kd.jpg": 0.6669,
     "img/galeria-mwcrqit2eqkf.jpg": 0.6676,
     "img/galeria-mwcrrfbj6obt.jpg": 1.4995,
-    "img/openmic-mwfdzwmklgpk.jpg": 0.75
+    "img/openmic-mwfdzwmklgpk.jpg": 0.75,
+    "img/anuncio-mwjynqdk4pjz.jpg": 0.75
   },
   "board": [
     {
       "id": "a-ejemplo",
-      "when": "",
+      "when": "2026-11-16",
       "date": {
-        "es": "",
-        "en": ""
+        "es": "16 de noviembre de 2026",
+        "en": "November 16, 2026"
       },
       "text": {
-        "es": "Aquí va mi primer anuncio. Cambio este texto, las fotos, el tamaño de la letra y los colores desde el panel (pestaña Anuncios).",
-        "en": "My first announcement goes here. I change this text, the photos, the font size and the colors from the panel (Announcements tab)."
+        "es": "Este es un anuncio de prueba",
+        "en": "This is a test announcement."
       },
-      "images": [],
-      "link": "",
+      "images": [
+        "img/anuncio-mwjynqdk4pjz.jpg"
+      ],
+      "link": "https://partiful.com/e/e0vEsvA9fhUFcRKxap2O?c=0uDfWKso",
       "fs": 20,
-      "fg": "",
-      "bg": "",
-      "hidden": true
+      "fg": "#ffffff",
+      "bg": "#5a1c00",
+      "hidden": true,
+      "time": ""
     }
   ]
 }
