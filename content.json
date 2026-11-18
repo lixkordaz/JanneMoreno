@@ -233,18 +233,6 @@
       "apple": "",
       "ytmusic": "",
       "vinyl": ""
-    },
-    {
-      "title": {
-        "es": "RED CLAY",
-        "en": "RED CLAY"
-      },
-      "cover": "",
-      "pos": "50% 50%",
-      "spotify": "https://open.spotify.com/track/1ALGKFTzMnhI6V7229eAC6",
-      "apple": "",
-      "ytmusic": "",
-      "vinyl": ""
     }
   ],
   "openmic": {
@@ -443,7 +431,7 @@
       "fs": 17,
       "fg": "",
       "bg": "",
-      "hidden": false
+      "hidden": true
     }
   ]
 }
