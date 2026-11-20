@@ -92,8 +92,8 @@
           "en": "Monday, November 23, 2026"
         },
         "info": {
-          "es": "Alineación:\nMush Mush\nJacob Revels\nJánne Moreno\nBaily",
-          "en": ""
+          "es": "Alineación:\nMush Mush\nJacob Revels\nJánne Moreno\nBailey",
+          "en": "Lineup:\nMush Mush\nJacob Revels\nJánne Moreno\nBailey"
         },
         "link": "",
         "flyer": "img/flyer-mwa84qx5xs8r.jpg",
@@ -116,8 +116,8 @@
           "en": "Saturday, December 19, 2026"
         },
         "info": {
-          "es": "",
-          "en": ""
+          "es": "Con:\nABSTRACT REALIST & Sangram",
+          "en": "With:\nABSTRACT REALIST & Sangram"
         },
         "link": "https://link.dice.fm/oa55bfb5507e?dice_id=oa55bfb5507e",
         "flyer": "img/flyer-mwa88eoet05o.jpg",
@@ -129,20 +129,25 @@
       {
         "when": "2026-10-31",
         "name": {
-          "es": "Día de los Muertos: una noche de arte y música en vivo",
-          "en": "Día de los Muertos: an evening of art and live music"
+          "es": "Día de los Muertos: Una noche de Arte y Música en Vivo",
+          "en": "Día de los Muertos: An evening of Art and Live Music"
         },
         "date": {
-          "es": "Sábado 31 de octubre · 6 a 8 pm",
-          "en": "Saturday, October 31 · 6 to 8 pm"
+          "es": "Sábado 31 de octubre ",
+          "en": "Saturday, October 31"
         },
         "desc": {
-          "es": "Concierto de Jánne Moreno con The World Music Foundation, 1066 W Granville Ave, Chicago. Lotería y premios, pan dulce y concurso de catrinas y catrines.",
-          "en": "Concert by Jánne Moreno with The World Music Foundation, 1066 W Granville Ave, Chicago. Lotería and prizes, pan dulce and a catrina / catrín costume contest."
+          "es": "Concierto de Jánne Moreno con The World Music Foundation",
+          "en": "Concert by Jánne Moreno with The World Music Foundation"
         },
         "link": "https://TheWMF.org/dia",
         "videos": "",
         "photos": [
+          "img/show-mwp66stv02of.jpg",
+          "img/show-mwp66stvkys3.jpg",
+          "img/show-mwp66stvkl76.jpg",
+          "img/show-mwp66stvgrnn.jpg",
+          "img/show-mwp66stvf0ki.jpg",
           "fl_oct31"
         ],
         "pos": "50% 35%",
@@ -159,13 +164,15 @@
           "en": "Saturday, October 24, 2026 · 3 to 8 pm"
         },
         "desc": {
-          "es": "Ofrendas, música y arte en el National Museum of Mexican Art, 1852 W 19th St, Chicago. Entrada gratuita.",
-          "en": "Ofrendas, music and art at the National Museum of Mexican Art, 1852 W 19th St, Chicago. Free admission."
+          "es": "Ofrendas, música y arte en el National Museum of Mexican Art",
+          "en": "Ofrendas, music and art at the National Museum of Mexican Art"
         },
         "link": "https://NationalMuseumOfMexicanArt.org",
         "videos": "",
         "photos": [
-          "fl_dod"
+          "fl_dod",
+          "img/show-mwp6bed6n13a.jpg",
+          "img/show-mwp6bed61nv1.jpg"
         ],
         "pos": "50% 35%",
         "icon": ""
@@ -181,8 +188,8 @@
           "en": "October 4, 2026"
         },
         "desc": {
-          "es": "Su primera vez en Pilsen Community Books, 1531 W 18th St, Chicago.",
-          "en": "Her first time at Pilsen Community Books, 1531 W 18th St, Chicago."
+          "es": "Debut en Pilsen Community Books",
+          "en": "Debut at Pilsen Community Books"
         },
         "link": "",
         "videos": "",
@@ -191,6 +198,8 @@
           "pcb2",
           "pcb3",
           "pcb4",
+          "img/show-mwp6jq0cxqr8.jpg",
+          "img/show-mwp6jq0dsf17.jpg",
           "pcbfl"
         ],
         "pos": "50% 30%"
@@ -535,7 +544,16 @@
     "img/galeria-mwcrqit2eqkf.jpg": 0.6676,
     "img/galeria-mwcrrfbj6obt.jpg": 1.4995,
     "img/openmic-mwfdzwmklgpk.jpg": 0.75,
-    "img/anuncio-mwjynqdk4pjz.jpg": 0.75
+    "img/anuncio-mwjynqdk4pjz.jpg": 0.75,
+    "img/show-mwp66stv02of.jpg": 0.6663,
+    "img/show-mwp66stvf0ki.jpg": 0.6663,
+    "img/show-mwp66stvkys3.jpg": 0.6663,
+    "img/show-mwp66stvgrnn.jpg": 0.6663,
+    "img/show-mwp66stvkl76.jpg": 1.5009,
+    "img/show-mwp6bed61nv1.jpg": 1.0006,
+    "img/show-mwp6bed6n13a.jpg": 0.75,
+    "img/show-mwp6jq0cxqr8.jpg": 0.6669,
+    "img/show-mwp6jq0dsf17.jpg": 0.6669
   },
   "board": [
     {
