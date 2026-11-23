@@ -469,16 +469,16 @@
   },
   "texts": {
     "suscribete": {
-      "es": "Suscríbete",
-      "en": "Subscribe"
+      "es": "Suscríbete para estar Actualizado",
+      "en": "Subscribe for Updates"
     },
     "solo-recibiras-avisos-de-shows-y-musica-puedes-darte-de-baja": {
       "es": "Recibirás avisos de shows, música y mi periódico electrónico. Puedes darte de baja cuando quieras.",
       "en": "You’ll get news about shows, music, and my e-newsletter. You can unsubscribe anytime."
     },
     "suscribirme": {
-      "es": "Suscríbete para estar actualizado!",
-      "en": "Subscribe for updates!"
+      "es": "Suscribir ",
+      "en": "Subscribe"
     },
     "anuncios": {
       "es": "Novedades?",
