@@ -310,7 +310,28 @@
         "time": ""
       }
     ],
-    "upcoming": [],
+    "upcoming": [
+      {
+        "id": "omwthmb6q",
+        "when": "2027-01-22",
+        "name": {
+          "es": "Open Mic [Prueba]",
+          "en": "Open Mic [Test]"
+        },
+        "date": {
+          "es": "22 de enero de 2027",
+          "en": "January 22, 2027"
+        },
+        "info": {
+          "es": "Esta es una publicación de prueba, ignore.",
+          "en": "This is a test post, ignore."
+        },
+        "link": "https://partiful.com/e/e0vEsvA9fhUFcRKxap2O?c=fL9kPiwv",
+        "flyer": "img/openmic-mwthnw0nugn1.jpg",
+        "icon": "",
+        "time": ""
+      }
+    ],
     "flyer": "img/openmic-mwth5a07mmn2.jpg"
   },
   "videos": [
@@ -560,7 +581,8 @@
     "img/show-mwp6bed6n13a.jpg": 0.75,
     "img/show-mwp6jq0cxqr8.jpg": 0.6669,
     "img/show-mwp6jq0dsf17.jpg": 0.6669,
-    "img/openmic-mwth5a07mmn2.jpg": 0.6519
+    "img/openmic-mwth5a07mmn2.jpg": 0.6519,
+    "img/openmic-mwthnw0nugn1.jpg": 0.75
   },
   "board": [
     {
