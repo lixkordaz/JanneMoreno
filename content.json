@@ -310,28 +310,7 @@
         "time": ""
       }
     ],
-    "upcoming": [
-      {
-        "id": "omwthmb6q",
-        "when": "2027-01-22",
-        "name": {
-          "es": "Open Mic [Prueba]",
-          "en": "Open Mic [Test]"
-        },
-        "date": {
-          "es": "22 de enero de 2027",
-          "en": "January 22, 2027"
-        },
-        "info": {
-          "es": "Esta es una publicación de prueba, ignore.",
-          "en": "This is a test post, ignore."
-        },
-        "link": "https://partiful.com/e/e0vEsvA9fhUFcRKxap2O?c=fL9kPiwv",
-        "flyer": "img/openmic-mwthnw0nugn1.jpg",
-        "icon": "",
-        "time": ""
-      }
-    ],
+    "upcoming": [],
     "flyer": "img/openmic-mwth5a07mmn2.jpg"
   },
   "videos": [
