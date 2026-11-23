@@ -514,6 +514,10 @@
     "ui.ctOk": {
       "es": "¡Gracias! Tengo tu mensaje y te respondo pronto. Cuídate!",
       "en": "Thank you! I got your message, I’ll get back to you soon. Take care!"
+    },
+    "contacto": {
+      "es": "Contactame",
+      "en": "Contact me"
     }
   },
   "dims": {
