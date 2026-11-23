@@ -308,6 +308,29 @@
           "img/openmic-mwa95ywwf1lh.jpg"
         ],
         "time": ""
+      },
+      {
+        "when": "",
+        "name": {
+          "es": "Celebrando el día de la Independencia de México",
+          "en": "Celebrating the Mexico's Independence Day"
+        },
+        "date": {
+          "es": "Septiembre 11",
+          "en": "September 11th"
+        },
+        "desc": {
+          "es": "Honrramos nuestra bella nación cantando boleros y rancheras clásicas de México, interpretado por el duo de Jose Carrasquillo y su servidora. Además, Café CHIKÂWA tuvo un menú especial incorporando micheladas y Latte de Horchata. La noche fue todo un éxito✨",
+          "en": "We honored our beautiful nation by singing classic boleros and rancheras from México, performed by the duo of Jose Carrasquillo and yours truly. Also, Café CHIKÂWA had a special menu incorporating micheladas and Horchata Latte. The evening was such a success. "
+        },
+        "videos": "https://youtu.be/qPaW3V3SYgQ",
+        "photos": [
+          "img/openmic-mwtil4525vgj.jpg",
+          "img/openmic-mwtil452jgae.jpg",
+          "img/openmic-mwtil451roif.jpg",
+          "img/openmic-mwti3rb4w7g5.jpg"
+        ],
+        "pos": "50% 35%"
       }
     ],
     "upcoming": [],
@@ -561,7 +584,11 @@
     "img/show-mwp6jq0cxqr8.jpg": 0.6669,
     "img/show-mwp6jq0dsf17.jpg": 0.6669,
     "img/openmic-mwth5a07mmn2.jpg": 0.6519,
-    "img/openmic-mwthnw0nugn1.jpg": 0.75
+    "img/openmic-mwthnw0nugn1.jpg": 0.75,
+    "img/openmic-mwti3rb4w7g5.jpg": 0.75,
+    "img/openmic-mwtil451roif.jpg": 0.75,
+    "img/openmic-mwtil4525vgj.jpg": 2.168,
+    "img/openmic-mwtil452jgae.jpg": 0.75
   },
   "board": [
     {
