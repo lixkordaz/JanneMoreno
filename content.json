@@ -564,8 +564,8 @@
         "en": "November 16, 2026"
       },
       "text": {
-        "es": "Para mi gente del Sur de Chicago. Organizamos Open mics en Libros de la Luna una vez al mes. Regalamos espacio a la gente creativa para compartir su arte: composiciones originales, talento musical, poesía, etc. \nFinalizamos la noche con una presentación especial de un artista local.\nVen a conocer gente real en tiempo real...\n",
-        "en": "For my people in Chicago Southside. We organize Open mics once a month at Libros de la Luna. We give the space for the creative ones to share their art: original compositions, musical talent, poetry, etc.\nWe end the night with a special performance of a local artist.\nCome meet real people in real time...\n"
+        "es": "Hola hola, holaaaa. Gracias por estar aquí. Este es el inicio de algo enorme y me alegra tanto que seas parte de ello",
+        "en": "Hello, hello, helloooo. \n"
       },
       "images": [
         "img/anuncio-mwjynqdk4pjz.jpg"
@@ -575,7 +575,15 @@
       "fg": "#ffffff",
       "bg": "#5a1c00",
       "hidden": true,
-      "time": ""
+      "time": "",
+      "title": {
+        "es": "",
+        "en": ""
+      },
+      "subtitle": {
+        "es": "",
+        "en": ""
+      }
     }
   ]
 }
