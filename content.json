@@ -236,8 +236,8 @@
           "en": "August 29"
         },
         "desc": {
-          "es": "Set acústico de 3:00 a 3:50 pm en el escenario acústico de la carpa de Rattleback Records, presentado por The WMF.",
-          "en": "Acoustic set, 3:00 to 3:50 pm, on the acoustic stage in the Rattleback Records tent, presented by The WMF."
+          "es": "Set acústico en el escenario de Rattleback Records, presentado por The WMF.",
+          "en": "Acoustic set on the Rattleback Records tent, presented by The WMF."
         },
         "link": "",
         "videos": "",
@@ -245,29 +245,6 @@
           "edgefl"
         ],
         "pos": "50% 20%"
-      },
-      {
-        "when": "2026-05-16",
-        "name": {
-          "es": "Show del 16 de mayo",
-          "en": "May 16 show"
-        },
-        "date": {
-          "es": "16 de mayo de 2026",
-          "en": "May 16, 2026"
-        },
-        "desc": {
-          "es": "Aquí va el nombre del lugar y una descripción corta del show.",
-          "en": "The venue name and a short description of the show go here."
-        },
-        "link": "",
-        "videos": "",
-        "photos": [
-          "may8",
-          "may1",
-          "may9"
-        ],
-        "pos": "50% 35%"
       }
     ]
   },
@@ -301,10 +278,10 @@
       "en": "For my people in Chicago Southside. We organize Open mics once a month at Libros de la Luna. We give the space for the creative ones to share their art: original compositions, musical talent, poetry, etc.\nWe end the night with a special performance of a local artist.\nCome meet real people in real time...\n"
     },
     "date": {
-      "es": "Noviembre 13, 2026",
-      "en": "November 13th, 2026"
+      "es": "Enero 22 del 2027",
+      "en": "January 22nd, 2027"
     },
-    "link": "https://partiful.com/e/e0vEsvA9fhUFcRKxap2O?c=n6Iix3mM",
+    "link": "",
     "past": [
       {
         "when": "2026-10-09",
@@ -317,7 +294,7 @@
           "en": "October 9, 2026"
         },
         "desc": {
-          "es": "Tuvimos la dicha de tener a Marcela Ossa quien interpretó composiciones originales y covers. Además Café CHIKÂWA nos acompañó asi como amigos y familiares estuvieron presentes. ",
+          "es": "Tuvimos la dicha de tener a Marcela Ossa quien interpretó composiciones originales y covers. Además Café CHIKÂWA nos acompañó asi como amigos y familiares que estuvieron presentes. ",
           "en": "We had the honor to have Marcela Ossa who performed original compositions and covers. Also, Café CHIKÂWA was with us just like friends and family."
         },
         "videos": "https://open.spotify.com/artist/6bwAaUpGTFbN8121PnimnW?si=XlAphlQwTzy_CkF6R2pVFg",
@@ -334,7 +311,7 @@
       }
     ],
     "upcoming": [],
-    "flyer": "img/openmic-mwfdzwmklgpk.jpg"
+    "flyer": "img/openmic-mwth5a07mmn2.jpg"
   },
   "videos": [
     {
@@ -582,7 +559,8 @@
     "img/show-mwp6bed61nv1.jpg": 1.0006,
     "img/show-mwp6bed6n13a.jpg": 0.75,
     "img/show-mwp6jq0cxqr8.jpg": 0.6669,
-    "img/show-mwp6jq0dsf17.jpg": 0.6669
+    "img/show-mwp6jq0dsf17.jpg": 0.6669,
+    "img/openmic-mwth5a07mmn2.jpg": 0.6519
   },
   "board": [
     {
