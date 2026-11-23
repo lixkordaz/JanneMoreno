@@ -490,7 +490,20 @@
       "img/conoceme-mwcri65nve3t.jpg"
     ]
   },
-  "texts": {},
+  "texts": {
+    "suscribete": {
+      "es": "Suscríbete",
+      "en": "Subscribe"
+    },
+    "solo-recibiras-avisos-de-shows-y-musica-puedes-darte-de-baja": {
+      "es": "Recibirás avisos de shows, música y mi periódico electrónico. Puedes darte de baja cuando quieras.",
+      "en": "You’ll get news about shows, music, and my e-newsletter. You can unsubscribe anytime."
+    },
+    "suscribirme": {
+      "es": "Suscríbete para estar actualizado!",
+      "en": "Subscribe for updates!"
+    }
+  },
   "dims": {
     "hero": 1.858,
     "op2": 1.5005,
