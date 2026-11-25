@@ -77,30 +77,6 @@
   "shows": {
     "upcoming": [
       {
-        "id": "umwa8480l",
-        "when": "2026-11-23",
-        "name": {
-          "es": "Cafe Mustache",
-          "en": "Cafe Mustache"
-        },
-        "short": {
-          "es": "23 de noviembre",
-          "en": "November 23"
-        },
-        "date": {
-          "es": "Lunes 23 de noviembre de 2026",
-          "en": "Monday, November 23, 2026"
-        },
-        "info": {
-          "es": "Alineación:\nMush Mush || Jacob Revels || Jánne Moreno || Bailey",
-          "en": "Lineup:\nMush Mush || Jacob Revels || Jánne Moreno || Bailey"
-        },
-        "link": "",
-        "flyer": "img/flyer-mwa84qx5xs8r.jpg",
-        "icon": "",
-        "time": ""
-      },
-      {
         "id": "umwa863lx",
         "when": "2026-12-19",
         "name": {
@@ -126,6 +102,28 @@
       }
     ],
     "past": [
+      {
+        "when": "2026-11-23",
+        "name": {
+          "es": "Cafe Mustache",
+          "en": "Cafe Mustache"
+        },
+        "date": {
+          "es": "Lunes 23 de noviembre de 2026",
+          "en": "Monday, November 23, 2026"
+        },
+        "desc": {
+          "es": "Alineación:\nMush Mush || Jacob Revels || Jánne Moreno || Bailey",
+          "en": "Lineup:\nMush Mush || Jacob Revels || Jánne Moreno || Bailey"
+        },
+        "link": "",
+        "videos": "",
+        "photos": [
+          "img/flyer-mwa84qx5xs8r.jpg"
+        ],
+        "pos": "50% 35%",
+        "icon": ""
+      },
       {
         "when": "2026-10-31",
         "name": {
