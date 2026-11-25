@@ -337,12 +337,12 @@
   "videos": [
     {
       "title": {
-        "es": "La Malagueña | Cantando Afuera | Ping Tom Memorial Park Edition🌾",
+        "es": "NPR Tiny Desk Contest 2026 | Noas, Jánne Moreno",
         "en": ""
       },
-      "url": "https://youtu.be/UbQlsfm09Ok",
+      "url": "https://www.youtube.com/watch?v=mZD-gcout8k",
       "thumb": "",
-      "card": "cenzontle"
+      "card": "noa"
     },
     {
       "title": {
@@ -355,15 +355,6 @@
     },
     {
       "title": {
-        "es": "Cargando mi Pasado | Cantando Afuera | Ping Tom Memorial Park Edition 🌾",
-        "en": ""
-      },
-      "url": "https://youtu.be/u6XhRW7HW5Y",
-      "thumb": "",
-      "card": "cempasuchil"
-    },
-    {
-      "title": {
         "es": " Piel Canela - Jánne Moreno y José Carrasquillo || Libros de la Luna",
         "en": ""
       },
@@ -373,12 +364,21 @@
     },
     {
       "title": {
-        "es": "NPR Tiny Desk Contest 2026 | Noas, Jánne Moreno",
+        "es": "La Malagueña | Cantando Afuera | Ping Tom Memorial Park Edition🌾",
         "en": ""
       },
-      "url": "https://www.youtube.com/watch?v=mZD-gcout8k",
+      "url": "https://youtu.be/UbQlsfm09Ok",
       "thumb": "",
-      "card": "noa"
+      "card": "cenzontle"
+    },
+    {
+      "title": {
+        "es": "Cargando mi Pasado | Cantando Afuera | Ping Tom Memorial Park Edition 🌾",
+        "en": ""
+      },
+      "url": "https://youtu.be/u6XhRW7HW5Y",
+      "thumb": "",
+      "card": "cempasuchil"
     }
   ],
   "shop": {
