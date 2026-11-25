@@ -119,6 +119,8 @@
         "link": "",
         "videos": "",
         "photos": [
+          "img/show-mwwei595essk.jpg",
+          "img/show-mwwei595cjm9.jpg",
           "img/flyer-mwa84qx5xs8r.jpg"
         ],
         "pos": "50% 35%",
@@ -586,7 +588,9 @@
     "img/openmic-mwti3rb4w7g5.jpg": 0.75,
     "img/openmic-mwtil451roif.jpg": 0.75,
     "img/openmic-mwtil4525vgj.jpg": 2.168,
-    "img/openmic-mwtil452jgae.jpg": 0.75
+    "img/openmic-mwtil452jgae.jpg": 0.75,
+    "img/show-mwwei595cjm9.jpg": 0.75,
+    "img/show-mwwei595essk.jpg": 0.75
   },
   "board": [
     {
