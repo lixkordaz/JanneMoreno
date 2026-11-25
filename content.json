@@ -120,7 +120,9 @@
         "videos": "",
         "photos": [
           "img/show-mwwei595essk.jpg",
-          "img/show-mwwei595cjm9.jpg",
+          "img/show-mwwi0g3znj31.jpg",
+          "img/show-mwwi10o36igw.jpg",
+          "img/show-mwwi2hrzcpop.jpg",
           "img/flyer-mwa84qx5xs8r.jpg"
         ],
         "pos": "50% 35%",
@@ -487,7 +489,8 @@
     },
     "gallery": [
       "img/conoceme-mwa9jwdv7jmz.jpg",
-      "img/conoceme-mwcri65nve3t.jpg"
+      "img/conoceme-mwcri65nve3t.jpg",
+      "img/conoceme-mwwhxor6n4dg.jpg"
     ]
   },
   "texts": {
@@ -590,7 +593,11 @@
     "img/openmic-mwtil4525vgj.jpg": 2.168,
     "img/openmic-mwtil452jgae.jpg": 0.75,
     "img/show-mwwei595cjm9.jpg": 0.75,
-    "img/show-mwwei595essk.jpg": 0.75
+    "img/show-mwwei595essk.jpg": 0.75,
+    "img/conoceme-mwwhxor6n4dg.jpg": 1.3333,
+    "img/show-mwwi0g3znj31.jpg": 1.3333,
+    "img/show-mwwi10o36igw.jpg": 0.5625,
+    "img/show-mwwi2hrzcpop.jpg": 0.5625
   },
   "board": [
     {
